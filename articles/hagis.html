@@ -74,7 +74,7 @@
       <h1>hagis: Tools for Analysis of Phytophthora Pathotype Complexities, Distributions and Diversity</h1>
                         <h4 class="author">Austin McCoy and Zachary Noel</h4>
             
-            <h4 class="date">2019-04-10</h4>
+            <h4 class="date">2019-05-10</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/master/vignettes/hagis.Rmd"><code>vignettes/hagis.Rmd</code></a></small>
       <div class="hidden name"><code>hagis.Rmd</code></div>
@@ -144,7 +144,7 @@
 <h2 class="hasAnchor">
 <a href="#function-arguments-used-in-hagis" class="anchor"></a>Function Arguments Used in <em>hagis</em>
 </h2>
-<p>We have strived to make <em>hagis</em> as intuitive to use as possible. Part of that means that we have used the same arguments for the three main functions, <code><a href="../reference/summarize_rps.html">summarize_rps()</a></code>, <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> and <code>calculate_diversity()</code>. Each of these functions take the same arguments:</p>
+<p>We have strived to make <em>hagis</em> as intuitive to use as possible. Part of that means that we have used the same arguments for the three main functions, <code><a href="../reference/summarize_rps.html">summarize_rps()</a></code>, <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> and <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code>. Each of these functions take the same arguments:</p>
 <ul>
 <li><p><code>x</code> this is your data set name, <em>e.g.</em> <code>Pathotype.Data</code> from the example above, allows for the function to identify where it will be pulling these columns (and their associated row values) from to use (<em>i.e.</em> your data collection Excel spreadsheet)</p></li>
 <li><p><code>cutoff</code> this value sets the cutoff for susceptible reactions. For example, <code>cutoff = 60</code> means that all genes with 60% or more of the plants rated susceptible will be treated as susceptible. You can change this to whatever percentage you require for your study.</p></li>
@@ -544,7 +544,7 @@
 <div id="plotting-complexities-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting-complexities-data" class="anchor"></a>Plotting Complexities Data</h3>
-<p>Two functions are provided to plot the complexities depending on your needs. If you need the frequency, use <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(complexties, type = "frequency")</a></code>, or if you desire the distribution <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(complexities, type = "distribution")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
+<p>Two functions are provided to plot the complexities depending on your needs. If you need the frequency, use <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(complexties, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(complexities, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot</a></span>(complexities, <span class="dt">type =</span> <span class="st">"percentage"</span>)</a></code></pre></div>
 <p><img src="hagis_files/figure-html/complexities-plot-1.png" width="576"></p>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"></a>
