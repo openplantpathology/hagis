@@ -285,7 +285,7 @@
 <h3 class="hasAnchor">
 <a href="#plotting-rps-summary-data" class="anchor"></a>Plotting Rps Summary Data</h3>
 <p><em>hagis</em> also provides functions to quickly graph your data using <code>ggplot2</code>.</p>
-<p>Generate a summary plot of percentage susceptible:</p>
+<p>Two functions are provided to plot the summary depending on your needs. If you need the frequency, use <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(Rps.summary, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot(Rps.summary, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/ggplot2/topics/autoplot">autoplot</a></span>(Rps.summary, <span class="dt">type =</span> <span class="st">"percentage"</span>)</a></code></pre></div>
 <p><img src="hagis_files/figure-html/autoplot-summary-1.png" width="576"></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1"></a>
