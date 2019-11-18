@@ -7,8 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>hagis: Tools for Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity • hagis</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous">
-<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- sticky kit --><script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous">
+<!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><meta property="og:title" content="hagis: Tools for Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity">
 <meta property="og:description" content="">
 <meta name="twitter:card" content="summary">
@@ -30,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.0.1</span>
       </span>
     </div>
 
@@ -38,7 +39,7 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -55,7 +56,7 @@
 <ul class="nav navbar-nav navbar-right">
 <li>
   <a href="https://github.com/openplantpathology/hagis">
-    <span class="fa fa-github fa-lg"></span>
+    <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -68,13 +69,14 @@
 <!--/.navbar -->
 
       
+
       </header><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1>hagis: Tools for Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity</h1>
                         <h4 class="author">Austin McCoy and Zachary Noel</h4>
             
-            <h4 class="date">2019-08-26</h4>
+            <h4 class="date">2019-11-18</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/master/vignettes/hagis.Rmd"><code>vignettes/hagis.Rmd</code></a></small>
       <div class="hidden name"><code>hagis.Rmd</code></div>
@@ -89,7 +91,7 @@
 </h2>
 <p>The following examples are based on a dataset from Michigan State University <em>Phytophthora sojae</em> surveys for soybean phytophthora root rot pathotyping efforts.</p>
 <p>First you’ll want to load in your data set, for right now let’s use a practice data set made for the <em>hagis</em> package and name it <code>P_sojae_survey</code>:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/data">data</a></span>(P_sojae_survey)</a>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/data.html">data</a></span>(P_sojae_survey)</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2">P_sojae_survey</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co">#&gt;      Isolate         Line         Rps Total HR (1) Lesion (2)</span></a>
 <a class="sourceLine" id="cb1-4" data-line-number="4"><span class="co">#&gt;   1:       1     Williams susceptible    10      0          0</span></a>
@@ -129,10 +131,10 @@
 <a class="sourceLine" id="cb1-38" data-line-number="38"><span class="co">#&gt; 294:          0</span></a></code></pre></div>
 <p>We see in the <code>gene</code> column that each gene is prepended with “Rps”. We can remove this to make the graphs cleaner and report the genes in tables as we would in a manuscript. Note that this will work for any string you enter as the first value, <code>pattern</code>. The second string, <code>replacement</code>, is the replacement value, the third, <code>x</code>, is where to look and make the changes.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">P_sojae_survey<span class="op">$</span>Rps &lt;-</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/grep">gsub</a></span>(<span class="dt">pattern =</span> <span class="st">"Rps "</span>,</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="st">  </span><span class="kw"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span>(<span class="dt">pattern =</span> <span class="st">"Rps "</span>,</a>
 <a class="sourceLine" id="cb2-3" data-line-number="3">       <span class="dt">replacement =</span> <span class="st">""</span>,</a>
 <a class="sourceLine" id="cb2-4" data-line-number="4">       <span class="dt">x =</span> P_sojae_survey<span class="op">$</span>Rps)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/head">head</a></span>(P_sojae_survey)</a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(P_sojae_survey)</a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="co">#&gt;    Isolate         Line         Rps Total HR (1) Lesion (2)</span></a>
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co">#&gt; 1:       1     Williams susceptible    10      0          0</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co">#&gt; 2:       1       Harlon          1a    10      4          0</span></a>
@@ -140,20 +142,13 @@
 <a class="sourceLine" id="cb2-10" data-line-number="10"><span class="co">#&gt; 4:       1     L75-3735          1c    10     10          0</span></a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co">#&gt; 5:       1    PI 103091          1d     9      2          0</span></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12"><span class="co">#&gt; 6:       1  Williams 82          1k    10      0          0</span></a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;    Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc</span></a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 1:                       0       10         10           0       100</span></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 2:                       0        6          6           4        60</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 3:                       0        8          8           0       100</span></a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; 4:                       0        0          0          10         0</span></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 5:                       1        6          7           2        78</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; 6:                       0       10         10           0       100</span></a>
-<a class="sourceLine" id="cb2-20" data-line-number="20"><span class="co">#&gt;    perc.resis</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21"><span class="co">#&gt; 1:          0</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22"><span class="co">#&gt; 2:         40</span></a>
-<a class="sourceLine" id="cb2-23" data-line-number="23"><span class="co">#&gt; 3:          0</span></a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"><span class="co">#&gt; 4:        100</span></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co">#&gt; 5:         22</span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26"><span class="co">#&gt; 6:          0</span></a></code></pre></div>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co">#&gt;    Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc perc.resis</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14"><span class="co">#&gt; 1:                       0       10         10           0       100          0</span></a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co">#&gt; 2:                       0        6          6           4        60         40</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="co">#&gt; 3:                       0        8          8           0       100          0</span></a>
+<a class="sourceLine" id="cb2-17" data-line-number="17"><span class="co">#&gt; 4:                       0        0          0          10         0        100</span></a>
+<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co">#&gt; 5:                       1        6          7           2        78         22</span></a>
+<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="co">#&gt; 6:                       0       10         10           0       100          0</span></a></code></pre></div>
 <p>This practice data set contains 21 isolates’, <code>Isolate</code>, virulence data on a set of 14 differential soybean cultivars, <code>Line</code>. This package uses the <em>percentage</em> of susceptible, inoculated, plants to determine effective resistance genes, pathotype diversity and frequency, as well as individual isolates pathotypes.</p>
 <p>To help ensure that the proper data are used in calculations, the user is asked to provide some information that instruct <em>hagis</em> about what data to use.</p>
 <hr>
@@ -180,8 +175,8 @@
 <a class="sourceLine" id="cb3-6" data-line-number="6">  <span class="dt">gene =</span> <span class="st">"Rps"</span>,</a>
 <a class="sourceLine" id="cb3-7" data-line-number="7">  <span class="dt">perc_susc =</span> <span class="st">"perc.susc"</span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">)</a></code></pre></div>
-<p>However, because the functions share arguments we can create a <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list()</a></code> of arguments and share them with some of the functions from <em>hagis</em>. First, we make a list of the arguments that <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>, <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code> and <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> use that specify our inputs based on our example data:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">hagis_args &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/list">list</a></span>(</a>
+<p>However, because the functions share arguments we can create a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> of arguments and share them with some of the functions from <em>hagis</em>. First, we make a list of the arguments that <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>, <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code> and <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> use that specify our inputs based on our example data:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">hagis_args &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/list.html">list</a></span>(</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">  <span class="dt">x =</span> P_sojae_survey,</a>
 <a class="sourceLine" id="cb4-3" data-line-number="3">  <span class="dt">cutoff =</span> <span class="dv">60</span>,</a>
 <a class="sourceLine" id="cb4-4" data-line-number="4">  <span class="dt">control =</span> <span class="st">"susceptible"</span>,</a>
@@ -197,7 +192,7 @@
 <a href="#determination-of-effective-resistance-genes" class="anchor"></a>Determination of Effective Resistance Genes</h2>
 <p>Below is an example of tables and graphics that can be produced using the <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> function to identify effective resistance genes tested against the sampled <em>Phytophthora sojae</em> population.</p>
 <p>The <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> function allows you to produce a detailed table showing the number of virulent isolates (<code>N_virulent_isolates</code>), as well as offering a percentage of the isolates tested which are pathogenic on each gene (<code>percent_pathogenic</code>).</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">Rps.summary &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call</a></span>(summarize_gene, hagis_args)</a>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">Rps.summary &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(summarize_gene, hagis_args)</a>
 <a class="sourceLine" id="cb5-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb5-3" data-line-number="3">Rps.summary</a>
 <a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt;            gene N_virulent_isolates percent_pathogenic</span></a>
@@ -216,9 +211,9 @@
 <a class="sourceLine" id="cb5-17" data-line-number="17"><span class="co">#&gt; 13:           6                  11           52.38095</span></a>
 <a class="sourceLine" id="cb5-18" data-line-number="18"><span class="co">#&gt; 14:           7                  21          100.00000</span></a></code></pre></div>
 <p>Using the <em>pander</em> library we can make the table much more attractive in RMarkdown.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(pander)</a>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(pander)</a>
 <a class="sourceLine" id="cb6-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://www.rdocumentation.org/packages/pander/topics/pander">pander</a></span>(Rps.summary)</a></code></pre></div>
+<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span>(Rps.summary)</a></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="19%">
@@ -319,8 +314,8 @@
 <div id="pathotype-complexities" class="section level2">
 <h2 class="hasAnchor">
 <a href="#pathotype-complexities" class="anchor"></a>Pathotype Complexities</h2>
-<p>Pathotype frequency, distribution as well as statistics such as mean pathotype complexity can be calculated using the <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> function. This function will return a <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list()</a></code> of two <code>data.table()</code> objects, <code>grouped_complexities</code> and <code>individual_complexities</code>. <code>grouped_complexities</code> returns a <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list()</a></code> as a <code>data.table()</code> object showing the frequency and distribution of pathotype complexities for the sampled population. <code>individual_complexities()</code> returns a <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list()</a></code> as a <code>data.table()</code> object showing each individual isolates pathotype complexity. An isolates pathotype complexity refers to the number of resistance genes that it is able to overcome and cause disease on, <em>i.e.</em>, a pathotype complexity of “7” would mean that isolate can cause disease on 7 different resistance genes.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">complexities &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call</a></span>(calculate_complexities, hagis_args)</a>
+<p>Pathotype frequency, distribution as well as statistics such as mean pathotype complexity can be calculated using the <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> function. This function will return a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> of two <code>data.table()</code> objects, <code>grouped_complexities</code> and <code>individual_complexities</code>. <code>grouped_complexities</code> returns a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> as a <code>data.table()</code> object showing the frequency and distribution of pathotype complexities for the sampled population. <code>individual_complexities()</code> returns a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> as a <code>data.table()</code> object showing each individual isolates pathotype complexity. An isolates pathotype complexity refers to the number of resistance genes that it is able to overcome and cause disease on, <em>i.e.</em>, a pathotype complexity of “7” would mean that isolate can cause disease on 7 different resistance genes.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">complexities &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(calculate_complexities, hagis_args)</a>
 <a class="sourceLine" id="cb9-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb9-3" data-line-number="3">complexities</a>
 <a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">#&gt; </span></a>
@@ -365,8 +360,8 @@
 <a class="sourceLine" id="cb9-43" data-line-number="43"><span class="co">#&gt; 20:     20     11</span></a>
 <a class="sourceLine" id="cb9-44" data-line-number="44"><span class="co">#&gt; 21:     21     13</span></a>
 <a class="sourceLine" id="cb9-45" data-line-number="45"><span class="co">#&gt;     sample N_samp</span></a></code></pre></div>
-<p>Once again, using <em>pander</em> we can make these tables much more attractive in RMarkdown. Since <code>complexities</code> is a <code><a href="https://www.rdocumentation.org/packages/base/topics/list">list()</a></code> object, we can refer to each object directly by name and print them as follows.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/pander/topics/pander">pander</a></span>(complexities<span class="op">$</span>grouped_complexities)</a></code></pre></div>
+<p>Once again, using <em>pander</em> we can make these tables much more attractive in RMarkdown. Since <code>complexities</code> is a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> object, we can refer to each object directly by name and print them as follows.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span>(complexities<span class="op">$</span>grouped_complexities)</a></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="18%">
@@ -447,7 +442,7 @@
 </tbody>
 </table>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" data-line-number="1"></a>
-<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://www.rdocumentation.org/packages/pander/topics/pander">pander</a></span>(complexities<span class="op">$</span>indvidual_complexities)</a></code></pre></div>
+<a class="sourceLine" id="cb11-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span>(complexities<span class="op">$</span>indvidual_complexities)</a></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="12%">
@@ -544,8 +539,8 @@
 </tr>
 </tbody>
 </table>
-<p>Using <code><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary()</a></code> will return the mean, standard error (se) and standard deviation (sd) for pathotypes of a complexities object.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/pander/topics/pander">pander</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/summary">summary</a></span>(complexities))</a></code></pre></div>
+<p>Using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> will return the mean, standard error (se) and standard deviation (sd) for pathotypes of a complexities object.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/summary.html">summary</a></span>(complexities))</a></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="11%">
@@ -587,7 +582,7 @@
 <li><p>Simpson diversity index values range from 0 to 1, 1 represents high diversity and 0 represents no diversity. Where diversity is calcuated as: <span class="math display">\[D = \sum_{i = 1}^{R} p_i^2\]</span></p></li>
 <li><p>Evenness ranges from 0 to 1, as the Eveness value approaches 1, there is a more even distribution of each pathoype’s frequency within the population. Where Evenness is calculated as: <span class="math display">\[D = \frac{H'}{log(Np)}\]</span> where <span class="math inline">\(H'\)</span> is the Shannon diversity index and <span class="math inline">\(Np\)</span> is the number of pathotypes.</p></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">diversity &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/do.call">do.call</a></span>(calculate_diversities, hagis_args)</a>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1">diversity &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span>(calculate_diversities, hagis_args)</a>
 <a class="sourceLine" id="cb15-2" data-line-number="2">diversity</a>
 <a class="sourceLine" id="cb15-3" data-line-number="3"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb15-4" data-line-number="4"><span class="co">#&gt; hagis Diversities</span></a>
@@ -602,7 +597,7 @@
 <a class="sourceLine" id="cb15-13" data-line-number="13"><span class="co">#&gt; Simpson  0.9433107 </span></a>
 <a class="sourceLine" id="cb15-14" data-line-number="14"><span class="co">#&gt; Evenness  0.9891509</span></a></code></pre></div>
 <p>Or using <code>pander</code> for reporting, a nice table is generated.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/pander/topics/pander">pander</a></span>(diversity)</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span>(diversity)</a></code></pre></div>
 <table class="table">
 <caption>Diversity indices where n = 21 with 19 pathotypes.</caption>
 <colgroup>
@@ -831,7 +826,7 @@
 <h2 class="hasAnchor">
 <a href="#hagis-autoplot-objects" class="anchor"></a><em>hagis</em> autoplot Objects</h2>
 <p>Since <em>hagis</em> uses <code>ggplot2</code> to generate its plots, you can easily theme the outputs using common <code>ggplot2</code> themes and other options provided by <em>hagis</em> directly through <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(ggplot2)</a>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(ggplot2)</a>
 <a class="sourceLine" id="cb19-2" data-line-number="2"></a>
 <a class="sourceLine" id="cb19-3" data-line-number="3">Rps.plot &lt;-<span class="st"> </span><span class="kw"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span>(Rps.summary, <span class="dt">type =</span> <span class="st">"percentage"</span>)</a>
 <a class="sourceLine" id="cb19-4" data-line-number="4"></a>
@@ -896,6 +891,7 @@
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
+
         <div id="tocnav">
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
@@ -917,17 +913,20 @@
 </div>
 
 
+
       <footer><div class="copyright">
   <p>Developed by Austin G. McCoy, Zachary Noel, Adam H. Sparks, Martin Chilvers, Michigan Soybean Promotion Committee, Project GREEEN, North Central Soybean Research Program, GRDC Project DAQ00186.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
 </div>
 
   
+
 
   </body>
 </html>
