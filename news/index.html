@@ -12,8 +12,8 @@
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
@@ -131,7 +131,7 @@
 <a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Update citation with full MPMI citation</p></li>
-<li><p>Remove an extra “/” in the CITATION’s DOI</p></li>
+<li><p>Remove an extra â/â in the CITATIONâs DOI</p></li>
 <li><p>Fix issue in CITATION file where <code>nasapower</code> was referred to in text</p></li>
 <li><p>Use ROxygen 7.0.0</p></li>
 </ul>
@@ -154,7 +154,7 @@
 <a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Rename output column <code>N_susc</code> to <code>N_virulent_isolates</code></p></li>
-<li><p>Don’t round results from <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> or <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> before returning values to user</p></li>
+<li><p>Donât round results from <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> or <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> before returning values to user</p></li>
 <li><p>Implement fix suggested by <a href='https://github.com/zkamvar'>@zkamvar</a> to ensure that the user-input data is not changed from a <code>data.frame</code> or <code>tibble</code> object to a <code>data.table</code> object in the R session</p></li>
 <li><p>Add ability to sort graph x-axis in ascending or descending order based on the y-axis values rather than only by gene or complexity.</p></li>
 <li><p>Move example data set into internal data and provide documentation for them</p></li>
