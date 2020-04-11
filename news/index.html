@@ -121,19 +121,31 @@
 <h1 class="page-header" data-toc-text="development version">
 <a href="#hagis-development-version" class="anchor"></a>hagis (development version)<small> Unreleased </small>
 </h1>
+<div id="major-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#major-changes" class="anchor"></a>Major Changes</h2>
+<ul>
+<li>Add new function, <code><a href="../reference/create_binary_matrix.html">create_binary_matrix()</a></code> to format data for exporting beta diversity matrices representing the pathotype of each isolate. Users can export a binary pathotype data matrix which could then be used to visualize beta-diversity of pathotypes using vegan or ape in R.</li>
+</ul>
+</div>
+<div id="minor-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
+<p>Use ROxygen 7.1.0</p>
+</div>
 </div>
     <div id="hagis-301" class="section level1">
 <h1 class="page-header" data-toc-text="3.0.1">
 <a href="#hagis-301" class="anchor"></a>hagis 3.0.1<small> 2019-11-18 </small>
 </h1>
-<div id="minor-changes" class="section level2">
+<div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
+<a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Update citation with full MPMI citation</p></li>
-<li><p>Remove an extra â/â in the CITATIONâs DOI</p></li>
 <li><p>Fix issue in CITATION file where <code>nasapower</code> was referred to in text</p></li>
 <li><p>Use ROxygen 7.0.0</p></li>
+<li><p>Remove an extra “/” in the CITATION’s DOI</p></li>
 </ul>
 </div>
 </div>
@@ -149,12 +161,12 @@
 <code><a href="https://rdrr.io/r/graphics/plot.html">plot()</a></code> is now defunct. Use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> to plot <em>hagis</em> objects in place of <code><a href="https://rdrr.io/r/graphics/plot.html">plot()</a></code>. This is to avoid the side-effect of generating and displaying a plot every time <code><a href="https://rdrr.io/r/graphics/plot.html">plot()</a></code> is called, which can be troublesome when using <em>ggplot2</em> themes since it created two plots, the original with the base theme and the new themed plot</li>
 </ul>
 </div>
-<div id="minor-changes-1" class="section level2">
+<div id="minor-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
+<a href="#minor-changes-2" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Rename output column <code>N_susc</code> to <code>N_virulent_isolates</code></p></li>
-<li><p>Donât round results from <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> or <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> before returning values to user</p></li>
+<li><p>Don’t round results from <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> or <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> before returning values to user</p></li>
 <li><p>Implement fix suggested by <a href='https://github.com/zkamvar'>@zkamvar</a> to ensure that the user-input data is not changed from a <code>data.frame</code> or <code>tibble</code> object to a <code>data.table</code> object in the R session</p></li>
 <li><p>Add ability to sort graph x-axis in ascending or descending order based on the y-axis values rather than only by gene or complexity.</p></li>
 <li><p>Move example data set into internal data and provide documentation for them</p></li>
@@ -200,7 +212,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
