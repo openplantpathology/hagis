@@ -164,7 +164,7 @@ Character.</p></td>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>create_binary_matrix</code> returns a binary matrix of pathotype data as
-a data.table object</p>
+a <a href='https://rdrr.io/r/base/matrix.html'>matrix</a> object</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
@@ -214,20 +214,20 @@ a data.table object</p>
                                     <span class='kw'>sample</span> <span class='kw'>=</span> <span class='st'>"Isolate"</span>,
                                     <span class='kw'>gene</span> <span class='kw'>=</span> <span class='st'>"Rps"</span>,
                                     <span class='kw'>perc_susc</span> <span class='kw'>=</span> <span class='st'>"perc.susc"</span>)
-<span class='no'>final_matrix</span></div><div class='output co'>#&gt;       gene 1 10 11 12 13 14 15 16 17 18 19 2 20 21 3 4 5 6 7 8 9
-#&gt;  1: Rps 1a 1  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
-#&gt;  2: Rps 1b 1  0  0  1  1  1  1  1  1  1  1 1  1  1 1 0 0 0 1 1 0
-#&gt;  3: Rps 1c 0  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
-#&gt;  4: Rps 1d 1  0  0  1  1  0  1  0  1  1  1 0  1  1 1 1 1 1 1 1 1
-#&gt;  5: Rps 1k 1  0  0  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 0
-#&gt;  6:  Rps 2 1  0  0  1  0  0  1  0  1  0  1 1  1  1 1 1 1 1 1 1 0
-#&gt;  7: Rps 3a 1  0  0  0  0  0  0  0  0  1  1 0  1  1 0 0 0 0 0 0 0
-#&gt;  8: Rps 3b 1  1  1  0  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
-#&gt;  9: Rps 3c 0  0  0  0  0  0  0  0  0  0  1 1  1  1 0 0 0 0 0 0 0
-#&gt; 10:  Rps 4 0  0  0  0  0  0  1  0  1  0  0 1  0  1 1 0 0 0 0 0 0
-#&gt; 11:  Rps 5 1  1  1  0  0  1  1  1  1  1  0 0  1  1 0 1 0 1 0 0 1
-#&gt; 12:  Rps 6 1  0  1  1  0  1  1  0  0  1  1 1  0  1 1 0 1 0 0 0 0
-#&gt; 13:  Rps 7 1  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1</div><div class='input'>
+<span class='no'>final_matrix</span></div><div class='output co'>#&gt;        1 10 11 12 13 14 15 16 17 18 19 2 20 21 3 4 5 6 7 8 9
+#&gt; Rps 1a 1  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
+#&gt; Rps 1b 1  0  0  1  1  1  1  1  1  1  1 1  1  1 1 0 0 0 1 1 0
+#&gt; Rps 1c 0  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
+#&gt; Rps 1d 1  0  0  1  1  0  1  0  1  1  1 0  1  1 1 1 1 1 1 1 1
+#&gt; Rps 1k 1  0  0  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 0
+#&gt; Rps 2  1  0  0  1  0  0  1  0  1  0  1 1  1  1 1 1 1 1 1 1 0
+#&gt; Rps 3a 1  0  0  0  0  0  0  0  0  1  1 0  1  1 0 0 0 0 0 0 0
+#&gt; Rps 3b 1  1  1  0  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1
+#&gt; Rps 3c 0  0  0  0  0  0  0  0  0  0  1 1  1  1 0 0 0 0 0 0 0
+#&gt; Rps 4  0  0  0  0  0  0  1  0  1  0  0 1  0  1 1 0 0 0 0 0 0
+#&gt; Rps 5  1  1  1  0  0  1  1  1  1  1  0 0  1  1 0 1 0 1 0 0 1
+#&gt; Rps 6  1  0  1  1  0  1  1  0  0  1  1 1  0  1 1 0 1 0 0 0 0
+#&gt; Rps 7  1  1  1  1  1  1  1  1  1  1  1 1  1  1 1 1 1 1 1 1 1</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
