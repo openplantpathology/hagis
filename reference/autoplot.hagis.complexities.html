@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Plot <span class="pkg">hagis</span> complexities objects — autoplot.hagis.complexities • hagis</title>
+<title>Plot hagis complexities objects — autoplot.hagis.complexities • hagis</title>
 
 
 <!-- jquery -->
@@ -39,7 +39,7 @@
 
 
 
-<meta property="og:title" content="Plot <span class="pkg">hagis</span> complexities objects — autoplot.hagis.complexities" />
+<meta property="og:title" content="Plot hagis complexities objects — autoplot.hagis.complexities" />
 <meta property="og:description" content="Creates a ggplot2 object of the frequency of complexity
 (percent per complexity) or a ggplot2 object of the distribution
 (number per complexity) calculated by calculate_complexities()." />
@@ -128,7 +128,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for hagis.complexities</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='no'>object</span>, <span class='no'>type</span>, <span class='kw'>color</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>order</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>...</span>)</pre>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>object</span>, <span class='kw'>type</span>, color = <span class='kw'>NULL</span>, order = <span class='kw'>NULL</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,20 +166,22 @@ Defaults to <code>complexity</code> value. Character.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using the built-in data set, P_sojae_survey</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>P_sojae_survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>P_sojae_survey</span>)
 
 <span class='co'># calculate susceptibilities with a 60 % cutoff value</span>
-<span class='no'>complexities</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='calculate_complexities.html'>calculate_complexities</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>P_sojae_survey</span>,
-                                       <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>60</span>,
-                                       <span class='kw'>control</span> <span class='kw'>=</span> <span class='st'>"susceptible"</span>,
-                                       <span class='kw'>sample</span> <span class='kw'>=</span> <span class='st'>"Isolate"</span>,
-                                       <span class='kw'>gene</span> <span class='kw'>=</span> <span class='st'>"Rps"</span>,
-                                       <span class='kw'>perc_susc</span> <span class='kw'>=</span> <span class='st'>"perc.susc"</span>)
+<span class='kw'>complexities</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calculate_complexities.html'>calculate_complexities</a></span>(x = <span class='kw'>P_sojae_survey</span>,
+                                       cutoff = <span class='fl'>60</span>,
+                                       control = <span class='st'>"susceptible"</span>,
+                                       sample = <span class='st'>"Isolate"</span>,
+                                       gene = <span class='st'>"Rps"</span>,
+                                       perc_susc = <span class='st'>"perc.susc"</span>)
 
 <span class='co'># Visualize the distribution (count or actual values)</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='no'>complexities</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"count"</span>)</div><div class='img'><img src='autoplot.hagis.complexities-1.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>complexities</span>, type = <span class='st'>"count"</span>)
+</div><div class='img'><img src='autoplot.hagis.complexities-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Visualize the frequency (percentages)</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='no'>complexities</span>, <span class='kw'>type</span> <span class='kw'>=</span> <span class='st'>"percentage"</span>)</div><div class='img'><img src='autoplot.hagis.complexities-2.png' alt='' width='700' height='433' /></div><div class='input'>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>complexities</span>, type = <span class='st'>"percentage"</span>)
+</div><div class='img'><img src='autoplot.hagis.complexities-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -196,7 +198,7 @@ Defaults to <code>complexity</code> value. Character.</p></td>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>

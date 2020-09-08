@@ -127,7 +127,7 @@ The resulting object is a pander table (a text object for Markdown) for
 ease of use in reporting and viewing in the console.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>diversities_table</span>(<span class='no'>x</span>, <span class='no'>...</span>)</pre>
+    <pre class="usage"><span class='fu'>diversities_table</span>(<span class='kw'>x</span>, <span class='kw'>...</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,9 +151,10 @@ ease of use in reporting and viewing in the console.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using the built-in data set, P_sojae_survey</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='no'>P_sojae_survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>P_sojae_survey</span>)
 
-<span class='no'>P_sojae_survey</span></div><div class='output co'>#&gt;      Isolate         Line         Rps Total HR (1) Lesion (2)
+<span class='kw'>P_sojae_survey</span>
+</div><div class='output co'>#&gt;      Isolate         Line         Rps Total HR (1) Lesion (2)
 #&gt;   1:       1     Williams susceptible    10      0          0
 #&gt;   2:       1       Harlon      Rps 1a    10      4          0
 #&gt;   3:       1 Harosoy 13xx      Rps 1b     8      0          0
@@ -190,15 +191,16 @@ ease of use in reporting and viewing in the console.</p>
 #&gt; 293:         25
 #&gt; 294:          0</div><div class='input'>
 <span class='co'># calculate susceptibilities with a 60 % cutoff value</span>
-<span class='no'>diversities</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='calculate_diversities.html'>calculate_diversities</a></span>(<span class='kw'>x</span> <span class='kw'>=</span> <span class='no'>P_sojae_survey</span>,
-                                     <span class='kw'>cutoff</span> <span class='kw'>=</span> <span class='fl'>60</span>,
-                                     <span class='kw'>control</span> <span class='kw'>=</span> <span class='st'>"susceptible"</span>,
-                                     <span class='kw'>sample</span> <span class='kw'>=</span> <span class='st'>"Isolate"</span>,
-                                     <span class='kw'>gene</span> <span class='kw'>=</span> <span class='st'>"Rps"</span>,
-                                     <span class='kw'>perc_susc</span> <span class='kw'>=</span> <span class='st'>"perc.susc"</span>)
+<span class='kw'>diversities</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calculate_diversities.html'>calculate_diversities</a></span>(x = <span class='kw'>P_sojae_survey</span>,
+                                     cutoff = <span class='fl'>60</span>,
+                                     control = <span class='st'>"susceptible"</span>,
+                                     sample = <span class='st'>"Isolate"</span>,
+                                     gene = <span class='st'>"Rps"</span>,
+                                     perc_susc = <span class='st'>"perc.susc"</span>)
 
 <span class='co'># print the diversities table</span>
-<span class='fu'>diversities_table</span>(<span class='no'>diversities</span>)</div><div class='output co'>#&gt; 
+<span class='fu'>diversities_table</span>(<span class='kw'>diversities</span>)
+</div><div class='output co'>#&gt; 
 #&gt; --------------------------------------------
 #&gt;  Frequency             Pathotype            
 #&gt; ----------- --------------------------------
@@ -291,7 +293,7 @@ ease of use in reporting and viewing in the console.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.0.</p>
 </div>
 
       </footer>
