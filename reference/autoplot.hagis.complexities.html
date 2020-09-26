@@ -128,7 +128,7 @@
     </div>
 
     <pre class="usage"><span class='co'># S3 method for hagis.complexities</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>object</span>, <span class='kw'>type</span>, color = <span class='kw'>NULL</span>, order = <span class='kw'>NULL</span>, <span class='kw'>...</span>)</pre>
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span><span class='op'>(</span><span class='va'>object</span>, <span class='va'>type</span>, color <span class='op'>=</span> <span class='cn'>NULL</span>, order <span class='op'>=</span> <span class='cn'>NULL</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -166,21 +166,21 @@ Defaults to <code>complexity</code> value. Character.</p></td>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Using the built-in data set, P_sojae_survey</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>P_sojae_survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>P_sojae_survey</span><span class='op'>)</span>
 
 <span class='co'># calculate susceptibilities with a 60 % cutoff value</span>
-<span class='kw'>complexities</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calculate_complexities.html'>calculate_complexities</a></span>(x = <span class='kw'>P_sojae_survey</span>,
-                                       cutoff = <span class='fl'>60</span>,
-                                       control = <span class='st'>"susceptible"</span>,
-                                       sample = <span class='st'>"Isolate"</span>,
-                                       gene = <span class='st'>"Rps"</span>,
-                                       perc_susc = <span class='st'>"perc.susc"</span>)
+<span class='va'>complexities</span> <span class='op'>&lt;-</span> <span class='fu'><a href='calculate_complexities.html'>calculate_complexities</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>P_sojae_survey</span>,
+                                       cutoff <span class='op'>=</span> <span class='fl'>60</span>,
+                                       control <span class='op'>=</span> <span class='st'>"susceptible"</span>,
+                                       sample <span class='op'>=</span> <span class='st'>"Isolate"</span>,
+                                       gene <span class='op'>=</span> <span class='st'>"Rps"</span>,
+                                       perc_susc <span class='op'>=</span> <span class='st'>"perc.susc"</span><span class='op'>)</span>
 
 <span class='co'># Visualize the distribution (count or actual values)</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>complexities</span>, type = <span class='st'>"count"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span><span class='op'>(</span><span class='va'>complexities</span>, type <span class='op'>=</span> <span class='st'>"count"</span><span class='op'>)</span>
 </div><div class='img'><img src='autoplot.hagis.complexities-1.png' alt='' width='700' height='433' /></div><div class='input'>
 <span class='co'># Visualize the frequency (percentages)</span>
-<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span>(<span class='kw'>complexities</span>, type = <span class='st'>"percentage"</span>)
+<span class='fu'><a href='https://ggplot2.tidyverse.org/reference/autoplot.html'>autoplot</a></span><span class='op'>(</span><span class='va'>complexities</span>, type <span class='op'>=</span> <span class='st'>"percentage"</span><span class='op'>)</span>
 </div><div class='img'><img src='autoplot.hagis.complexities-2.png' alt='' width='700' height='433' /></div><div class='input'>
 </div></pre>
   </div>

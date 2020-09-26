@@ -125,7 +125,7 @@ susceptibilities by sample" />
 susceptibilities by sample</p>
     </div>
 
-    <pre class="usage"><span class='fu'>calculate_complexities</span>(<span class='kw'>x</span>, <span class='kw'>cutoff</span>, <span class='kw'>control</span>, <span class='kw'>sample</span>, <span class='kw'>gene</span>, <span class='kw'>perc_susc</span>)</pre>
+    <pre class="usage"><span class='fu'>calculate_complexities</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>cutoff</span>, <span class='va'>control</span>, <span class='va'>sample</span>, <span class='va'>gene</span>, <span class='va'>perc_susc</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -176,9 +176,9 @@ individual complexities</p></dd>
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'>
 <span class='co'># Using the built-in data set, P_sojae_survey</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span>(<span class='kw'>P_sojae_survey</span>)
+<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>P_sojae_survey</span><span class='op'>)</span>
 
-<span class='kw'>P_sojae_survey</span>
+<span class='va'>P_sojae_survey</span>
 </div><div class='output co'>#&gt;      Isolate         Line         Rps Total HR (1) Lesion (2)
 #&gt;   1:       1     Williams susceptible    10      0          0
 #&gt;   2:       1       Harlon      Rps 1a    10      4          0
@@ -216,13 +216,13 @@ individual complexities</p></dd>
 #&gt; 293:         25
 #&gt; 294:          0</div><div class='input'>
 <span class='co'># calculate susceptibilities with a 60 % cutoff value</span>
-<span class='kw'>complexities</span> <span class='op'>&lt;-</span> <span class='fu'>calculate_complexities</span>(x = <span class='kw'>P_sojae_survey</span>,
-                                       cutoff = <span class='fl'>60</span>,
-                                       control = <span class='st'>"susceptible"</span>,
-                                       sample = <span class='st'>"Isolate"</span>,
-                                       gene = <span class='st'>"Rps"</span>,
-                                       perc_susc = <span class='st'>"perc.susc"</span>)
-<span class='kw'>complexities</span>
+<span class='va'>complexities</span> <span class='op'>&lt;-</span> <span class='fu'>calculate_complexities</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>P_sojae_survey</span>,
+                                       cutoff <span class='op'>=</span> <span class='fl'>60</span>,
+                                       control <span class='op'>=</span> <span class='st'>"susceptible"</span>,
+                                       sample <span class='op'>=</span> <span class='st'>"Isolate"</span>,
+                                       gene <span class='op'>=</span> <span class='st'>"Rps"</span>,
+                                       perc_susc <span class='op'>=</span> <span class='st'>"perc.susc"</span><span class='op'>)</span>
+<span class='va'>complexities</span>
 </div><div class='output co'>#&gt; 
 #&gt; Grouped Complexities
 #&gt;     complexity frequency distribution
@@ -266,7 +266,7 @@ individual complexities</p></dd>
 #&gt; 21:     21     13
 #&gt;     sample N_samp
 #&gt; </div><div class='input'>
-<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span>(<span class='kw'>complexities</span>)
+<span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>complexities</span><span class='op'>)</span>
 </div><div class='output co'>#&gt; 
 #&gt; Mean of Complexities
 #&gt; 8.714286 
