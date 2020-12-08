@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
       </span>
     </div>
 
@@ -129,6 +129,20 @@
       <small>Source: <a href='https://github.com/openplantpathology/hagis/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="hagis-311" class="section level1">
+<h1 class="page-header" data-toc-text="3.1.1">
+<a href="#hagis-311" class="anchor"></a>hagis 3.1.1<small> Unreleased </small>
+</h1>
+<div id="minor-changes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
+<ul>
+<li><p>Use <em>ape</em>, <em>vegan</em>, <em>dplyr</em> and <em>vidiffr</em> packages conditionally</p></li>
+<li><p>Remove <em>covr</em> from Suggests</p></li>
+<li><p>Better documentation formatting</p></li>
+</ul>
+</div>
+</div>
     <div id="hagis-310" class="section level1">
 <h1 class="page-header" data-toc-text="3.1.0">
 <a href="#hagis-310" class="anchor"></a>hagis 3.1.0<small> 2020-10-07 </small>
@@ -141,9 +155,9 @@
 <li><p>Add new vignette, “Beta-diversity Analyses”, to illustrate the use of the new functionality</p></li>
 </ul>
 </div>
-<div id="minor-changes" class="section level2">
+<div id="minor-changes-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor Changes</h2>
+<a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Use ROxygen 7.1.1</p></li>
 <li><p>Spell check and correct spelling errors</p></li>
@@ -154,9 +168,9 @@
 <h1 class="page-header" data-toc-text="3.0.1">
 <a href="#hagis-301" class="anchor"></a>hagis 3.0.1<small> 2019-11-18 </small>
 </h1>
-<div id="minor-changes-1" class="section level2">
+<div id="minor-changes-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes-1" class="anchor"></a>Minor Changes</h2>
+<a href="#minor-changes-2" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Update citation with full MPMI citation</p></li>
 <li><p>Fix issue in CITATION file where <code>nasapower</code> was referred to in text</p></li>
@@ -177,9 +191,9 @@
 <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> is now defunct. Use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> to plot <em>hagis</em> objects in place of <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code>. This is to avoid the side-effect of generating and displaying a plot every time <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> is called, which can be troublesome when using <em>ggplot2</em> themes since it created two plots, the original with the base theme and the new themed plot</li>
 </ul>
 </div>
-<div id="minor-changes-2" class="section level2">
+<div id="minor-changes-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#minor-changes-2" class="anchor"></a>Minor Changes</h2>
+<a href="#minor-changes-3" class="anchor"></a>Minor Changes</h2>
 <ul>
 <li><p>Rename output column <code>N_susc</code> to <code>N_virulent_isolates</code></p></li>
 <li><p>Don’t round results from <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> or <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> before returning values to user</p></li>

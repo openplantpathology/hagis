@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
       </span>
     </div>
 
@@ -89,7 +89,7 @@
       <h1 data-toc-skip>hagis: Tools for Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity</h1>
                         <h4 class="author">Austin McCoy and Zachary Noel</h4>
             
-            <h4 class="date">2020-10-29</h4>
+            <h4 class="date">2020-12-08</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/master/vignettes/hagis.Rmd"><code>vignettes/hagis.Rmd</code></a></small>
       <div class="hidden name"><code>hagis.Rmd</code></div>
@@ -104,8 +104,8 @@
 </h2>
 <p>The following examples are based on a dataset from Michigan State University <em>Phytophthora sojae</em> surveys for soybean phytophthora root rot pathotyping efforts.</p>
 <p>First you’ll want to load in your data set, for right now let’s use a practice data set made for the <em>hagis</em> package, named <code>P_sojae_survey</code>. The data set is available in your R session automatically when you load the <em>hagis</em> package.</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/openplantpathology/hagis">hagis</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/openplantpathology/hagis">hagis</a></span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span>
 <span class="co">#&gt;    Isolate         Line         Rps Total HR (1) Lesion (2)</span>
 <span class="co">#&gt; 1:       1     Williams susceptible    10      0          0</span>
@@ -120,10 +120,10 @@
 <span class="co">#&gt; 3:                       0        8          8           0       100          0</span>
 <span class="co">#&gt; 4:                       0        0          0          10         0        100</span>
 <span class="co">#&gt; 5:                       1        6          7           2        78         22</span>
-<span class="co">#&gt; 6:                       0       10         10           0       100          0</span></pre></div>
+<span class="co">#&gt; 6:                       0       10         10           0       100          0</span></code></pre></div>
 <p>We see in the <code>gene</code> column that each gene is prepended with “Rps”. We can remove this to make the graphs cleaner and report the genes in tables as we would in a manuscript. Note that this will work for any string you enter as the first value, <code>pattern</code>. The second string, <code>replacement</code>, is the replacement value, the third, <code>x</code>, is where to look and make the changes.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit">
-<span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span> <span class="op">&lt;-</span>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span> <span class="op">&lt;-</span>
   <span class="fu"><a href="https://rdrr.io/r/base/grep.html">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"Rps "</span>,
        replacement <span class="op">=</span> <span class="st">""</span>,
        x <span class="op">=</span> <span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span><span class="op">)</span>
@@ -141,7 +141,7 @@
 <span class="co">#&gt; 3:                       0        8          8           0       100          0</span>
 <span class="co">#&gt; 4:                       0        0          0          10         0        100</span>
 <span class="co">#&gt; 5:                       1        6          7           2        78         22</span>
-<span class="co">#&gt; 6:                       0       10         10           0       100          0</span></pre></div>
+<span class="co">#&gt; 6:                       0       10         10           0       100          0</span></code></pre></div>
 <p>This practice data set contains 21 isolates’, <code>Isolate</code>, virulence data on a set of 14 differential soybean cultivars, <code>Line</code>. This package uses the <em>percentage</em> of susceptible, inoculated, plants to determine effective resistance genes, pathotype diversity and frequency, as well as individual isolates pathotypes.</p>
 <p>To help ensure that the proper data are used in calculations, the user is asked to provide some information that instruct <em>hagis</em> about what data to use.</p>
 <hr>
@@ -159,25 +159,25 @@
 <li><p><code>perc_susc</code> specifies the column header for the column which identifies the percent susceptible plants for each gene</p></li>
 </ul>
 <p>Ordinarily you would use functions in <em>hagis</em> or other R packages like this:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="va">Rps.summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_gene.html">summarize_gene</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">Rps.summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_gene.html">summarize_gene</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">P_sojae_survey</span>,
   cutoff <span class="op">=</span> <span class="fl">60</span>,
   control <span class="op">=</span> <span class="st">"susceptible"</span>,
   sample <span class="op">=</span> <span class="st">"Isolate"</span>,
   gene <span class="op">=</span> <span class="st">"Rps"</span>,
   perc_susc <span class="op">=</span> <span class="st">"perc.susc"</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <p>However, because the functions share arguments we can create a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> of arguments and share them with some of the functions from <em>hagis</em>. First, we make a list of the arguments that <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>, <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code> and <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> use that specify our inputs based on our example data:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit">
-<span class="va">hagis_args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">hagis_args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html">list</a></span><span class="op">(</span>
   x <span class="op">=</span> <span class="va">P_sojae_survey</span>,
   cutoff <span class="op">=</span> <span class="fl">60</span>,
   control <span class="op">=</span> <span class="st">"susceptible"</span>,
   sample <span class="op">=</span> <span class="st">"Isolate"</span>,
   gene <span class="op">=</span> <span class="st">"Rps"</span>,
   perc_susc <span class="op">=</span> <span class="st">"perc.susc"</span>
-<span class="op">)</span></pre></div>
+<span class="op">)</span></code></pre></div>
 <p>Now that we have a list of arguments, we can now save time entering the same data for each function and also avoid typos or entering different cutoff values, etc. between the functions.</p>
 <hr>
 </div>
@@ -186,8 +186,8 @@
 <a href="#determination-of-effective-resistance-genes" class="anchor"></a>Determination of Effective Resistance Genes</h2>
 <p>Below is an example of tables and graphics that can be produced using the <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> function to identify effective resistance genes tested against the sampled <em>Phytophthora sojae</em> population.</p>
 <p>The <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code> function allows you to produce a detailed table showing the number of virulent isolates (<code>N_virulent_isolates</code>), as well as offering a percentage of the isolates tested which are pathogenic on each gene (<code>percent_pathogenic</code>).</p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
-<span class="va">Rps.summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">summarize_gene</span>, <span class="va">hagis_args</span><span class="op">)</span>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">Rps.summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">summarize_gene</span>, <span class="va">hagis_args</span><span class="op">)</span>
 
 <span class="va">Rps.summary</span>
 <span class="co">#&gt;            gene N_virulent_isolates percent_pathogenic</span>
@@ -204,12 +204,12 @@
 <span class="co">#&gt; 11:           4                   5           23.80952</span>
 <span class="co">#&gt; 12:           5                  13           61.90476</span>
 <span class="co">#&gt; 13:           6                  11           52.38095</span>
-<span class="co">#&gt; 14:           7                  21          100.00000</span></pre></div>
+<span class="co">#&gt; 14:           7                  21          100.00000</span></code></pre></div>
 <p>Using the <em>pander</em> library we can make the table much more attractive in RMarkdown.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rapporter.github.io/pander">pander</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://rapporter.github.io/pander">pander</a></span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">Rps.summary</span><span class="op">)</span></pre></div>
+<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">Rps.summary</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="19%">
@@ -299,12 +299,12 @@
 <a href="#plotting-rps-summary-data" class="anchor"></a>Plotting Rps Summary Data</h3>
 <p><em>hagis</em> also provides functions to quickly graph your data using <code>ggplot2</code>.</p>
 <p>Two functions are provided to plot the summary depending on your needs. If you need the frequency, use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(Rps.summary, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(Rps.summary, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/plot-summary-1.png" width="576"></p>
-<div class="sourceCode" id="cb8"><pre class="downlit">
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/plot-summary-2.png" width="576"></p>
 <hr>
 </div>
@@ -313,8 +313,8 @@
 <h2 class="hasAnchor">
 <a href="#pathotype-complexities" class="anchor"></a>Pathotype Complexities</h2>
 <p>Pathotype frequency, distribution as well as statistics such as mean pathotype complexity can be calculated using the <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> function. This function will return a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> of two <code>data.table()</code> objects, <code>grouped_complexities</code> and <code>individual_complexities</code>. <code>grouped_complexities</code> returns a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> as a <code>data.table()</code> object showing the frequency and distribution of pathotype complexities for the sampled population. <code>individual_complexities()</code> returns a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> as a <code>data.table()</code> object showing each individual isolates pathotype complexity. An isolates pathotype complexity refers to the number of resistance genes that it is able to overcome and cause disease on, <em>i.e.</em>, a pathotype complexity of “7” would mean that isolate can cause disease on 7 different resistance genes.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="va">complexities</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">calculate_complexities</span>, <span class="va">hagis_args</span><span class="op">)</span>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">complexities</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">calculate_complexities</span>, <span class="va">hagis_args</span><span class="op">)</span>
 
 <span class="va">complexities</span>
 <span class="co">#&gt; </span>
@@ -358,10 +358,10 @@
 <span class="co">#&gt; 19:     19     11</span>
 <span class="co">#&gt; 20:     20     11</span>
 <span class="co">#&gt; 21:     21     13</span>
-<span class="co">#&gt;     sample N_samp</span></pre></div>
+<span class="co">#&gt;     sample N_samp</span></code></pre></div>
 <p>Once again, using <em>pander</em> we can make these tables much more attractive in RMarkdown. Since <code>complexities</code> is a <code><a href="https://rdrr.io/r/base/list.html">list()</a></code> object, we can refer to each object directly by name and print them as follows.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">grouped_complexities</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">grouped_complexities</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="18%">
@@ -441,9 +441,9 @@
 </tr>
 </tbody>
 </table>
-<div class="sourceCode" id="cb11"><pre class="downlit">
-
-<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">indvidual_complexities</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">indvidual_complexities</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="12%">
@@ -541,8 +541,8 @@
 </tbody>
 </table>
 <p>Using <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> will return the mean, standard error (se) and standard deviation (sd) for pathotypes of a complexities object.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">)</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/summary.html">summary</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="11%">
@@ -564,12 +564,12 @@
 <h3 class="hasAnchor">
 <a href="#plotting-complexities-data" class="anchor"></a>Plotting Complexities Data</h3>
 <p>Two functions are provided to plot the complexities depending on your needs. If you need the frequency, use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(complexties, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(complexities, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">complexities</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">complexities</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/complexities-plot-1.png" width="576"></p>
-<div class="sourceCode" id="cb14"><pre class="downlit">
-
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">complexities</span>, type <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R">
+<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">complexities</span>, type <span class="op">=</span> <span class="st">"count"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/complexities-plot-2.png" width="576"></p>
 <hr>
 </div>
@@ -586,8 +586,8 @@
 <li><p>Simpson diversity index values range from 0 to 1, 1 represents high diversity and 0 represents no diversity. Where diversity is calculated as: <span class="math display">\[D = \sum_{i = 1}^{R} p_i^2\]</span></p></li>
 <li><p>Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a more even distribution of each pathoype’s frequency within the population. Where Evenness is calculated as: <span class="math display">\[D = \frac{H'}{log(Np)}\]</span> where <span class="math inline">\(H'\)</span> is the Shannon diversity index and <span class="math inline">\(Np\)</span> is the number of pathotypes.</p></li>
 </ul>
-<div class="sourceCode" id="cb15"><pre class="downlit">
-<span class="va">diversity</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">calculate_diversities</span>, <span class="va">hagis_args</span><span class="op">)</span>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">diversity</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/do.call.html">do.call</a></span><span class="op">(</span><span class="va">calculate_diversities</span>, <span class="va">hagis_args</span><span class="op">)</span>
 <span class="va">diversity</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; hagis Diversities</span>
@@ -600,10 +600,10 @@
 <span class="co">#&gt; Gleason  5.912257 </span>
 <span class="co">#&gt; Shannon  2.912494 </span>
 <span class="co">#&gt; Simpson  0.9433107 </span>
-<span class="co">#&gt; Evenness  0.9891509</span></pre></div>
+<span class="co">#&gt; Evenness  0.9891509</span></code></pre></div>
 <p>Or using <code>pander</code> for reporting, a nice table is generated.</p>
-<div class="sourceCode" id="cb16"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html">pander</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <caption>Diversity indices where n = 21 with 19 pathotypes.</caption>
 <colgroup>
@@ -632,8 +632,8 @@
 <h3 class="hasAnchor">
 <a href="#table-of-diversities" class="anchor"></a>Table of Diversities</h3>
 <p>To generate a table of diversities, use <code><a href="../reference/diversities_table.html">diversities_table()</a></code>. <em>hagis</em> will automatically create a <code>pander</code> object for you. This is because it is much easier to read the resulting table in the console than the raw <code>data.frame</code> and insert into reports.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit">
-<span class="fu"><a href="../reference/diversities_table.html">diversities_table</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/diversities_table.html">diversities_table</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="16%">
@@ -727,8 +727,8 @@
 <div id="table-of-individual-pathotypes" class="section level3">
 <h3 class="hasAnchor">
 <a href="#table-of-individual-pathotypes" class="anchor"></a>Table of Individual Pathotypes</h3>
-<div class="sourceCode" id="cb18"><pre class="downlit">
-<span class="fu"><a href="../reference/individual_pathotypes.html">individual_pathotypes</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="../reference/individual_pathotypes.html">individual_pathotypes</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></code></pre></div>
 <table class="table">
 <colgroup>
 <col width="12%">
@@ -834,70 +834,70 @@
 <h2 class="hasAnchor">
 <a href="#hagis-autoplot-objects" class="anchor"></a>hagis autoplot Objects</h2>
 <p>Since <em>hagis</em> uses <code>ggplot2</code> to generate its plots, you can easily theme the outputs using common <code>ggplot2</code> themes and other options provided by <em>hagis</em> directly through <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code>.</p>
-<div class="sourceCode" id="cb19"><pre class="downlit">
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span>
 
 <span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span>
 
-<span class="va">Rps.plot</span></pre></div>
+<span class="va">Rps.plot</span></code></pre></div>
 <p><img src="hagis_files/figure-html/set-up-adv.plot-1.png" width="576"></p>
 <div id="changing-the-ggplot2-theme" class="section level3">
 <h3 class="hasAnchor">
 <a href="#changing-the-ggplot2-theme" class="anchor"></a>Changing the ggplot2 Theme</h3>
 <p>Use <em>ggplot2’s</em> <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal()</a></code> theme.</p>
-<div class="sourceCode" id="cb20"><pre class="downlit">
-<span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_minimal</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">Rps.plot</span></pre></div>
+<span class="va">Rps.plot</span></code></pre></div>
 <p><img src="hagis_files/figure-html/change-plot-theme-1.png" width="576"></p>
 </div>
 <div id="changing-the-font" class="section level3">
 <h3 class="hasAnchor">
 <a href="#changing-the-font" class="anchor"></a>Changing the Font</h3>
 <p>Set the font to be a bold-face serif family font.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit">
-<span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>,
                             family <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span><span class="op">)</span>
 
-<span class="va">Rps.plot</span></pre></div>
+<span class="va">Rps.plot</span></code></pre></div>
 <p><img src="hagis_files/figure-html/change-plot-font-1.png" width="576"></p>
 </div>
 <div id="make-a-horizontal-plot" class="section level3">
 <h3 class="hasAnchor">
 <a href="#make-a-horizontal-plot" class="anchor"></a>Make a Horizontal Plot</h3>
 <p>If your <em>Rps</em> gene names are too long, flipping the axis can make the graph more legible without rotating the x-axis labels.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit">
-<span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">Rps.plot</span> <span class="op">&lt;-</span> <span class="va">Rps.plot</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html">coord_flip</a></span><span class="op">(</span><span class="op">)</span>
 
-<span class="va">Rps.plot</span></pre></div>
+<span class="va">Rps.plot</span></code></pre></div>
 <p><img src="hagis_files/figure-html/horizontal-plot-1.png" width="576"></p>
 </div>
 <div id="use-colors-in-autoplot-objects" class="section level3">
 <h3 class="hasAnchor">
 <a href="#use-colors-in-autoplot-objects" class="anchor"></a>Use Colors in Autoplot Objects</h3>
 <p>You can use named, <em>e.g.</em> “red”, “yellow”, “blue”, colors in R or you can use custom hexadecimal color codes. Illustrated below is using Michigan State University (MSU) Green, hex code #18453b, using <code><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw()</a></code> with a serif font.</p>
-<div class="sourceCode" id="cb23"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span>, color <span class="op">=</span> <span class="st">"#18453b"</span><span class="op">)</span> <span class="op">+</span>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span>, color <span class="op">=</span> <span class="st">"#18453b"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>,
-                            family <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span><span class="op">)</span></pre></div>
+                            family <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/use-Colors-1.png" width="576"></p>
 </div>
 <div id="sorting-the-x-axis" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sorting-the-x-axis" class="anchor"></a>Sorting the x-axis</h3>
 <p>You can sort the x-axis of any graph produced using <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code> in an <code>ascending</code> or <code>descending</code> order using the <code>order</code> parameter in <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot()</a></code>.</p>
-<div class="sourceCode" id="cb24"><pre class="downlit">
-<span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>,
+<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>,
           type <span class="op">=</span> <span class="st">"percentage"</span>,
           color <span class="op">=</span> <span class="st">"#18453b"</span>,
           order <span class="op">=</span> <span class="st">"ascending"</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">theme_bw</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span>
   <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/theme.html">theme</a></span><span class="op">(</span>text <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/element.html">element_text</a></span><span class="op">(</span>face <span class="op">=</span> <span class="st">"bold"</span>,
-                            family <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span><span class="op">)</span></pre></div>
+                            family <span class="op">=</span> <span class="st">"serif"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/sort-axis-1.png" width="576"></p>
 </div>
 </div>
