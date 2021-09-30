@@ -5,13 +5,13 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Beta-diversity Analysis • hagis</title>
+<title>Beta-diversity Analysis with hagis • hagis</title>
 <!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/journal/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Beta-diversity Analysis">
+<script src="../pkgdown.js"></script><meta property="og:title" content="Beta-diversity Analysis with hagis">
 <meta property="og:description" content="hagis">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">3.1.2</span>
       </span>
     </div>
 
@@ -57,7 +57,7 @@
   </a>
   <ul class="dropdown-menu" role="menu">
 <li>
-      <a href="../articles/betadiversity.html">Beta-diversity Analysis</a>
+      <a href="../articles/betadiversity.html">Beta-diversity Analysis with hagis</a>
     </li>
   </ul>
 </li>
@@ -85,10 +85,10 @@
       </header><script src="betadiversity_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>Beta-diversity Analysis</h1>
+      <h1 data-toc-skip>Beta-diversity Analysis with hagis</h1>
                         <h4 class="author">Austin McCoy</h4>
             
-            <h4 class="date">2021-02-12</h4>
+            <h4 class="date">2021-09-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/master/vignettes/betadiversity.Rmd"><code>vignettes/betadiversity.Rmd</code></a></small>
       <div class="hidden name"><code>betadiversity.Rmd</code></div>
@@ -102,11 +102,11 @@
 <a href="#load-packages" class="anchor"></a>Load Packages</h1>
 <p>These packages are necessary for this analysis to be conducted.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="http://ape-package.ird.fr/">ape</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://cran.r-project.org">vegan</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org">dplyr</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/openplantpathology/hagis">hagis</a></span><span class="op">)</span>
-<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="http://ape-package.ird.fr/">"ape"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://cran.r-project.org">"vegan"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://dplyr.tidyverse.org">"dplyr"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/openplantpathology/hagis">"hagis"</a></span><span class="op">)</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="st"><a href="https://ggplot2.tidyverse.org">"ggplot2"</a></span><span class="op">)</span></code></pre></div>
 <p>Import the data to be used in analysis. These example data are included in <em>hagis</em> and so when loading <em>hagis</em> they become available in your R session.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span> <span class="co"># survey sample data</span></code></pre></div>
@@ -201,11 +201,13 @@
 <p><img src="betadiversity_files/figure-html/barplot-1.png" width="700"></p>
 <p>Now we can calculate the percentage of variation that each principal coordinate accounts for. Another way to calculate the percent variation is to look at the <code>Relative_eig</code> column.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">Axis1.percent</span> <span class="op">&lt;-</span>
-  <span class="va">princoor.pathotype</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">Relative_eig</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span> <span class="co"># Dimension (i.e., Axis 1 (PCOA1))</span>
+<code class="sourceCode R"><span class="co"># Dimension (i.e., Axis 1 (PCOA1))</span>
+<span class="va">Axis1.percent</span> <span class="op">&lt;-</span>
+  <span class="va">princoor.pathotype</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">Relative_eig</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span>
 
+<span class="co"># Dimension (i.e., Axis 2 (PCOA2))</span>
 <span class="va">Axis2.percent</span> <span class="op">&lt;-</span>
-  <span class="va">princoor.pathotype</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">Relative_eig</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span> <span class="co"># Dimension (i.e., Axis 2 (PCOA2))</span>
+  <span class="va">princoor.pathotype</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">Relative_eig</span><span class="op">[[</span><span class="fl">2</span><span class="op">]</span><span class="op">]</span> <span class="op">*</span> <span class="fl">100</span>
 
 <span class="va">Axis1.percent</span></code></pre></div>
 <pre><code>## [1] 50.39109</code></pre>
@@ -289,17 +291,22 @@
 <div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Michigan_1"</span>, <span class="fl">11</span><span class="op">)</span>, <span class="fu"><a href="https://rdrr.io/r/base/rep.html">rep</a></span><span class="op">(</span><span class="st">"Michigan_2"</span>, <span class="fl">10</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">groups</span><span class="op">)</span> <span class="co"># this number shows how many isolates are in all "groups" lists combined</span></code></pre></div>
+<span class="co"># this number shows how many isolates are in all "groups" lists combined</span>
+<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="va">groups</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 21</code></pre>
 <div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Isolate</span><span class="op">)</span><span class="op">)</span> <span class="co"># this shows the number of isolates within your data set, these numbers should match for downstream analyses to work!! </span></code></pre></div>
+<code class="sourceCode R"><span class="co"># this shows the number of isolates within your data set, these numbers should</span>
+<span class="co"># match for downstream analyses to work!! </span>
+<span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/unique.html">unique</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Isolate</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <pre><code>## [1] 21</code></pre>
 <p>Next, beta-dispersion will be calculated using the Jaccard distance matrix made previously. An ANOVA is then performed to identify significance within the dataset. Post-hoc tests can be used to identify significant interactions between specific locations within the dataset. This can then be plotted to visualize how the beta-dispersion is different between groups.</p>
 <div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pathotype.disp</span> <span class="op">&lt;-</span>
-  <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">P_sojae_survey.matrix.jaccard</span>, <span class="va">groups</span><span class="op">)</span> <span class="co"># calculates the beta-dispersion for each group, when comparing two or more groups</span>
+<code class="sourceCode R"> <span class="co"># calculates the beta-dispersion for each group, when comparing 2 or more</span>
+<span class="va">pathotype.disp</span> <span class="op">&lt;-</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/vegan/man/betadisper.html">betadisper</a></span><span class="op">(</span><span class="va">P_sojae_survey.matrix.jaccard</span>, <span class="va">groups</span><span class="op">)</span>
 
-<span class="va">pathotype.disp.anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">pathotype.disp</span><span class="op">)</span> <span class="co"># tests if centroid distances are significantly different from each other</span>
+<span class="co"># tests if centroid distances are significantly different from each other</span>
+<span class="va">pathotype.disp.anova</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/anova.html">anova</a></span><span class="op">(</span><span class="va">pathotype.disp</span><span class="op">)</span> 
 <span class="va">pathotype.disp.anova</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
@@ -308,7 +315,8 @@
 ## Groups     1 0.008375 0.0083752  0.9672 0.3377
 ## Residuals 19 0.164523 0.0086591</code></pre>
 <div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">pathotype.disp.TukeyHSD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">pathotype.disp</span><span class="op">)</span> <span class="co"># test significance between each group</span>
+<code class="sourceCode R"><span class="co"># test significance between each group</span>
+<span class="va">pathotype.disp.TukeyHSD</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/TukeyHSD.html">TukeyHSD</a></span><span class="op">(</span><span class="va">pathotype.disp</span><span class="op">)</span>
 <span class="va">pathotype.disp.TukeyHSD</span></code></pre></div>
 <pre><code>##   Tukey multiple comparisons of means
 ##     95% family-wise confidence level
@@ -319,7 +327,8 @@
 ##                              diff        lwr        upr     p adj
 ## Michigan_2-Michigan_1 -0.03998626 -0.1250853 0.04511275 0.3377355</code></pre>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pathotype.disp</span>, hull <span class="op">=</span> <span class="cn">FALSE</span>, ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span> <span class="co"># plot showing the dispersion for each group</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># plot showing the dispersion for each group</span>
+<span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html">plot</a></span><span class="op">(</span><span class="va">pathotype.disp</span>, hull <span class="op">=</span> <span class="cn">FALSE</span>, ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></code></pre></div>
 <p><img src="betadiversity_files/figure-html/beta-dispersion-1.png" width="700"></p>
 <p>The ANOVA identified no significant differences between groups dispersion (p = 0.3377355). This means that the groups dispersion, or variance, is not significantly different from each other and the groups dispersion is likely homogeneous between groups. At this point, a Tukey HSD test is not warranted, but we use it as an example here. Again, a p-value of 0.3377355 is reported from the Tukey HSD tests and we reject the hypothesis that these groups may have different dispersion. We can plot the dispersion for each group using the <code><a href="https://rdrr.io/r/graphics/plot.default.html">plot()</a></code> function. As expected, since we have identified no significant differences, the two groups dispersion overlap a great deal and are not distinct from each other. Again this shows that pathotype dispersion between the groups is homogeneous and not different in this instance.</p>
 <p>If we were working with a data set that had groups with significantly different dispersion we would expect to see a significant ANOVA p-value (p &lt; 0.05) as well as significance when using the Tukey HSD test. Lastly, the plotted dispersion will form distinct, separate, groups which can be observed.</p>
@@ -343,10 +352,10 @@
 ## Terms added sequentially (first to last)
 ## 
 ##           Df SumsOfSqs  MeanSqs F.Model      R2 Pr(&gt;F)
-## groups     1   0.11358 0.113583  1.6229 0.07869  0.198
+## groups     1   0.11358 0.113583  1.6229 0.07869  0.187
 ## Residuals 19   1.32976 0.069988         0.92131       
 ## Total     20   1.44335                  1.00000</code></pre>
-<p>The PERMANOVA identified no significant differences between the groups centroids, or means (<em>p</em> = 0.198). In addition to identifying significance between group centroids, the PERMANOVA also calculates how much of the variance can be explained by the specified groups (see the <span class="math inline">\(R^2\)</span> column in the PERMANOVA output). In this case, the <span class="math inline">\(R^2\)</span> is 0.198, so 19.8% of the variance is explained by the groups used in analysis. Based on the PERMANOVA results we can conclude that these two groups are not different from each other and likely have similar pathotypes to each other.</p>
+<p>The PERMANOVA identified no significant differences between the groups centroids, or means (<em>p</em> = 0.187). In addition to identifying significance between group centroids, the PERMANOVA also calculates how much of the variance can be explained by the specified groups (see the <span class="math inline">\(R^2\)</span> column in the PERMANOVA output). In this case, the <span class="math inline">\(R^2\)</span> is 0.187, so 18.7% of the variance is explained by the groups used in analysis. Based on the PERMANOVA results we can conclude that these two groups are not different from each other and likely have similar pathotypes to each other.</p>
 </div>
 <div id="analysis-of-similarity-anosim" class="section level2">
 <h2 class="hasAnchor">
@@ -362,7 +371,7 @@
 ## Dissimilarity: jaccard 
 ## 
 ## ANOSIM statistic R: 0.06882 
-##       Significance: 0.182 
+##       Significance: 0.132 
 ## 
 ## Permutation: free
 ## Number of permutations: 999</code></pre>
