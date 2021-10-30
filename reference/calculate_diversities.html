@@ -239,69 +239,71 @@ Character.</p></td>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># Using the built-in data set, P_sojae_survey</span>
-<span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>P_sojae_survey</span><span class='op'>)</span>
-
-<span class='va'>P_sojae_survey</span>
-</div><div class='output co'>#&gt;      Isolate         Line         Rps Total HR (1) Lesion (2)
-#&gt;   1:       1     Williams susceptible    10      0          0
-#&gt;   2:       1       Harlon      Rps 1a    10      4          0
-#&gt;   3:       1 Harosoy 13xx      Rps 1b     8      0          0
-#&gt;   4:       1     L75-3735      Rps 1c    10     10          0
-#&gt;   5:       1    PI 103091      Rps 1d     9      2          0
-#&gt;  ---                                                         
-#&gt; 290:      21   PRX 145-48      Rps 3c     8      3          1
-#&gt; 291:      21     L85-2352       Rps 4    10      3          1
-#&gt; 292:      21     L85-3059       Rps 5    10      0          4
-#&gt; 293:      21 Harosoy 62XX       Rps 6     8      2          1
-#&gt; 294:      21      Harosoy       Rps 7    10      0          0
-#&gt;      Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc
-#&gt;   1:                       0       10         10           0       100
-#&gt;   2:                       0        6          6           4        60
-#&gt;   3:                       0        8          8           0       100
-#&gt;   4:                       0        0          0          10         0
-#&gt;   5:                       1        6          7           2        78
-#&gt;  ---                                                                  
-#&gt; 290:                       0        4          5           3        63
-#&gt; 291:                       4        2          7           3        70
-#&gt; 292:                       0        6         10           0       100
-#&gt; 293:                       0        5          6           2        75
-#&gt; 294:                       0       10         10           0       100
-#&gt;      perc.resis
-#&gt;   1:          0
-#&gt;   2:         40
-#&gt;   3:          0
-#&gt;   4:        100
-#&gt;   5:         22
-#&gt;  ---           
-#&gt; 290:         38
-#&gt; 291:         30
-#&gt; 292:          0
-#&gt; 293:         25
-#&gt; 294:          0</div><div class='input'>
-<span class='co'># calculate susceptibilities with a 60 % cutoff value</span>
-<span class='va'>diversities</span> <span class='op'>&lt;-</span> <span class='fu'>calculate_diversities</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>P_sojae_survey</span>,
-                                     cutoff <span class='op'>=</span> <span class='fl'>60</span>,
-                                     control <span class='op'>=</span> <span class='st'>"susceptible"</span>,
-                                     sample <span class='op'>=</span> <span class='st'>"Isolate"</span>,
-                                     gene <span class='op'>=</span> <span class='st'>"Rps"</span>,
-                                     perc_susc <span class='op'>=</span> <span class='st'>"perc.susc"</span><span class='op'>)</span>
-
-<span class='va'>diversities</span>
-</div><div class='output co'>#&gt; 
-#&gt; hagis Diversities
-#&gt; 
-#&gt; Number of Samples 21
-#&gt; Number of Pathotypes 19 
-#&gt; 
-#&gt; Indices
-#&gt; Simple   0.9047619 
-#&gt; Gleason  5.912257 
-#&gt; Shannon  2.912494 
-#&gt; Simpson  0.9433107 
-#&gt; Evenness  0.9891509 
-#&gt; </div><div class='input'>
-</div></pre>
+    <pre class="examples"><span class='r-in'><span class='co'># Using the built-in data set, P_sojae_survey</span></span>
+<span class='r-in'><span class='fu'><a href='https://rdrr.io/r/utils/data.html'>data</a></span><span class='op'>(</span><span class='va'>P_sojae_survey</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>P_sojae_survey</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      Isolate         Line         Rps Total HR (1) Lesion (2)</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:       1     Williams susceptible    10      0          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:       1       Harlon      Rps 1a    10      4          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:       1 Harosoy 13xx      Rps 1b     8      0          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:       1     L75-3735      Rps 1c    10     10          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:       1    PI 103091      Rps 1d     9      2          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                         </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 290:      21   PRX 145-48      Rps 3c     8      3          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 291:      21     L85-2352       Rps 4    10      3          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 292:      21     L85-3059       Rps 5    10      0          4</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 293:      21 Harosoy 62XX       Rps 6     8      2          1</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 294:      21      Harosoy       Rps 7    10      0          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:                       0       10         10           0       100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:                       0        6          6           4        60</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:                       0        8          8           0       100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:                       0        0          0          10         0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:                       1        6          7           2        78</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---                                                                  </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 290:                       0        4          5           3        63</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 291:                       4        2          7           3        70</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 292:                       0        6         10           0       100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 293:                       0        5          6           2        75</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 294:                       0       10         10           0       100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>      perc.resis</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   1:          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   2:         40</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   3:          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   4:        100</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>   5:         22</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span>  ---           </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 290:         38</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 291:         30</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 292:          0</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 293:         25</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> 294:          0</span>
+<span class='r-in'></span>
+<span class='r-in'><span class='co'># calculate susceptibilities with a 60 % cutoff value</span></span>
+<span class='r-in'><span class='va'>diversities</span> <span class='op'>&lt;-</span> <span class='fu'>calculate_diversities</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>P_sojae_survey</span>,</span>
+<span class='r-in'>                                     cutoff <span class='op'>=</span> <span class='fl'>60</span>,</span>
+<span class='r-in'>                                     control <span class='op'>=</span> <span class='st'>"susceptible"</span>,</span>
+<span class='r-in'>                                     sample <span class='op'>=</span> <span class='st'>"Isolate"</span>,</span>
+<span class='r-in'>                                     gene <span class='op'>=</span> <span class='st'>"Rps"</span>,</span>
+<span class='r-in'>                                     perc_susc <span class='op'>=</span> <span class='st'>"perc.susc"</span><span class='op'>)</span></span>
+<span class='r-in'></span>
+<span class='r-in'><span class='va'>diversities</span></span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> hagis Diversities</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Number of Samples 21</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Number of Pathotypes 19 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Indices</span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Simple   0.9047619 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Gleason  5.912257 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Shannon  2.912494 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Simpson  0.9433107 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> Evenness  0.9891509 </span>
+<span class='r-out co'><span class='r-pr'>#&gt;</span> </span>
+<span class='r-in'></span>
+</pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -88,7 +88,7 @@
       <h1 data-toc-skip>hagis: Tools for Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity</h1>
                         <h4 class="author">Austin McCoy and Zachary Noel</h4>
             
-            <h4 class="date">2021-10-28</h4>
+            <h4 class="date">2021-10-30</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/master/vignettes/hagis.Rmd"><code>vignettes/hagis.Rmd</code></a></small>
       <div class="hidden name"><code>hagis.Rmd</code></div>
@@ -297,7 +297,7 @@
 <h3 class="hasAnchor">
 <a href="#plotting-rps-summary-data" class="anchor"></a>Plotting Rps Summary Data</h3>
 <p><em>hagis</em> also provides functions to quickly graph your data using <code>ggplot2</code>.</p>
-<p>Two functions are provided to plot the summary depending on your needs. If you need the frequency, use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(Rps.summary, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(Rps.summary, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
+<p>Two functions are provided to plot the summary depending on your needs. If you need the frequency, use <code>autoplot(Rps.summary, type = "percentage")</code>, or if you desire the distribution <code>autoplot(Rps.summary, type = "count")</code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">Rps.summary</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/plot-summary-1.png" width="576"></p>
@@ -562,7 +562,7 @@
 <div id="plotting-complexities-data" class="section level3">
 <h3 class="hasAnchor">
 <a href="#plotting-complexities-data" class="anchor"></a>Plotting Complexities Data</h3>
-<p>Two functions are provided to plot the complexities depending on your needs. If you need the frequency, use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(complexties, type = "percentage")</a></code>, or if you desire the distribution <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot(complexities, type = "count")</a></code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
+<p>Two functions are provided to plot the complexities depending on your needs. If you need the frequency, use <code>autoplot(complexties, type = "percentage")</code>, or if you desire the distribution <code>autoplot(complexities, type = "count")</code>. Both return the same graph, only the y-axis change; percent for frequency and n for distribution.</p>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/autoplot.html">autoplot</a></span><span class="op">(</span><span class="va">complexities</span>, type <span class="op">=</span> <span class="st">"percentage"</span><span class="op">)</span></code></pre></div>
 <p><img src="hagis_files/figure-html/complexities-plot-1.png" width="576"></p>
