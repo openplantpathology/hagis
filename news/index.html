@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.3.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.6</span>
       </span>
     </div>
 
@@ -61,7 +61,29 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="development version" id="hagis-development-version">hagis (development version)<a class="anchor" aria-label="anchor" href="#hagis-development-version"></a></h2>
+<h2 class="page-header" data-toc-text="3.1.6" id="hagis-316">hagis 3.1.6<a class="anchor" aria-label="anchor" href="#hagis-316"></a></h2>
+<div class="section level3">
+<h3 id="bug-fixes-3-1-6">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-3-1-6"></a></h3>
+<ul><li>Fixes bug where <code>.create_summary_isolate()</code>, an internal function, was exported. It should not be user-facing and is now no longer exported or documented.</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="3.1.5" id="hagis-315">hagis 3.1.5<a class="anchor" aria-label="anchor" href="#hagis-315"></a></h2>
+<div class="section level3">
+<h3 id="minor-changes-3-1-5">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-5"></a></h3>
+<ul><li><p>Improved documentation formatting.</p></li>
+<li><p>Improved handling of internal global variables.</p></li>
+<li><p>Further updates to test infrastructure.</p></li>
+<li><p>Update CITATION to follow CRAN’s desired format.</p></li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="3.1.4" id="hagis-314">hagis 3.1.4<small>2022-08-15</small><a class="anchor" aria-label="anchor" href="#hagis-314"></a></h2>
+<div class="section level3">
+<h3 id="minor-changes-3-1-4">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-4"></a></h3>
+<ul><li><p>Update outdated URLs.</p></li>
+<li><p>Update test infrastructure.</p></li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="3.1.3" id="hagis-313">hagis 3.1.3<small>2021-10-14</small><a class="anchor" aria-label="anchor" href="#hagis-313"></a></h2>
@@ -78,20 +100,20 @@
 <div class="section level3">
 <h3 id="minor-changes-3-1-2">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-2"></a></h3>
 <ul><li><p>Improved documentation formatting</p></li>
-<li><p>Update roxygen details</p></li>
+<li><p>Update ROxygen details</p></li>
 <li><p>Fixes incomplete end of line in test-create_binary_matrix.R</p></li>
 <li><p>Add wordlist of allowed words for spellchecking</p></li>
 <li><p>More consistent code styling in vignettes</p></li>
 <li><p>Prefer “_” to “*” for <em>italics</em></p></li>
-<li><p>More verbose handling of importing <em>data.table</em> as a whole package using “R/utils-data.table.R” in place of “R/zzz.R”</p></li>
+<li><p>More verbose handling of importing {data.table} as a whole package using “R/utils-data.table.R” in place of “R/zzz.R”</p></li>
 </ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="3.1.1" id="hagis-311">hagis 3.1.1<small>2020-12-09</small><a class="anchor" aria-label="anchor" href="#hagis-311"></a></h2>
 <div class="section level3">
 <h3 id="minor-changes-3-1-1">Minor Changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-1"></a></h3>
-<ul><li><p>Use <em>ape</em>, <em>vegan</em>, <em>dplyr</em> and <em>vidiffr</em> packages conditionally</p></li>
-<li><p>Remove <em>covr</em> from Suggests</p></li>
+<ul><li><p>Use {ape}, {vegan}, {dplyr} and {vidiffr} packages conditionally</p></li>
+<li><p>Remove {covr} from Suggests</p></li>
 <li><p>Better documentation formatting</p></li>
 </ul></div>
 </div>
@@ -99,7 +121,7 @@
 <h2 class="page-header" data-toc-text="3.1.0" id="hagis-310">hagis 3.1.0<small>2020-10-07</small><a class="anchor" aria-label="anchor" href="#hagis-310"></a></h2>
 <div class="section level3">
 <h3 id="major-changes-3-1-0">Major Changes<a class="anchor" aria-label="anchor" href="#major-changes-3-1-0"></a></h3>
-<ul><li><p>Add new function, <code><a href="../reference/create_binary_matrix.html">create_binary_matrix()</a></code> to format data for exporting beta diversity matrices representing the pathotype of each isolate. Users can export a binary pathotype data matrix which could then be used to visualize beta-diversity of pathotypes using <em>vegan</em> or <em>ape</em> in R</p></li>
+<ul><li><p>Add new function, <code><a href="../reference/create_binary_matrix.html">create_binary_matrix()</a></code> to format data for exporting beta diversity matrices representing the pathotype of each isolate. Users can export a binary pathotype data matrix which could then be used to visualize beta-diversity of pathotypes using {vegan} or {ape} in R</p></li>
 <li><p>Add new vignette, “Beta-diversity Analyses”, to illustrate the use of the new functionality</p></li>
 </ul></div>
 <div class="section level3">
@@ -113,7 +135,7 @@
 <div class="section level3">
 <h3 id="minor-changes-3-0-1">Minor Changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-0-1"></a></h3>
 <ul><li><p>Update citation with full MPMI citation</p></li>
-<li><p>Fix issue in CITATION file where <code>nasapower</code> was referred to in text</p></li>
+<li><p>Fix issue in CITATION file where {nasapower} was referred to in text</p></li>
 <li><p>Use ROxygen 7.0.0</p></li>
 <li><p>Remove an extra “/” in the CITATION’s DOI</p></li>
 </ul></div>
@@ -123,7 +145,7 @@
 <div class="section level3">
 <h3 id="defunct-functions-3-0-0">Defunct functions<a class="anchor" aria-label="anchor" href="#defunct-functions-3-0-0"></a></h3>
 <ul><li>
-<code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> is now defunct. Use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> to plot <em>hagis</em> objects in place of <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>. This is to avoid the side-effect of generating and displaying a plot every time <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> is called, which can be troublesome when using <em>ggplot2</em> themes since it created two plots, the original with the base theme and the new themed plot</li>
+<code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> is now defunct. Use <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code> to plot {hagis} objects in place of <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code>. This is to avoid the side-effect of generating and displaying a plot every time <code><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot()</a></code> is called, which can be troublesome when using {ggplot2} themes since it created two plots, the original with the base theme and the new themed plot</li>
 </ul></div>
 <div class="section level3">
 <h3 id="minor-changes-3-0-0">Minor Changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-0-0"></a></h3>
@@ -133,7 +155,7 @@
 <li><p>Add ability to sort graph x-axis in ascending or descending order based on the y-axis values rather than only by gene or complexity.</p></li>
 <li><p>Move example data set into internal data and provide documentation for them</p></li>
 <li><p>Provide documentation for how diversity indices are calculated along with mathematical notation where possible to display</p></li>
-<li><p>Calculate Shannon and Simpson indices internally rather than rely on <em>vegan</em> to reduce number of Dependencies</p></li>
+<li><p>Calculate Shannon and Simpson indices internally rather than rely on {vegan} to reduce number of Dependencies</p></li>
 <li><p>Replace the term <code>field</code> with <code>column</code> in documentation</p></li>
 <li><p>Test coverage now 100 %</p></li>
 <li><p>Add funding agencies to DESCRIPTION <a href="mailto:Authors@R" class="email">Authors@R</a> field</p></li>

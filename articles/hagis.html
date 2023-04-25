@@ -33,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.3.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.6</span>
       </span>
     </div>
 
@@ -96,15 +96,15 @@ and Zachary Noel</h4>
     
     
 <div class="section level3">
-<h3 id="getting-started-with-hagis">Getting Started With <em>hagis</em><a class="anchor" aria-label="anchor" href="#getting-started-with-hagis"></a>
+<h3 id="getting-started-with-hagis">Getting Started With {hagis}<a class="anchor" aria-label="anchor" href="#getting-started-with-hagis"></a>
 </h3>
 <p>The following examples are based on a dataset from Michigan State
 University <em>Phytophthora sojae</em> surveys for soybean phytophthora
 root rot pathotyping efforts.</p>
 <p>First you’ll want to load in your data set, for right now let’s use a
-practice data set made for the <em>hagis</em> package, named
+practice data set made for the {hagis} package, named
 <code>P_sojae_survey</code>. The data set is available in your R session
-automatically when you load the <em>hagis</em> package.</p>
+automatically when you load the {hagis} package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/openplantpathology/hagis" class="external-link">"hagis"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span></span>
@@ -155,16 +155,16 @@ susceptible, inoculated, plants to determine effective resistance genes,
 pathotype diversity and frequency, as well as individual isolates
 pathotypes.</p>
 <p>To help ensure that the proper data are used in calculations, the
-user is asked to provide some information that instruct <em>hagis</em>
-about what data to use.</p>
+user is asked to provide some information that instruct {hagis} about
+what data to use.</p>
 <hr>
 </div>
 <div class="section level3">
 <h3 id="function-arguments-used-in-hagis">Function Arguments Used in hagis<a class="anchor" aria-label="anchor" href="#function-arguments-used-in-hagis"></a>
 </h3>
-<p>We have striven to make <em>hagis</em> as intuitive to use as
-possible. Part of that means that we have used the same arguments for
-the three main functions, <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>,
+<p>We have striven to make {hagis} as intuitive to use as possible. Part
+of that means that we have used the same arguments for the three main
+functions, <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>,
 <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> and
 <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code>. Each of these functions take the
 same arguments:</p>
@@ -189,8 +189,8 @@ which identifies the genes tested</p></li>
 <li><p><code>perc_susc</code> specifies the column header for the column
 which identifies the percent susceptible plants for each gene</p></li>
 </ul>
-<p>Ordinarily you would use functions in <em>hagis</em> or other R
-packages like this:</p>
+<p>Ordinarily you would use functions in {hagis} or other R packages
+like this:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">Rps.summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/summarize_gene.html">summarize_gene</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">P_sojae_survey</span>,</span>
@@ -202,10 +202,10 @@ packages like this:</p>
 <span><span class="op">)</span></span></code></pre></div>
 <p>However, because the functions share arguments we can create a
 <code><a href="https://rdrr.io/r/base/list.html" class="external-link">list()</a></code> of arguments and share them with some of the
-functions from <em>hagis</em>. First, we make a list of the arguments
-that <code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>, <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code>
-and <code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> use that specify our inputs
-based on our example data:</p>
+functions from {hagis}. First, we make a list of the arguments that
+<code><a href="../reference/summarize_gene.html">summarize_gene()</a></code>, <code><a href="../reference/calculate_diversities.html">calculate_diversities()</a></code> and
+<code><a href="../reference/calculate_complexities.html">calculate_complexities()</a></code> use that specify our inputs based
+on our example data:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">hagis_args</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span>  x <span class="op">=</span> <span class="va">P_sojae_survey</span>,</span>
@@ -344,8 +344,8 @@ attractive in RMarkdown.</p>
 <div class="section level4">
 <h4 id="plotting-rps-summary-data">Plotting Rps Summary Data<a class="anchor" aria-label="anchor" href="#plotting-rps-summary-data"></a>
 </h4>
-<p><em>hagis</em> also provides functions to quickly graph your data
-using <code>ggplot2</code>.</p>
+<p>{hagis} also provides functions to quickly graph your data using
+<code>ggplot2</code>.</p>
 <p>Two functions are provided to plot the summary depending on your
 needs. If you need the frequency, use
 <code>autoplot(Rps.summary, type = "percentage")</code>, or if you
@@ -740,9 +740,9 @@ generated.</p>
 <h4 id="table-of-diversities">Table of Diversities<a class="anchor" aria-label="anchor" href="#table-of-diversities"></a>
 </h4>
 <p>To generate a table of diversities, use
-<code><a href="../reference/diversities_table.html">diversities_table()</a></code>. <em>hagis</em> will automatically
-create a <code>pander</code> object for you. This is because it is much
-easier to read the resulting table in the console than the raw
+<code><a href="../reference/diversities_table.html">diversities_table()</a></code>. {hagis} will automatically create a
+<code>pander</code> object for you. This is because it is much easier to
+read the resulting table in the console than the raw
 <code>data.frame</code> and insert into reports.</p>
 <div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/diversities_table.html">diversities_table</a></span><span class="op">(</span><span class="va">diversity</span><span class="op">)</span></span></code></pre></div>
@@ -835,8 +835,8 @@ easier to read the resulting table in the console than the raw
 </tbody>
 </table>
 <p>To generate a table of individual pathotypes, use
-<code><a href="../reference/individual_pathotypes.html">individual_pathotypes()</a></code>. Here again, <em>hagis</em>
-provides a <code>pander</code> object for ease of use.</p>
+<code><a href="../reference/individual_pathotypes.html">individual_pathotypes()</a></code>. Here again, {hagis} provides a
+<code>pander</code> object for ease of use.</p>
 </div>
 <div class="section level4">
 <h4 id="table-of-individual-pathotypes">Table of Individual Pathotypes<a class="anchor" aria-label="anchor" href="#table-of-individual-pathotypes"></a>
@@ -947,9 +947,9 @@ provides a <code>pander</code> object for ease of use.</p>
 <div class="section level3">
 <h3 id="hagis-autoplot-objects">hagis autoplot Objects<a class="anchor" aria-label="anchor" href="#hagis-autoplot-objects"></a>
 </h3>
-<p>Since <em>hagis</em> uses <code>ggplot2</code> to generate its plots,
-you can easily theme the outputs using common <code>ggplot2</code>
-themes and other options provided by <em>hagis</em> directly through
+<p>Since {hagis} uses <code>ggplot2</code> to generate its plots, you
+can easily theme the outputs using common <code>ggplot2</code> themes
+and other options provided by {hagis} directly through
 <code><a href="https://ggplot2.tidyverse.org/reference/autoplot.html" class="external-link">autoplot()</a></code>.</p>
 <div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
