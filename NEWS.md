@@ -1,5 +1,14 @@
-# hagis (development version)
+# hagis 3.1.7
 
+## Minor changes
+
+* Use {roxyglobals}.
+
+* Format package names as {package name} not `package name` or _package name_ in documentation.
+
+## Bug fixes
+
+* Use proper title case in function titles.
 
 # hagis 3.1.6
 
