@@ -3,7 +3,7 @@
 \docType{data}
 \name{P_sojae_survey}
 \alias{P_sojae_survey}
-\title{\emph{Phytophthora sojae} survey example data}
+\title{\emph{Phytophthora sojae} Survey Example Data}
 \format{
 An object of class \code{data.table} with 294 observations of 12 variables
 \describe{

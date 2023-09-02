@@ -13,6 +13,7 @@
 #' @param .perc_susc column providing the percent susceptible reactions as a
 #' numeric value. Character.
 #' @keywords internal
+#' @autoglobal
 #' @noRd
 .check_inputs <-
   function(.x,
@@ -21,8 +22,7 @@
            .sample,
            .gene,
            .perc_susc) {
-    # CRAN NOTE avoidance
-    gene <- sample <- NULL
+    
     if (!is.data.frame(.x) |
         !is.numeric(.cutoff) |
         !is.character(.control) |
@@ -62,6 +62,7 @@
 #' @param .cutoff Cutoff value for susceptibility
 #' @return A `data.table` that tallies the results by gene
 #' @keywords internal
+#' @autoglobal
 #' @noRd
 .binary_cutoff <- function(.x, .cutoff) {
   susceptible.1 <- perc_susc <- NULL

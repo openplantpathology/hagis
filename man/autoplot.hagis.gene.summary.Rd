@@ -2,7 +2,7 @@
 % Please edit documentation in R/summarize_gene.R
 \name{autoplot.hagis.gene.summary}
 \alias{autoplot.hagis.gene.summary}
-\title{Plot hagis summary objects}
+\title{Plot hagis Summary Objects}
 \usage{
 \method{autoplot}{hagis.gene.summary}(object, type, color = NULL, order = NULL, ...)
 }

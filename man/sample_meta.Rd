@@ -3,7 +3,7 @@
 \docType{data}
 \name{sample_meta}
 \alias{sample_meta}
-\title{\emph{Phytophthora sojae} survey example metadata}
+\title{\emph{Phytophthora sojae} Survey Example Metadata}
 \format{
 An object of class \code{data.frame} with 21 observations of 2 variables
 \describe{

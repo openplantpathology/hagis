@@ -1,5 +1,5 @@
 
-#' Calculate diversities indices
+#' Calculate Diversities Indices
 #'
 #' @description Calculates pathogen diversity indices.
 #'
@@ -35,6 +35,7 @@
 #'    of pathotypes.
 #'
 #' @inheritParams summarize_gene
+#' @autoglobal
 #' @examples
 #' # Using the built-in data set, P_sojae_survey
 #' data(P_sojae_survey)
@@ -77,9 +78,6 @@ calculate_diversities <- function(x,
     .gene = gene,
     .perc_susc = perc_susc
   )
-
-  # CRAN NOTE avoidance
-  Pathotype <- Frequency <- susceptible.1 <- NULL
 
   # The susceptible control is removed from all samples in the data set so that
   #  it will not affect complexity calculations and a new data set is made that
@@ -179,7 +177,7 @@ print.hagis.diversities <- function(x,
   invisible(x)
 }
 
-#' Prints table of diversities
+#' Prints Table of Diversities
 #'
 #' Print the frequency table of diversities from a `hagis.diversities` object
 #' The resulting object is a [pander] table (a text object for Markdown) for
@@ -217,7 +215,7 @@ diversities_table <- function(x, ...) {
   }
 }
 
-#' Prints individual pathotypes for each sample
+#' Prints Individual Pathotypes for Each Sample
 #'
 #' Print an object from a `hagis.diversities` object with individual pathotypes,
 #' _i.e._ each sample's pathotype. The resulting object is a [pander] table
@@ -254,7 +252,7 @@ individual_pathotypes <- function(x, ...) {
 }
 
 
-#' Pander method for hagis diversities
+#' Pander Method for {hagis} Diversities
 #'
 #' Prints a \CRANpkg{hagis} diversities in Pandoc's markdown.
 #' @param x a diversities object

@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_complexities.R
 \name{autoplot.hagis.complexities}
 \alias{autoplot.hagis.complexities}
-\title{Plot hagis complexities objects}
+\title{Plot hagis Complexities Objects}
 \usage{
 \method{autoplot}{hagis.complexities}(object, type, color = NULL, order = NULL, ...)
 }

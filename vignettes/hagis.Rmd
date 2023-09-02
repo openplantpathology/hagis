@@ -123,7 +123,7 @@ pander(Rps.summary)
 
 ### Plotting Rps Summary Data
 
-{hagis} also provides functions to quickly graph your data using `ggplot2`.
+{hagis} also provides functions to quickly graph your data using {ggplot2}.
 
 Two functions are provided to plot the summary depending on your needs.
 If you need the frequency, use `autoplot(Rps.summary, type = "percentage")`, or if you desire the distribution `autoplot(Rps.summary, type = "count")`.
@@ -239,7 +239,7 @@ individual_pathotypes(diversity)
 
 ## {hagis} autoplot() Objects
 
-Since {hagis} uses `ggplot2` to generate its plots, you can easily theme the outputs using common `ggplot2` themes and other options provided by {hagis} directly through `autoplot()`.
+Since {hagis} uses {ggplot2} to generate its plots, you can easily theme the outputs using common {ggplot2} themes and other options provided by {hagis} directly through `autoplot()`.
 
 ```{r set-up-adv.plot}
 library(ggplot2)
@@ -251,7 +251,7 @@ Rps.plot
 
 ### Changing the ggplot2 Theme
 
-Use _ggplot2's_ `theme_minimal()` theme.
+Use {ggplot2}'s `theme_minimal()` theme.
 
 ```{r change-plot-theme}
 Rps.plot <- Rps.plot +

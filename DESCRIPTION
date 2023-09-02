@@ -53,19 +53,23 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Suggests:
-  ape,
-  dplyr,
-  knitr,
-  rmarkdown,
-  testthat,
-  vegan,
-  vdiffr
+    ape,
+    dplyr,
+    knitr,
+    rmarkdown,
+    testthat,
+    vegan,
+    vdiffr,
+    roxyglobals
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
-Roxygen: list(markdown = TRUE)
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet"))
 Language: en-US
 URL: https://github.com/openplantpathology/hagis, https://openplantpathology.github.io/hagis/
 BugReports: https://github.com/openplantpathology/hagis/issues
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey, virulence analysis, differential set, assessment scale
 X-schema.org-isPartOf: https://openplantpathology.org
+Config/roxyglobals/filename: globals.R
+Config/roxyglobals/unique: FALSE

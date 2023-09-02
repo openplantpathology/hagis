@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_complexities.R
 \name{calculate_complexities}
 \alias{calculate_complexities}
-\title{Calculate distribution of complexities by sample}
+\title{Calculate Distribution of Complexities by Sample}
 \usage{
 calculate_complexities(x, cutoff, control, sample, gene, perc_susc)
 }

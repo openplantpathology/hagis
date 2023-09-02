@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_diversities.R
 \name{diversities_table}
 \alias{diversities_table}
-\title{Prints table of diversities}
+\title{Prints Table of Diversities}
 \usage{
 diversities_table(x, ...)
 }

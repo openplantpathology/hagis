@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_diversities.R
 \name{calculate_diversities}
 \alias{calculate_diversities}
-\title{Calculate diversities indices}
+\title{Calculate Diversities Indices}
 \usage{
 calculate_diversities(x, cutoff, control, sample, gene, perc_susc)
 }
