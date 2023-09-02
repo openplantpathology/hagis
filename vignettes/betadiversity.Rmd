@@ -139,7 +139,7 @@ princoor.pathotype.data <-
 # Add Metadata to your PCOA Data
 
 You will need to add information on the sample collection location or other data to help identify different pathotype groupings based on geographic location or other factors.
-We will use `left_join()` from _dplyr_ to combine the `princoor.pathotype.data` with the metadata that we've already loaded, `sample_meta` that contains a geographic location (state name).
+We will use `left_join()` from {dplyr} to combine the `princoor.pathotype.data` with the metadata that we've already loaded, `sample_meta` that contains a geographic location (state name).
 
 ```{r merge-metadata}
 princoor.pathotype.data <-
@@ -148,7 +148,7 @@ princoor.pathotype.data <-
 princoor.pathotype.data
 ```
 
-Now we will plot the PCA data using _ggplot2_ and color the points based on location, `Locale`, and identify the 95% confidence interval of those groups using the `stat_ellipse()` function.
+Now we will plot the PCA data using {ggplot2} and color the points based on location, `Locale`, and identify the 95% confidence interval of those groups using the `stat_ellipse()` function.
 
 ```{r ggplot-pca}
 ggplot(data = princoor.pathotype.data, aes(x = X, y = Y)) +
