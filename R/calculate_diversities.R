@@ -178,7 +178,7 @@ print.hagis.diversities <- function(x,
   invisible(x)
 }
 
-#' Prints Table of {hagis} Diversities
+#' Custom Print for hagis Diversities Tables
 #'
 #' Print the frequency table of diversities from a `hagis.diversities` object
 #' The resulting object is a [pander] table (a text object for Markdown) for

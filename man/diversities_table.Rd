@@ -2,7 +2,7 @@
 % Please edit documentation in R/calculate_diversities.R
 \name{diversities_table}
 \alias{diversities_table}
-\title{Prints Table of {hagis} Diversities}
+\title{Custom Print for hagis Diversities Tables}
 \usage{
 diversities_table(x, ...)
 }
