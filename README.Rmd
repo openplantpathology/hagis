@@ -43,9 +43,9 @@ They both will give exactly the same results.
 install.packages("hagis")
 ```
 
-### Updated Version
+### Development Version
 
-An updated version is available from from GitHub that still provides exactly the same results as the CRAN version but has minor differences in documentation and the code-base for maintenance.
+A development version is available from from GitHub that may provide bug fixes or new features not yet available from CRAN.
 
 ``` r
 if (!require("remotes")) {
