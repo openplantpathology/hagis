@@ -1,5 +1,5 @@
 
-#' Check user inputs
+#' Check User Inputs
 #'
 #' Checks and validates user inputs before running functions
 #'
@@ -54,7 +54,7 @@
     return(dt[])
   }
 
-#' Create binary reaction value
+#' Create Binary Reaction Value
 #'
 #' Adds a column of 1 or 0 for the susceptible reaction cutoff
 #'

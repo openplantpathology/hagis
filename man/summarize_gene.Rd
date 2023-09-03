@@ -34,8 +34,7 @@ gene in the \code{gene} column}
 }
 }
 \description{
-This function will calculate the distribution of
-susceptibilities by gene.
+Calculate the distribution of susceptibilities by gene.
 }
 \examples{
 # Using the built-in data set, `P_sojae_survey`

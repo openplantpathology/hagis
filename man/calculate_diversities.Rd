@@ -35,9 +35,9 @@ hagis.diversities object containing
 }
 }
 \description{
-Calculates pathogen diversity indices.
+Calculate five pathogen diversity indices.
 
-This function calculates five diversity indices for the user.
+Diversity indices include:
 \itemize{
 \item Simple diversity index, which will show the proportion of unique pathotypes
 to total samples. As the values gets closer to 1, there is greater

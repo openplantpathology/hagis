@@ -36,8 +36,7 @@ individual complexities}
 }
 }
 \description{
-This function will calculate the distribution of
-susceptibilities by sample
+Calculate the distribution of susceptibilities by sample id.
 }
 \examples{
 

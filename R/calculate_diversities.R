@@ -1,9 +1,10 @@
 
 #' Calculate Diversities Indices
 #'
-#' @description Calculates pathogen diversity indices.
+#' @description Calculate five pathogen diversity indices.
 #'
-#' This function calculates five diversity indices for the user.
+#' Diversity indices include:
+#' 
 #' * Simple diversity index, which will show the proportion of unique pathotypes
 #'   to total samples. As the values gets closer to 1, there is greater
 #'   diversity in pathoypes within the population. Simple diversity is
@@ -177,7 +178,7 @@ print.hagis.diversities <- function(x,
   invisible(x)
 }
 
-#' Prints Table of Diversities
+#' Prints Table of {hagis} Diversities
 #'
 #' Print the frequency table of diversities from a `hagis.diversities` object
 #' The resulting object is a [pander] table (a text object for Markdown) for

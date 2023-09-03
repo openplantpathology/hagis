@@ -1,8 +1,7 @@
 
 #' Calculate and Summarize Distribution of Susceptibilities by Gene
 #'
-#' @description This function will calculate the distribution of
-#' susceptibilities by gene.
+#' @description Calculate the distribution of susceptibilities by gene.
 #' 
 #' @param x a `data.frame` containing the data.
 #' @param cutoff value for percent susceptible cutoff. `Numeric`.
@@ -75,7 +74,7 @@ summarize_gene <- function(x,
 #' @export
 ggplot2::autoplot
 
-#' Plot hagis Summary Objects
+#' Plot {hagis} Summary Objects
 #'
 #' @description Creates a \CRANpkg{ggplot2} object of the gene summaries
 #' calculated by [summarize_gene()]

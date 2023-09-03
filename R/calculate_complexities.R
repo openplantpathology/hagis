@@ -1,8 +1,8 @@
 
 #' Calculate Distribution of Complexities by Sample
 #'
-#' @description This function will calculate the distribution of
-#' susceptibilities by sample
+#' @description Calculate the distribution of susceptibilities by sample id.
+#' 
 #' @inheritParams summarize_gene
 #' @examples
 #'
@@ -240,7 +240,7 @@ autoplot.hagis.complexities <-
   return(.y)
 }
 
-#' Summarises \pkg{hagis} Complexity Object
+#' Summarises {hagis} Complexity Objects
 #'
 #' Custom [summary()] method for \pkg{hagis} `complexities` objects.
 #'
