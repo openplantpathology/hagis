@@ -35,17 +35,16 @@ New users are encouraged to visit the documentation, <https://openplantpathology
 
 ### Stable Version
 
-A stable version of {hagis} is available from CRAN.
+A CRAN version of {hagis} is available but lags behind the GitHub version.
+They both will give exactly the same results.
 
 ``` r
 install.packages("hagis")
 ```
 
-### Development Version
+### Updated Version
 
-A development version is available from from GitHub.
-If you wish to install the development version that may have new features or bug fixes before the CRAN version does (but also may not work properly), please install the remotes package, available from CRAN.
-We strive to keep the main branch on GitHub functional and working properly.
+An updated version is available from from GitHub that still provides exactly the same results as the CRAN version but has minor differences in documentation and the code-base for maintenance.
 
 ``` r
 if (!require("remotes")) {
