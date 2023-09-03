@@ -26,7 +26,8 @@ However, repeated use of resistance genes can cause populations to adapt over ti
 To determine current effectiveness of resistance genes for managing _P. sojae_, state-wide surveys (in the US) are conducted to determine the pathotype (previously referred to as "race") structure within sampled population of _P. sojae_.
 
 However, the package is not only useful for _P. sojae_ work.
-It was built to be useful for other plant pathogen gene-for-gene interaction systems, _e.g._ rusts or canola blackleg, _Leptosphaeria maculans_.
+It was built to be useful for other plant pathogen gene-for-gene interaction systems, _e.g._, wheat rusts, but it has been used in animal science as well, [Cain _et al._ 2022](https://doi.org/10.1186/s13071-022-05533-y).
+
 The goal of this package is to provide all the necessary analyses needed when conducting a pathotype surveys, including: distribution of susceptibilities (effective and non-effective resistance genes), distribution of pathotype complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes in an efficient and reproducible manner.
 
 New users are encouraged to visit the documentation, <https://openplantpathology.github.io/hagis/articles/hagis.html>, for detailed information on how to use {hagis} along with working examples using a built-in data set.
@@ -75,3 +76,5 @@ By contributing to this project, you agree to abide by its terms.
 > Herrmann, Löwer and Schachtel. (1999), A new tool for entry and analysis of virulence data for plant pathogens. Plant Pathology, 48: 154-158. DOI: [10.1046/j.1365-3059.1999.00325.x](https://doi.org/10.1046/j.1365-3059.1999.00325.x)
 
 > McCoy, Noel, Sparks and Chilvers. (2019). 'hagis', an R Package Resource for Pathotype Analysis of _Phytophthora sojae_ Populations Causing Stem and Root Rot of Soybean. Molecular Plant-Microbe Interactions 32.12 (Nov 2019) p. 1574-1576. DOI: [10.1094/MPMI-07-19-0180-A](https://doi.org/10.1094/MPMI-07-19-0180-A)
+
+> Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The microbial community associated with Parascaris spp. infecting juvenile horses. Parasites & Vectors, 15(1), pp.1-17. [10.1186/s13071-022-05533-y](https://doi.org/10.1186/s13071-022-05533-y)

@@ -40,8 +40,10 @@ of *P. sojae*.
 
 However, the package is not only useful for *P. sojae* work. It was
 built to be useful for other plant pathogen gene-for-gene interaction
-systems, *e.g.* rusts or canola blackleg, *Leptosphaeria maculans*. The
-goal of this package is to provide all the necessary analyses needed
+systems, *e.g.*, wheat rusts, but it has been used in animal science as
+well, [Cain *et al.* 2022](https://doi.org/10.1186/s13071-022-05533-y).
+
+The goal of this package is to provide all the necessary analyses needed
 when conducting a pathotype surveys, including: distribution of
 susceptibilities (effective and non-effective resistance genes),
 distribution of pathotype complexities with statistics, pathotype
@@ -127,3 +129,8 @@ By contributing to this project, you agree to abide by its terms.
 > Causing Stem and Root Rot of Soybean. Molecular Plant-Microbe
 > Interactions 32.12 (Nov 2019) p. 1574-1576. DOI:
 > [10.1094/MPMI-07-19-0180-A](https://doi.org/10.1094/MPMI-07-19-0180-A)
+
+> Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The
+> microbial community associated with Parascaris spp. infecting juvenile
+> horses. Parasites & Vectors, 15(1), pp.1-17.
+> [10.1186/s13071-022-05533-y](https://doi.org/10.1186/s13071-022-05533-y)
