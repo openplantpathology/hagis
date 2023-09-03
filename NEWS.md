@@ -1,6 +1,14 @@
 # hagis (development version)
 
+## Bug fixes
 
+* Fix "long running" tests.
+
+## Minor changes
+
+* Add Cain _et al._ paper to README.
+
+* Minor grammar edits.
 
 # hagis 3.1.7
 
