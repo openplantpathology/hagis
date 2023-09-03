@@ -129,7 +129,7 @@ calculate_complexities <- function(x,
 #' Defaults to `complexity` value. `Character`.
 #' @param ... passed to the chosen `geom(s)`
 #'
-#' @examples
+#' @examplesIf interactive()
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)
 #'

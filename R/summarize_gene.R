@@ -90,7 +90,7 @@ ggplot2::autoplot
 #' @param ... passed to the chosen `geom(s)`
 #' @return A \CRANpkg{ggplot2} plot
 #' @method autoplot hagis.gene.summary
-#' @examples
+#' @examplesIf interactive()
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)
 #'

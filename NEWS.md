@@ -1,5 +1,9 @@
 # hagis (development version)
 
+## "Bug" fixes
+
+* Only run plotting examples if session is interactive to "fix" a "bug" with CRAN determining that the examples suddenly take too long to run.
+
 # hagis 3.1.8
 
 ## Bug fixes
