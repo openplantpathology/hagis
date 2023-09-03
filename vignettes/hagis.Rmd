@@ -56,7 +56,7 @@ We have striven to make {hagis} as intuitive to use as possible.
 Part of that means that we have used the same arguments for the three main functions, `summarize_gene()`, `calculate_complexities()` and `calculate_diversities()`.
 Each of these functions take the same arguments:
 
-* `x` this is your data set name, _e.g._ `P_sojae_survey` from the example above, allows for the function to identify where it will be pulling these columns (and their associated row values) from to use (_i.e._ your data collection Excel spreadsheet)
+* `x` this is your data set name, _e.g._, `P_sojae_survey` from the example above, allows for the function to identify where it will be pulling these columns (and their associated row values) from to use (_i.e._ your data collection Excel spreadsheet)
 
 * `cutoff` this value sets the cutoff for susceptible reactions.
 For example, `cutoff = 60` means that all genes with 60% or more of the plants rated susceptible will be treated as susceptible.
@@ -285,7 +285,7 @@ Rps.plot
 
 ### Use Colors in Autoplot Objects
 
-You can use named, _e.g._ "red", "yellow", "blue", colors in R or you can use custom hexadecimal color codes.
+You can use named, _e.g._, "red", "yellow", "blue", colors in R or you can use custom hexadecimal color codes.
 Illustrated below is using Michigan State University (MSU) Green, hex code #18453b, using `theme_bw()` with a serif font.
 
 ```{r use-Colors}
