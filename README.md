@@ -57,19 +57,18 @@ using a built-in data set.
 
 ### Stable Version
 
-A stable version of {hagis} is available from CRAN.
+A CRAN version of {hagis} is available but lags behind the GitHub
+version. They both will give exactly the same results.
 
 ``` r
 install.packages("hagis")
 ```
 
-### Development Version
+### Updated Version
 
-A development version is available from from GitHub. If you wish to
-install the development version that may have new features or bug fixes
-before the CRAN version does (but also may not work properly), please
-install the remotes package, available from CRAN. We strive to keep the
-main branch on GitHub functional and working properly.
+An updated version is available from from GitHub that still provides
+exactly the same results as the CRAN version but has minor differences
+in documentation and the code-base for maintenance.
 
 ``` r
 if (!require("remotes")) {
@@ -99,10 +98,10 @@ citation("hagis")
     ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
     ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
     ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
+    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (2023). _hagis: Analysis of
     ##   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
     ##   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
-    ##   R package version 3.1.7,
+    ##   R package version 3.1.6,
     ##   <https://openplantpathology.github.io/hagis/>.
     ## 
     ## To see these entries in BibTeX format, use 'print(<citation>,
