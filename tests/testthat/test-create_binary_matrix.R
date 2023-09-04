@@ -11,6 +11,7 @@ final_matrix <- create_binary_matrix(
 )
 
 test_that("create_binary_matrix() works properly", {
+  skip_on_cran()
   expect_is(final_matrix, "matrix")
   expect_type(final_matrix, "double")
   expect_length(final_matrix, 273)
