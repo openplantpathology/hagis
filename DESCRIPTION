@@ -1,6 +1,6 @@
 Package: hagis
 Title: Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
-Version: 3.1.9.9000
+Version: 3.1.10
 Authors@R: c(
   person(given = "Austin G.",
          family = "McCoy",

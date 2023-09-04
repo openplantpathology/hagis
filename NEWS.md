@@ -1,5 +1,7 @@
 # hagis 3.1.10
 
+# hagis dusethis::use_version('patch')evelopment version
+
 * Skip _ALL_ tests on CRAN.
 Because, y'know, CRAN...
 
