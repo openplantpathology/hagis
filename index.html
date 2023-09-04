@@ -39,7 +39,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.7</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.9</span>
       </span>
     </div>
 
@@ -101,7 +101,8 @@
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
 <p>{hagis} was initially created for <em>Phytophthora sojae</em> surveys by Dr. Austin McCoy and Dr. Zachary Noel at Michigan State University in the US, where the disease has been managed primarily via deployment of resistance genes (<em>Rps</em> genes, resistance to <em>P. sojae</em>) in commercial soybean cultivars and by the application of fungicide seed treatments. However, repeated use of resistance genes can cause populations to adapt over time rendering these resistance genes ineffective. To determine current effectiveness of resistance genes for managing <em>P. sojae</em>, state-wide surveys (in the US) are conducted to determine the pathotype (previously referred to as “race”) structure within sampled population of <em>P. sojae</em>.</p>
-<p>However, the package is not only useful for <em>P. sojae</em> work. It was built to be useful for other plant pathogen gene-for-gene interaction systems, <em>e.g.</em> rusts or canola blackleg, <em>Leptosphaeria maculans</em>. The goal of this package is to provide all the necessary analyses needed when conducting a pathotype surveys, including: distribution of susceptibilities (effective and non-effective resistance genes), distribution of pathotype complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes in an efficient and reproducible manner.</p>
+<p>However, the package is not only useful for <em>P. sojae</em> work. It was built to be useful for other plant pathogen gene-for-gene interaction systems, <em>e.g.</em>, wheat rusts, but it has been used in animal science as well, <a href="https://doi.org/10.1186/s13071-022-05533-y" class="external-link">Cain <em>et al.</em> 2022</a>.</p>
+<p>The goal of this package is to provide all the necessary analyses needed when conducting a pathotype surveys, including: distribution of susceptibilities (effective and non-effective resistance genes), distribution of pathotype complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes in an efficient and reproducible manner.</p>
 <p>New users are encouraged to visit the documentation, <a href="https://openplantpathology.github.io/hagis/articles/hagis.html" class="external-link uri">https://openplantpathology.github.io/hagis/articles/hagis.html</a>, for detailed information on how to use {hagis} along with working examples using a built-in data set.</p>
 </div>
 <div class="section level2">
@@ -115,9 +116,9 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"hagis"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="updated-version">Updated Version<a class="anchor" aria-label="anchor" href="#updated-version"></a>
+<h3 id="development-version">Development Version<a class="anchor" aria-label="anchor" href="#development-version"></a>
 </h3>
-<p>An updated version is available from from GitHub that still provides exactly the same results as the CRAN version but has minor differences in documentation and the code-base for maintenance.</p>
+<p>A development version is available from from GitHub that may provide bug fixes or new features not yet available from CRAN.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://remotes.r-lib.org" class="external-link">"remotes"</a></span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span>, repos <span class="op">=</span> <span class="st">"http://cran.rstudio.com/"</span><span class="op">)</span></span>
@@ -145,10 +146,10 @@
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;https://doi.org/10.1094/MPMI-07-19-0180-A&gt;,</span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;https://doi.org/10.1094/MPMI-07-19-0180-A&gt;.</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (2023). _hagis: Analysis of</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of</span></span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.</span></span>
 <span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">##   doi:10.5281/zenodo.2619820 &lt;https://doi.org/10.5281/zenodo.2619820&gt;,</span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   R package version 3.1.6,</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   R package version 3.1.7.9000,</span></span>
 <span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;https://openplantpathology.github.io/hagis/&gt;.</span></span>
 <span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">## </span></span>
 <span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">## To see these entries in BibTeX format, use 'print(&lt;citation&gt;,</span></span>
@@ -169,6 +170,9 @@
 </blockquote>
 <blockquote>
 <p>McCoy, Noel, Sparks and Chilvers. (2019). ‘hagis’, an R Package Resource for Pathotype Analysis of <em>Phytophthora sojae</em> Populations Causing Stem and Root Rot of Soybean. Molecular Plant-Microbe Interactions 32.12 (Nov 2019) p. 1574-1576. DOI: <a href="https://doi.org/10.1094/MPMI-07-19-0180-A" class="external-link">10.1094/MPMI-07-19-0180-A</a></p>
+</blockquote>
+<blockquote>
+<p>Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The microbial community associated with Parascaris spp. infecting juvenile horses. Parasites &amp; Vectors, 15(1), pp.1-17. <a href="https://doi.org/10.1186/s13071-022-05533-y" class="external-link">10.1186/s13071-022-05533-y</a></p>
 </blockquote>
 </div>
 </div>
