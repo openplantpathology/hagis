@@ -1,3 +1,9 @@
+
+# hagis 3.1.10
+
+* Skip _ALL_ tests on CRAN.
+Because, y'know, CRAN...
+
 # hagis 3.1.9
 
 ## "Bug" fixes
