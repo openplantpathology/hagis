@@ -1,4 +1,5 @@
 
+
 # test diversities table -------------------------------------------------------
 data(P_sojae_survey)
 diversities <- calculate_diversities(
@@ -11,14 +12,15 @@ diversities <- calculate_diversities(
 )
 
 test_that("individual_pathotypes() returns a pander object", {
-            expect_type(
-              capture.output(
-                individual_pathotypes(x = diversities, type = "text")),
-                        "character")
-          })
+  skip_on_cran()
+  expect_type(
+    capture.output(
+      individual_pathotypes(x = diversities, type = "text")), "character")
+})
 
 test_that("individual_pathotypes() stops if object is not hagis.diversities
           object", {
+            skip_on_cran()
             expect_error(individual_pathotypes("y"),
                          regexp = "This is not a hagis.diversities object.")
           })
