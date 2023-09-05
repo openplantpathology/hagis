@@ -99,10 +99,10 @@ citation("hagis")
     ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
     ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
     ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
+    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (2023). _hagis: Analysis of
     ##   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
     ##   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
-    ##   R package version 3.1.7.9000,
+    ##   R package version 3.1.6,
     ##   <https://openplantpathology.github.io/hagis/>.
     ## 
     ## To see these entries in BibTeX format, use 'print(<citation>,
