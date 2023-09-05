@@ -19,19 +19,16 @@ diversities <- calculate_diversities(
 )
 
 test_that("internal checker doesn't fail us", {
-  skip_on_cran()
   expect_is(Ps, "data.frame")
   expect_failure(expect_is(Ps, "data.table"))
 })
 
 test_that("diversity_table() returns a pander object", {
-  skip_on_cran()
   expect_type(capture.output(
     diversities_table(x = diversities, type = "text")), "character")
 })
 
 test_that("diversity_table() stops if object is not hagis.diversities object", {
-  skip_on_cran()
   expect_error(diversities_table("y"),
                regexp = "This is not a hagis.diversities object.")
           })

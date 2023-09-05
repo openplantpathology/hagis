@@ -11,7 +11,6 @@ complexities <- calculate_complexities(
 )
 
 test_that("calculate_complexities() works properly", {
-  skip_on_cran()
   expect_s3_class(complexities, "hagis.complexities")
   expect_length(complexities, 2)
   expect_named(complexities,
@@ -30,7 +29,6 @@ test_that("calculate_complexities() works properly", {
 })
 
 test_that("calculate_complexities() stops if lacking all params", {
-  skip_on_cran()
   expect_error(
     calculate_complexities(
       x = "y",
@@ -100,7 +98,6 @@ test_that("calculate_complexities() stops if lacking all params", {
 })
 
 test_that("print.summary.complexities() returns a proper summary", {
-  skip_on_cran()
   x <- capture.output(summary(complexities))
   expect_type(x, "character")
   expect_equal(x[[2]], "Mean of Complexities")
@@ -112,7 +109,6 @@ test_that("print.summary.complexities() returns a proper summary", {
 })
 
 test_that("print.hagis.complexities() returns a proper summary", {
-  skip_on_cran()
   x <- capture.output(print(complexities))
   expect_type(x, "character")
   expect_equal(x[[2]], "Grouped Complexities")
@@ -129,7 +125,6 @@ test_that("print.hagis.complexities() returns a proper summary", {
 })
 
 test_that("pander.summary.complexities returns a properly formatted table", {
-            skip_on_cran()
             x <- capture.output(pander(summary(complexities)))
             expect_type(x, "character")
             expect_equal(x[[1]], "")

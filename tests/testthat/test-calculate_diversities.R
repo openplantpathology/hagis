@@ -11,7 +11,6 @@ diversities <- calculate_diversities(
 )
 
 test_that("calculate_diversities() works properly", {
-  skip_on_cran()
   expect_s3_class(diversities, "hagis.diversities")
   expect_length(diversities, 9)
   expect_named(
@@ -31,7 +30,6 @@ test_that("calculate_diversities() works properly", {
 })
 
 test_that("calculate_diversities() stops if lacking all params", {
-  skip_on_cran()
   expect_error(
     calculate_diversities(
       x = "y",
@@ -102,7 +100,6 @@ test_that("calculate_diversities() stops if lacking all params", {
 
 
 test_that("calculate_diversities() stops if data are not valid", {
-  skip_on_cran()
   # add non-numeric data to `perc.susc`
   x <- P_sojae_survey[1, ]
   x[, 11] <- "X"
@@ -141,7 +138,6 @@ test_that("calculate_diversities() stops if data are not valid", {
 })
 
 test_that("print.hagis.diversities() returns a proper summary", {
-  skip_on_cran()
   x <- utils::capture.output(print(diversities))
   expect_type(x, "character")
   expect_equal(x[[2]], "hagis Diversities")
@@ -157,7 +153,6 @@ test_that("print.hagis.diversities() returns a proper summary", {
 
 test_that("pander.hagis.diversities returns a proper table of indices and
           caption", {
-            skip_on_cran()
             x <- utils::capture.output(pander::pander(diversities))
             expect_equal(
               head(x),
