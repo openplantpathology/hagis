@@ -33,6 +33,7 @@ visualize beta-diversity of pathotypes using \CRANpkg{vegan} and
 \CRANpkg{ape}.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Using the built-in data set, `P_sojae_survey`
 data(P_sojae_survey)
@@ -47,5 +48,5 @@ final_matrix <- create_binary_matrix(x = P_sojae_survey,
                                     gene = "Rps",
                                     perc_susc = "perc.susc")
 final_matrix
-
+\dontshow{\}) # examplesIf}
 }

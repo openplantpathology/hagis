@@ -7,7 +7,8 @@
 #'  \CRANpkg{ape}.
 #'  
 #' @inheritParams summarize_gene
-#' @examples
+#' @autoglobal
+#' @examplesIf interactive()
 #'
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)

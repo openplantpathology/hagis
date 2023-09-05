@@ -37,6 +37,7 @@ gene in the \code{gene} column}
 Calculate the distribution of susceptibilities by gene.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Using the built-in data set, `P_sojae_survey`
 data(P_sojae_survey)
 
@@ -50,5 +51,5 @@ susc <- summarize_gene(x = P_sojae_survey,
                        gene = "Rps",
                        perc_susc = "perc.susc")
 susc
-
+\dontshow{\}) # examplesIf}
 }

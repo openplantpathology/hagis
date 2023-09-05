@@ -67,6 +67,7 @@ of pathotypes.
 }
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Using the built-in data set, P_sojae_survey
 data(P_sojae_survey)
 
@@ -81,5 +82,5 @@ diversities <- calculate_diversities(x = P_sojae_survey,
                                      perc_susc = "perc.susc")
 
 diversities
-
+\dontshow{\}) # examplesIf}
 }

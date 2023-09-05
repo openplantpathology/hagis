@@ -37,7 +37,7 @@
 #'
 #' @inheritParams summarize_gene
 #' @autoglobal
-#' @examples
+#' @examplesIf interactive()
 #' # Using the built-in data set, P_sojae_survey
 #' data(P_sojae_survey)
 #'

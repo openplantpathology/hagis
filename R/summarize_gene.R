@@ -13,7 +13,8 @@
 #' @param perc_susc column providing the percent susceptible reactions.
 #'  `Character`.
 #'
-#' @examples
+#' @autoglobal
+#' @examplesIf interactive()
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)
 #'
@@ -90,6 +91,7 @@ ggplot2::autoplot
 #' @param ... passed to the chosen `geom(s)`
 #' @return A \CRANpkg{ggplot2} plot
 #' @method autoplot hagis.gene.summary
+#' @autoglobal
 #' @examplesIf interactive()
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)
@@ -104,7 +106,6 @@ ggplot2::autoplot
 #'
 #' # Visualize the summary of genes
 #' autoplot(susc, type = "percentage")
-#' @autoglobal
 #' @export
 
 autoplot.hagis.gene.summary <-

@@ -39,6 +39,7 @@ individual complexities}
 Calculate the distribution of susceptibilities by sample id.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 
 # Using the built-in data set, `P_sojae_survey`
 data(P_sojae_survey)
@@ -55,5 +56,5 @@ complexities <- calculate_complexities(x = P_sojae_survey,
 complexities
 
 summary(complexities)
-
+\dontshow{\}) # examplesIf}
 }

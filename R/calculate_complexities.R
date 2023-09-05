@@ -4,8 +4,8 @@
 #' @description Calculate the distribution of susceptibilities by sample id.
 #' 
 #' @inheritParams summarize_gene
-#' @examples
-#'
+#' @examplesIf interactive()
+#' 
 #' # Using the built-in data set, `P_sojae_survey`
 #' data(P_sojae_survey)
 #'
