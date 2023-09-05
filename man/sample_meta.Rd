@@ -23,8 +23,9 @@ Metadata to accompany internal data from a \emph{Phytophthora sojae} survey used
 for an example in the "Beta-diversity Analyses" vignette.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 data(sample_meta)
 sample_meta
-
+\dontshow{\}) # examplesIf}
 }
 \keyword{datasets}

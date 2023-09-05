@@ -20,6 +20,7 @@ The resulting object is a \link{pander} table (a text object for Markdown) for
 ease of use in reporting and viewing in the console.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Using the built-in data set, P_sojae_survey
 data(P_sojae_survey)
 
@@ -35,7 +36,7 @@ diversities <- calculate_diversities(x = P_sojae_survey,
 
 # print the diversities table
 diversities_table(diversities)
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=calculate_diversities]{calculate_diversities()}}, \code{\link[=individual_pathotypes]{individual_pathotypes()}}

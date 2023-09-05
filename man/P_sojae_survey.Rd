@@ -35,8 +35,9 @@ data(P_sojae_survey)
 Data from a \emph{Phytophthora sojae} survey
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 data(P_sojae_survey)
 P_sojae_survey
-
+\dontshow{\}) # examplesIf}
 }
 \keyword{datasets}

@@ -21,6 +21,7 @@ Print an object from a \code{hagis.diversities} object with individual pathotype
 console.
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 # Using the built-in data set, P_sojae_survey
 data(P_sojae_survey)
 
@@ -36,7 +37,7 @@ diversities <- calculate_diversities(x = P_sojae_survey,
 
 # print the diversities table
 individual_pathotypes(diversities)
-
+\dontshow{\}) # examplesIf}
 }
 \seealso{
 \code{\link[=calculate_diversities]{calculate_diversities()}}, \code{\link[=diversities_table]{diversities_table()}}

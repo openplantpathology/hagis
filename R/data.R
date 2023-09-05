@@ -30,7 +30,7 @@
 #' @source Data from an ongoing 2017 _Phytophthora sojae_ survey in Michigan,
 #' conducted by A. G. McCoy _et al._.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' data(P_sojae_survey)
 #' P_sojae_survey
 #'
@@ -56,7 +56,7 @@
 #' @source Data from an ongoing 2017 _Phytophthora sojae_ survey in Michigan,
 #' conducted by A. G. McCoy _et al._.
 #'
-#' @examples
+#' @examplesIf interactive()
 #' data(sample_meta)
 #' sample_meta
 #'
