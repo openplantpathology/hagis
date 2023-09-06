@@ -1,7 +1,22 @@
 # hagis (development version)
 
+## Minor changes
+
+* Put more guardrails in place for CRAN.
+Ensure that all tests are skipped on CRAN using a universal statement rather than `skip_on_cran()`.
+
+* Use `data.table::setDTthreads(1L)` at the top of both vignettes.
+
+* Use `@examplesIf interactive()` for all examples so that they don't run on CRAN.
+
+## Bug fixes
+
+* Removes a redundant zzz.R file that had globals in it.
+This revealed that one of the autoplot functions was missing the `@autoglobal` tag, which has been added.
 
 # hagis 3.1.10
+
+## Minor changes
 
 * Skip _ALL_ tests on CRAN.
 Because, y'know, CRAN...
