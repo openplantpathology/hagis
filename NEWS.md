@@ -1,4 +1,4 @@
-# hagis (development version)
+# hagis 3.1.11
 
 ## Minor changes
 
