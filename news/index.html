@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.11</span>
       </span>
     </div>
 
@@ -61,7 +61,24 @@
     </div>
 
     <div class="section level2">
+<h2 class="page-header" data-toc-text="3.1.11" id="hagis-3111">hagis 3.1.11<a class="anchor" aria-label="anchor" href="#hagis-3111"></a></h2>
+<div class="section level3">
+<h3 id="minor-changes-3-1-11">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-11"></a></h3>
+<ul><li><p>Put more guardrails in place for CRAN. Ensure that all tests are skipped on CRAN using a universal statement rather than <code>skip_on_cran()</code>.</p></li>
+<li><p>Use <code>data.table::setDTthreads(1L)</code> at the top of both vignettes.</p></li>
+<li><p>Use <code>@examplesIf interactive()</code> for all examples so that they don’t run on CRAN.</p></li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-3-1-11">Bug fixes<a class="anchor" aria-label="anchor" href="#bug-fixes-3-1-11"></a></h3>
+<ul><li>Removes a redundant zzz.R file that had globals in it. This revealed that one of the autoplot functions was missing the <code>@autoglobal</code> tag, which has been added.</li>
+</ul></div>
+</div>
+    <div class="section level2">
 <h2 class="page-header" data-toc-text="3.1.10" id="hagis-3110">hagis 3.1.10<a class="anchor" aria-label="anchor" href="#hagis-3110"></a></h2>
+<div class="section level3">
+<h3 id="minor-changes-3-1-10">Minor changes<a class="anchor" aria-label="anchor" href="#minor-changes-3-1-10"></a></h3>
+<ul><li>Skip <em>ALL</em> tests on CRAN. Because, y’know, CRAN…</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="3.1.9" id="hagis-319">hagis 3.1.9<a class="anchor" aria-label="anchor" href="#hagis-319"></a></h2>

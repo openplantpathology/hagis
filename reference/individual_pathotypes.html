@@ -20,7 +20,7 @@ console."><!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/ma
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">hagis</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">3.1.11</span>
       </span>
     </div>
 
@@ -98,46 +98,11 @@ console.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># Using the built-in data set, P_sojae_survey</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span> <span class="co"># interactive()</span></span></span>
+<span class="r-in"><span><span class="co"># Using the built-in data set, P_sojae_survey</span></span></span>
 <span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/utils/data.html" class="external-link">data</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">P_sojae_survey</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Isolate         Line         Rps Total HR (1) Lesion (2)</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:       1     Williams susceptible    10      0          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:       1       Harlon      Rps 1a    10      4          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:       1 Harosoy 13xx      Rps 1b     8      0          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:       1     L75-3735      Rps 1c    10     10          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:       1    PI 103091      Rps 1d     9      2          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 290:      21   PRX 145-48      Rps 3c     8      3          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 291:      21     L85-2352       Rps 4    10      3          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 292:      21     L85-3059       Rps 5    10      0          4</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 293:      21 Harosoy 62XX       Rps 6     8      2          1</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 294:      21      Harosoy       Rps 7    10      0          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:                       0       10         10           0       100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:                       0        6          6           4        60</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:                       0        8          8           0       100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:                       0        0          0          10         0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:                       1        6          7           2        78</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---                                                                  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 290:                       0        4          5           3        63</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 291:                       4        2          7           3        70</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 292:                       0        6         10           0       100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 293:                       0        5          6           2        75</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 294:                       0       10         10           0       100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>      perc.resis</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   1:          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   2:         40</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   3:          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   4:        100</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   5:         22</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  ---           </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 290:         38</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 291:         30</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 292:          0</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 293:         25</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 294:          0</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># calculate susceptibilities with a 60 % cutoff value</span></span></span>
 <span class="r-in"><span><span class="va">diversities</span> <span class="op">&lt;-</span> <span class="fu"><a href="calculate_diversities.html">calculate_diversities</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">P_sojae_survey</span>,</span></span>
@@ -149,92 +114,7 @@ console.</p>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="co"># print the diversities table</span></span></span>
 <span class="r-in"><span><span class="fu">individual_pathotypes</span><span class="op">(</span><span class="va">diversities</span><span class="op">)</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  Sample             Pathotype            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -------- --------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    1       Rps 1a, Rps 1b, Rps 1d, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 2, Rps 3a, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  5, Rps 6, Rps 7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    10     Rps 1a, Rps 1c, Rps 3b, Rps 5, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                       Rps 7              </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    11     Rps 1a, Rps 1c, Rps 3b, Rps 5, </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                    Rps 6, Rps 7          </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    12      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 6, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    13      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             1d, Rps 1k, Rps 3b, Rps 7    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    14      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 3b, Rps 5, Rps 6, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    15      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               4, Rps 5, Rps 6, Rps 7     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    16      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              1k, Rps 3b, Rps 5, Rps 7    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    17      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  4, Rps 5, Rps 7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    18      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>            1d, Rps 1k, Rps 3a, Rps 3b,   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                Rps 5, Rps 6, Rps 7       </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    19      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3a, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              3b, Rps 3c, Rps 6, Rps 7    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    2       Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 2, Rps 3b, Rps 3c, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  4, Rps 6, Rps 7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    20      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3a, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>              3b, Rps 3c, Rps 5, Rps 7    </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    21      Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3a, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           3b, Rps 3c, Rps 4, Rps 5, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                      6, Rps 7            </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    3       Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  4, Rps 6, Rps 7         </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    4       Rps 1a, Rps 1c, Rps 1d, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 2, Rps 3b, Rps 5, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    5       Rps 1a, Rps 1c, Rps 1d, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 2, Rps 3b, Rps 6, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    6       Rps 1a, Rps 1c, Rps 1d, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1k, Rps 2, Rps 3b, Rps 5, Rps  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    7       Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    8       Rps 1a, Rps 1b, Rps 1c, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           1d, Rps 1k, Rps 2, Rps 3b, Rps </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                         7                </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    9       Rps 1a, Rps 1c, Rps 1d, Rps   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>                  3b, Rps 5, Rps 7        </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> -----------------------------------------</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
-<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </div>
