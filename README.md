@@ -41,7 +41,8 @@ of *P. sojae*.
 However, the package is not only useful for *P. sojae* work. It was
 built to be useful for other plant pathogen gene-for-gene interaction
 systems, *e.g.*, wheat rusts, but it has been used in animal science as
-well, [Cain *et al.* 2022](https://doi.org/10.1186/s13071-022-05533-y).
+well, see [Cain *et al.*
+2022](https://doi.org/10.1186/s13071-022-05533-y).
 
 The goal of this package is to provide all the necessary analyses needed
 when conducting a pathotype surveys, including: distribution of

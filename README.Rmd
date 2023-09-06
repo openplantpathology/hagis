@@ -26,7 +26,7 @@ However, repeated use of resistance genes can cause populations to adapt over ti
 To determine current effectiveness of resistance genes for managing _P. sojae_, state-wide surveys (in the US) are conducted to determine the pathotype (previously referred to as "race") structure within sampled population of _P. sojae_.
 
 However, the package is not only useful for _P. sojae_ work.
-It was built to be useful for other plant pathogen gene-for-gene interaction systems, _e.g._, wheat rusts, but it has been used in animal science as well, [Cain _et al._ 2022](https://doi.org/10.1186/s13071-022-05533-y).
+It was built to be useful for other plant pathogen gene-for-gene interaction systems, _e.g._, wheat rusts, but it has been used in animal science as well, see [Cain _et al._ 2022](https://doi.org/10.1186/s13071-022-05533-y).
 
 The goal of this package is to provide all the necessary analyses needed when conducting a pathotype surveys, including: distribution of susceptibilities (effective and non-effective resistance genes), distribution of pathotype complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes in an efficient and reproducible manner.
 
