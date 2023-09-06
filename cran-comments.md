@@ -5,7 +5,7 @@
 
 ## Notes
 
-Frustratingly, both the URLs, https://doi.org/10.1046/j.1365-3059.1999.00325.x (the original) and https://doi.org/10.1094/MPMI-07-19-0180-A (this work), are reported as Errors but both do resolve properly and should not be reported as errors; they are valid.
+Frustratingly, both the URLs, <https://doi.org/10.1046/j.1365-3059.1999.00325.x> (the original) and <https://doi.org/10.1094/MPMI-07-19-0180-A> (this work), are reported as Errors but both do resolve properly and should not be reported as errors; they are valid.
 
 ## R CMD check results
 
