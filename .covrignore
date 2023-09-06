@@ -1,2 +1,0 @@
-# exclude startup file with global variables
-R/zzz.R
