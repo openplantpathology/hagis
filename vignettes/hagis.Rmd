@@ -51,7 +51,7 @@ To help ensure that the proper data are used in calculations, the user is asked 
 
 ***
 
-  ## Function Arguments Used in {hagis}
+## Function Arguments Used in {hagis}
 
 We have striven to make {hagis} as intuitive to use as possible.
 Part of that means that we have used the same arguments for the three main functions, `summarize_gene()`, `calculate_complexities()` and `calculate_diversities()`.
