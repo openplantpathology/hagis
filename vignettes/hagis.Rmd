@@ -202,7 +202,7 @@ $$D = -\sum_{i = 1}^{R} p_i \log p_i$$ Where $p_i$ is the proportional abundance
 * Simpson diversity index values range from 0 to 1, 1 represents high diversity and 0 represents no diversity.
 Where diversity is calculated as: $$D = \sum_{i = 1}^{R} p_i^2$$
 
-* Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a more even distribution of each pathoype's frequency within the population.
+* Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a more even distribution of each pathotype's frequency within the population.
 Where Evenness is calculated as: $$D = \frac{H'}{log(Np)}$$ where $H'$ is the Shannon diversity index and $Np$ is the number of pathotypes.
 
 ```{r calculate-diversities, echo=TRUE}
