@@ -86,7 +86,7 @@ Pathotype Complexities, Distributions and Diversity</h1>
                         <h4 data-toc-skip class="author">Austin McCoy
 and Zachary Noel</h4>
             
-            <h4 data-toc-skip class="date">2024-01-30</h4>
+            <h4 data-toc-skip class="date">2024-01-31</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/HEAD/vignettes/hagis.Rmd" class="external-link"><code>vignettes/hagis.Rmd</code></a></small>
       <div class="hidden name"><code>hagis.Rmd</code></div>
@@ -109,6 +109,7 @@ automatically when you load the {hagis} package.</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://github.com/openplantpathology/hagis" class="external-link">"hagis"</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    Isolate         Line         Rps Total HR (1) Lesion (2)</span></span>
+<span><span class="co">#&gt;      &lt;int&gt;       &lt;char&gt;      &lt;char&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1:       1     Williams susceptible    10      0          0</span></span>
 <span><span class="co">#&gt; 2:       1       Harlon      Rps 1a    10      4          0</span></span>
 <span><span class="co">#&gt; 3:       1 Harosoy 13xx      Rps 1b     8      0          0</span></span>
@@ -116,6 +117,7 @@ automatically when you load the {hagis} package.</p>
 <span><span class="co">#&gt; 5:       1    PI 103091      Rps 1d     9      2          0</span></span>
 <span><span class="co">#&gt; 6:       1  Williams 82      Rps 1k    10      0          0</span></span>
 <span><span class="co">#&gt;    Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc perc.resis</span></span>
+<span><span class="co">#&gt;                      &lt;int&gt;    &lt;int&gt;      &lt;int&gt;       &lt;int&gt;     &lt;int&gt;      &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1:                       0       10         10           0       100          0</span></span>
 <span><span class="co">#&gt; 2:                       0        6          6           4        60         40</span></span>
 <span><span class="co">#&gt; 3:                       0        8          8           0       100          0</span></span>
@@ -135,6 +137,7 @@ third, <code>x</code>, is where to look and make the changes.</p>
 <span>       x <span class="op">=</span> <span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    Isolate         Line         Rps Total HR (1) Lesion (2)</span></span>
+<span><span class="co">#&gt;      &lt;int&gt;       &lt;char&gt;      &lt;char&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1:       1     Williams susceptible    10      0          0</span></span>
 <span><span class="co">#&gt; 2:       1       Harlon          1a    10      4          0</span></span>
 <span><span class="co">#&gt; 3:       1 Harosoy 13xx          1b     8      0          0</span></span>
@@ -142,6 +145,7 @@ third, <code>x</code>, is where to look and make the changes.</p>
 <span><span class="co">#&gt; 5:       1    PI 103091          1d     9      2          0</span></span>
 <span><span class="co">#&gt; 6:       1  Williams 82          1k    10      0          0</span></span>
 <span><span class="co">#&gt;    Lesion to cotyledon (3) Dead (4) total.susc total.resis perc.susc perc.resis</span></span>
+<span><span class="co">#&gt;                      &lt;int&gt;    &lt;int&gt;      &lt;int&gt;       &lt;int&gt;     &lt;int&gt;      &lt;int&gt;</span></span>
 <span><span class="co">#&gt; 1:                       0       10         10           0       100          0</span></span>
 <span><span class="co">#&gt; 2:                       0        6          6           4        60         40</span></span>
 <span><span class="co">#&gt; 3:                       0        8          8           0       100          0</span></span>
@@ -237,6 +241,7 @@ the isolates tested which are pathogenic on each gene
 <span></span>
 <span><span class="va">Rps.summary</span></span>
 <span><span class="co">#&gt;            gene N_virulent_isolates percent_pathogenic</span></span>
+<span><span class="co">#&gt;          &lt;char&gt;               &lt;num&gt;              &lt;num&gt;</span></span>
 <span><span class="co">#&gt;  1: susceptible                  21          100.00000</span></span>
 <span><span class="co">#&gt;  2:          1a                  21          100.00000</span></span>
 <span><span class="co">#&gt;  3:          1b                  15           71.42857</span></span>
@@ -388,6 +393,7 @@ genes.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Grouped Complexities</span></span>
 <span><span class="co">#&gt;     complexity frequency distribution</span></span>
+<span><span class="co">#&gt;         &lt;fctr&gt;     &lt;int&gt;        &lt;int&gt;</span></span>
 <span><span class="co">#&gt;  1:          1         0            0</span></span>
 <span><span class="co">#&gt;  2:          2         0            0</span></span>
 <span><span class="co">#&gt;  3:          3         0            0</span></span>
@@ -405,6 +411,7 @@ genes.</p>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Individual Complexities</span></span>
 <span><span class="co">#&gt;     sample N_samp</span></span>
+<span><span class="co">#&gt;     &lt;char&gt;  &lt;num&gt;</span></span>
 <span><span class="co">#&gt;  1:      1     10</span></span>
 <span><span class="co">#&gt;  2:      2     10</span></span>
 <span><span class="co">#&gt;  3:      3     10</span></span>
