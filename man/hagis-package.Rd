@@ -24,7 +24,7 @@ Authors:
 \itemize{
   \item Austin G. McCoy \email{mccoyaus@msu.edu} (\href{https://orcid.org/0000-0003-2483-4184}{ORCID}) [conceptor]
   \item Zachary Noel \email{noelzach@msu.edu} (\href{https://orcid.org/0000-0001-6375-8300}{ORCID}) [conceptor]
-  \item Martin Chilvers \email{chilvers@msu.edu } (\href{https://orcid.org/0000-0001-8832-1666}{ORCID}) [thesis advisor]
+  \item Martin Chilvers \email{chilvers@msu.edu} (\href{https://orcid.org/0000-0001-8832-1666}{ORCID}) [thesis advisor]
 }
 
 Other contributors:

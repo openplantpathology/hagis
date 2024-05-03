@@ -3,7 +3,7 @@
   "@type": "SoftwareSourceCode",
   "identifier": "hagis",
   "description": "Analysis of plant pathogen pathotype survey data. Functions provided calculate distribution of susceptibilities, distribution of complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes. This package is meant to be a direct replacement for Herrmann, Löwer and Schachtel's (1999) <doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet, 'HaGiS', previously used for pathotype analysis.",
-  "name": "hagis: Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity",
+  "name": "hagis: Analysis of Plant Pathogen Pathotype Complexities, Distributions\n    and Diversity",
   "relatedLink": ["https://openplantpathology.github.io/hagis/", "https://CRAN.R-project.org/package=hagis"],
   "codeRepository": "https://github.com/openplantpathology/hagis",
   "issueTracker": "https://github.com/openplantpathology/hagis/issues",
@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.1 (2023-06-16)",
+  "runtimePlatform": "R version 4.4.0 (2024-04-24)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -47,7 +47,7 @@
       "@type": "Person",
       "givenName": "Martin",
       "familyName": "Chilvers",
-      "email": "chilvers@msu.edu ",
+      "email": "chilvers@msu.edu",
       "@id": "https://orcid.org/0000-0001-8832-1666"
     }
   ],
@@ -62,7 +62,7 @@
       "@type": "Person",
       "givenName": "Martin",
       "familyName": "Chilvers",
-      "email": "chilvers@msu.edu ",
+      "email": "chilvers@msu.edu",
       "@id": "https://orcid.org/0000-0001-8832-1666"
     }
   ],
@@ -144,6 +144,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "roxyglobals",
+      "name": "roxyglobals",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=roxyglobals"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "provider": {
@@ -156,18 +168,6 @@
     },
     {
       "@type": "SoftwareApplication",
-      "identifier": "vegan",
-      "name": "vegan",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=vegan"
-    },
-    {
-      "@type": "SoftwareApplication",
       "identifier": "vdiffr",
       "name": "vdiffr",
       "provider": {
@@ -177,18 +177,6 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=vdiffr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "roxyglobals",
-      "name": "roxyglobals",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=roxyglobals"
     }
   ],
   "softwareRequirements": {
@@ -248,8 +236,8 @@
   },
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
-  "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "plant-pathogens", "r", "pathogen-complexity", "pathogen-distribution", "pathogen-diversity", "phythophthora", "assessment-scale", "differential-set", "virulence-analysis"],
-  "fileSize": "295.481KB",
+  "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
+  "fileSize": "294.41KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
