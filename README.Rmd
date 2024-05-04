@@ -4,29 +4,26 @@ output: github_document
 ---
 
 <!-- badges: start -->
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![CRAN\_Status\_Badge](https://www.r-pkg.org/badges/version/hagis)](https://cran.r-project.org/package=hagis)
-[![codecov](https://codecov.io/gh/openplantpathology/hagis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/openplantpathology/hagis)
-[![DOI](https://zenodo.org/badge/164751172.svg)](https://zenodo.org/badge/latestdoi/164751172)
-[![test-coverage](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml)
+
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/hagis)](https://cran.r-project.org/package=hagis) [![codecov](https://codecov.io/gh/openplantpathology/hagis/graph/badge.svg?token=aPbqxd41NO)](https://codecov.io/gh/openplantpathology/hagis) [![DOI](https://zenodo.org/badge/164751172.svg)](https://zenodo.org/badge/latestdoi/164751172) [![test-coverage](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml)
+
 <!-- badges: end -->
 
 ## Introduction
 
 The goal of {hagis} is to provide analysis tools for plant pathogens with gene-for-gene interactions in the R programming language that the original [Habgood-Gilmour Spreadsheet, HaGiS](https://doi.org/10.1046/j.1365-3059.1999.00325.x), (Herrmann, Löwer and Schachtel) provided.
 
-This R package has been published in _MPMI_ as a resource announcement [(McCoy _et al._ 2019)](https://doi.org/10.1094/MPMI-07-19-0180-A).
+This R package has been published in *MPMI* as a resource announcement [(McCoy *et al.* 2019)](https://doi.org/10.1094/MPMI-07-19-0180-A).
 You may wish to refer to that paper for further information on this package.
 
 ## Overview
 
-{hagis} was initially created for _Phytophthora sojae_ surveys by Dr. Austin McCoy and Dr. Zachary Noel at Michigan State University in the US, where the disease has been managed primarily via deployment of resistance genes
-(_Rps_ genes, resistance to _P. sojae_) in commercial soybean cultivars and by the application of fungicide seed treatments.
+{hagis} was initially created for *Phytophthora sojae* surveys by Dr. Austin McCoy and Dr. Zachary Noel at Michigan State University in the US, where the disease has been managed primarily via deployment of resistance genes (*Rps* genes, resistance to *P. sojae*) in commercial soybean cultivars and by the application of fungicide seed treatments.
 However, repeated use of resistance genes can cause populations to adapt over time rendering these resistance genes ineffective.
-To determine current effectiveness of resistance genes for managing _P. sojae_, state-wide surveys (in the US) are conducted to determine the pathotype (previously referred to as "race") structure within sampled population of _P. sojae_.
+To determine current effectiveness of resistance genes for managing *P. sojae*, state-wide surveys (in the US) are conducted to determine the pathotype (previously referred to as "race") structure within sampled population of *P. sojae*.
 
-However, the package is not only useful for _P. sojae_ work.
-It was built to be useful for other plant pathogen gene-for-gene interaction systems, _e.g._, wheat rusts, but it has been used in animal science as well, see [Cain _et al._ 2022](https://doi.org/10.1186/s13071-022-05533-y).
+However, the package is not only useful for *P. sojae* work.
+It was built to be useful for other plant pathogen gene-for-gene interaction systems, *e.g.*, wheat rusts, but it has been used in animal science as well, see [Cain *et al.* 2022](https://doi.org/10.1186/s13071-022-05533-y).
 
 The goal of this package is to provide all the necessary analyses needed when conducting a pathotype surveys, including: distribution of susceptibilities (effective and non-effective resistance genes), distribution of pathotype complexities with statistics, pathotype frequency distribution, as well as diversity indices for pathotypes in an efficient and reproducible manner.
 
