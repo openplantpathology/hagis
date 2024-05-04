@@ -177,6 +177,18 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=vdiffr"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "vegan",
+      "name": "vegan",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=vegan"
     }
   ],
   "softwareRequirements": {
@@ -237,7 +249,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "294.41KB",
+  "fileSize": "294.779KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -315,6 +327,6 @@
   ],
   "releaseNotes": "https://github.com/openplantpathology/hagis/blob/master/NEWS.md",
   "readme": "https://github.com/openplantpathology/hagis/blob/main/README.md",
-  "contIntegration": ["https://github.com/openplantpathology/hagis/actions", "https://app.codecov.io/gh/openplantpathology/hagis"],
+  "contIntegration": ["https://app.codecov.io/gh/openplantpathology/hagis", "https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
