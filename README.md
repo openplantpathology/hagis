@@ -1,5 +1,7 @@
-hagis
-================
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# {hagis}: Analysis of Plant (and Animal) Pathogen Pathotype Complexities, Distributions and Diversity
 
 <!-- badges: start -->
 
@@ -90,26 +92,25 @@ When you use {hagis}, please cite by using:
 
 ``` r
 citation("hagis")
+#> To cite package 'hagis' in publications use:
+#> 
+#>   McCoy AG, Noel ZA, Sparks AH, Chilvers M (2019). "hagis, an R Package
+#>   Resource for Pathotype Analysis of Phytophthora sojae Populations
+#>   Causing Stem and Root Rot of Soybean." _Molecular Plant-Microbe
+#>   Interactions_, *32*(12), 1574–1576. doi:10.1094/MPMI-07-19-0180-A
+#>   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
+#>   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
+#> 
+#>   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
+#>   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
+#>   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
+#>   R package version 3.1.11.9000,
+#>   <https://openplantpathology.github.io/hagis/>.
+#> 
+#> To see these entries in BibTeX format, use 'print(<citation>,
+#> bibtex=TRUE)', 'toBibtex(.)', or set
+#> 'options(citation.bibtex.max=999)'.
 ```
-
-    ## To cite package 'hagis' in publications use:
-    ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers M (2019). "hagis, an R Package
-    ##   Resource for Pathotype Analysis of Phytophthora sojae Populations
-    ##   Causing Stem and Root Rot of Soybean." _Molecular Plant-Microbe
-    ##   Interactions_, *32*(12), 1574–1576. doi:10.1094/MPMI-07-19-0180-A
-    ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
-    ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
-    ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
-    ##   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
-    ##   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
-    ##   R package version 3.1.11.9000,
-    ##   <https://openplantpathology.github.io/hagis/>.
-    ## 
-    ## To see these entries in BibTeX format, use 'print(<citation>,
-    ## bibtex=TRUE)', 'toBibtex(.)', or set
-    ## 'options(citation.bibtex.max=999)'.
 
 ### Code of Conduct
 
