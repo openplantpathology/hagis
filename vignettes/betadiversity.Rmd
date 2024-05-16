@@ -166,8 +166,7 @@ ggplot(data = princoor.pathotype.data, aes(x = X, y = Y)) +
     legend.text = element_text(face = "bold", size = 10),
     legend.key.size = unit(1, 'lines')
   ) +
-  stat_ellipse(data = princoor.pathotype.data, aes(x = X, y = Y),
-               level = 0.95) +
+  stat_ellipse(data = princoor.pathotype.data, aes(x = X, y = Y), level = 0.95) +
   ggtitle("Pathotype Jaccard Distances PCOA")
 ```
 
