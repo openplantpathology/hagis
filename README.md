@@ -8,11 +8,11 @@
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Codecov test
+coverage](https://codecov.io/gh/openplantpathology/hagis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/openplantpathology/hagis?branch=main)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/hagis)](https://cran.r-project.org/package=hagis)
-[![codecov](https://codecov.io/gh/openplantpathology/hagis/graph/badge.svg?token=aPbqxd41NO)](https://codecov.io/gh/openplantpathology/hagis)
 [![DOI](https://zenodo.org/badge/164751172.svg)](https://zenodo.org/badge/latestdoi/164751172)
 [![test-coverage](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml)
-
 <!-- badges: end -->
 
 ## Introduction
