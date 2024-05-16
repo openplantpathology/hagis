@@ -2,6 +2,7 @@ ANOSIM
 Autoplot
 CITATION's
 CRAN's
+Codecov
 DAQ
 DOI
 Finnerty
@@ -32,13 +33,12 @@ ROxygen
 Rmd
 Schachtel
 Schachtel's
+Standardise
 Suri
 Zhian
 al
 analysing
 autoplot
-centroids
-codecov
 conceptor
 covr
 doi
@@ -55,6 +55,8 @@ pathotype
 pathotype's
 pathotypes
 pathotyping
+pathoype's
+pathoypes
 phytophthora
 roxyglobals
 sd
