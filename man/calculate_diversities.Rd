@@ -23,7 +23,9 @@ being tested. \code{Character}.}
 \code{Character}.}
 }
 \value{
-hagis.diversities object containing
+a \code{hagis.diversities} object.
+
+A \code{hagis.diversities} object is a \code{list} containing:
 \itemize{
 \item Number of Samples
 \item Number of Pathotypes

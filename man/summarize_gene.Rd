@@ -23,7 +23,8 @@ being tested. \code{Character}.}
 \code{Character}.}
 }
 \value{
-returns an object of \link{class} \code{hagis.gene.summary}
+a \code{hagis.gene.summary} object.
+
 An object of class \code{hagis.gene.summary} is a\cr \code{\link[data.table:data.table]{data.table::data.table()}}
 containing the following components columns
 \describe{

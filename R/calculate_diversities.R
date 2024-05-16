@@ -54,7 +54,9 @@
 #' diversities
 #'
 #' @export calculate_diversities
-#' @return hagis.diversities object containing
+#' @return a `hagis.diversities` object.
+#' 
+#' A `hagis.diversities` object is a `list` containing:
 #'   * Number of Samples
 #'   * Number of Pathotypes
 #'   * Simple Diversity Index

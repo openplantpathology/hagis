@@ -22,8 +22,7 @@
 #'
 #' summary(complexities)
 #'
-#' @return `calculate_complexities` returns an object of class
-#' `hagis.complexities`.
+#' @return An object of class `hagis.complexities`.
 #'
 #' An object of class `hagis.complexities` is a `list` containing the following
 #'  components

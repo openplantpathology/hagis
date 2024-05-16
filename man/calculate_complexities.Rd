@@ -23,8 +23,7 @@ being tested. \code{Character}.}
 \code{Character}.}
 }
 \value{
-\code{calculate_complexities} returns an object of class
-\code{hagis.complexities}.
+An object of class \code{hagis.complexities}.
 
 An object of class \code{hagis.complexities} is a \code{list} containing the following
 components

@@ -23,8 +23,7 @@ being tested. \code{Character}.}
 \code{Character}.}
 }
 \value{
-\code{create_binary_matrix} returns a binary matrix of pathotype data as
-a \link{matrix} object
+a binary matrix of pathotype data
 }
 \description{
 Creates a binary data matrix from pathotype data representing

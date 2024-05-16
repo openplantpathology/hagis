@@ -29,7 +29,8 @@
 #'                        perc_susc = "perc.susc")
 #' susc
 #'
-#' @return  returns an object of [class] `hagis.gene.summary`
+#' @return a `hagis.gene.summary` object.
+#' 
 #' An object of class `hagis.gene.summary` is a\cr [data.table::data.table()]
 #'  containing the following components columns
 #'   \describe{
