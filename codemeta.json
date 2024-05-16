@@ -249,7 +249,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "294.779KB",
+  "fileSize": "295.677KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -327,6 +327,6 @@
   ],
   "releaseNotes": "https://github.com/openplantpathology/hagis/blob/master/NEWS.md",
   "readme": "https://github.com/openplantpathology/hagis/blob/main/README.md",
-  "contIntegration": ["https://app.codecov.io/gh/openplantpathology/hagis", "https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml"],
+  "contIntegration": ["https://codecov.io/gh/openplantpathology/hagis", "https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active"
 }
