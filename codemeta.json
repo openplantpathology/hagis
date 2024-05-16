@@ -49,6 +49,12 @@
       "familyName": "Chilvers",
       "email": "chilvers@msu.edu",
       "@id": "https://orcid.org/0000-0001-8832-1666"
+    },
+    {
+      "@type": "Person",
+      "givenName": "Jari",
+      "familyName": "Oksanen",
+      "email": "jhoksane@gmail.com"
     }
   ],
   "contributor": [
@@ -249,7 +255,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "295.83KB",
+  "fileSize": "296.105KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
