@@ -1,7 +1,7 @@
 Package: hagis
 Title: Analysis of Plant Pathogen Pathotype Complexities, Distributions
     and Diversity
-Version: 3.1.11.9000
+Version: 3.1.12
 Authors@R: c(
     person("Austin G.", "McCoy", , "mccoyaus@msu.edu", role = c("aut", "ccp"),
            comment = c(ORCID = "0000-0003-2483-4184")),
@@ -11,6 +11,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-0061-8359")),
     person("Martin", "Chilvers", , "chilvers@msu.edu", role = c("aut", "ths"),
            comment = c(ORCID = "0000-0001-8832-1666")),
+    person("Jari", "Oksanen", , "jhoksane@gmail.com", role = "aut",
+           comment = "Contributed patch to update betadiversity vignette and fixed bug therein as well."),
     person("Zhian N.", "Kamvar", role = c("ctb", "rev"),
            comment = c(ORCID = "0000-0003-1458-7108")),
     person("Michigan Soybean Promotion Committee", role = "fnd"),
