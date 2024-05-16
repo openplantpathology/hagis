@@ -1,4 +1,10 @@
-# hagis (development version)
+# hagis 3.1.12
+
+## Bug fixes
+
+* Fixes examples in "Beta-diversity Analysis with hagis" vignette to work with new versions of {vegan}
+
+* Corrects {vegan} example where $R^2$ was incorrectly reported.
 
 # hagis 3.1.11
 
