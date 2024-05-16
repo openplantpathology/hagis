@@ -249,7 +249,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "295.677KB",
+  "fileSize": "295.656KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
