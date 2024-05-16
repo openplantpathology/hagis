@@ -244,14 +244,14 @@ PERMANOVA tests if the centroids, similar to means, of each group are significan
 Likewise, an $R^2$ statistic is calculated, showing the percentage of the variance explained by the groups.
 
 ```{r adonis}
-pathotype.adonis <- adonis(P_sojae_survey.matrix.jaccard ~ groups)
+pathotype.adonis <- adonis2(P_sojae_survey.matrix.jaccard ~ groups)
 
 pathotype.adonis
 ```
 
-The PERMANOVA identified no significant differences between the groups centroids, or means (*p* = `r pathotype.adonis[[1]][[6]][[1]]`).
+The PERMANOVA identified no significant differences between the groups centroids, or means (*p* = `r pathotype.adonis[[5]][[1]]`).
 In addition to identifying significance between group centroids, the PERMANOVA also calculates how much of the variance can be explained by the specified groups (see the $R^2$ column in the PERMANOVA output).
-In this case, the $R^2$ is `r pathotype.adonis[[1]][[6]][[1]]`, so `r round(pathotype.adonis[[1]][[6]][[1]], 3) * 100`% of the variance is explained by the groups used in analysis.
+In this case, the $R^2$ is `r pathotype.adonis[[3]][[1]]`, so `r round(pathotype.adonis[[3]][[1]], 3) * 100`% of the variance is explained by the groups used in analysis.
 Based on the PERMANOVA results we can conclude that these two groups are not different from each other and likely have similar pathotypes to each other.
 
 ## Analysis of Similarity (ANOSIM)
