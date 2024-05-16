@@ -21,7 +21,7 @@ data.table::setDTthreads(1L)
 
 ## Getting Started With {hagis}
 
-The following examples are based on a dataset from Michigan State University _Phytophthora sojae_ surveys for soybean phytophthora root rot pathotyping efforts.
+The following examples are based on a dataset from Michigan State University *Phytophthora sojae* surveys for soybean phytophthora root rot pathotyping efforts.
 
 First you'll want to load in your data set, for right now let's use a practice data set made for the {hagis} package, named `P_sojae_survey`.
 The data set is available in your R session automatically when you load the {hagis} package.
@@ -45,11 +45,11 @@ head(P_sojae_survey)
 ```
 
 This practice data set contains 21 isolates', `Isolate`, virulence data on a set of 14 differential soybean cultivars, `Line`.
-This package uses the _percentage_ of susceptible, inoculated, plants to determine effective resistance genes, pathotype diversity and frequency, as well as individual isolates pathotypes.
+This package uses the *percentage* of susceptible, inoculated, plants to determine effective resistance genes, pathotype diversity and frequency, as well as individual isolates pathotypes.
 
 To help ensure that the proper data are used in calculations, the user is asked to provide some information that instruct {hagis} about what data to use.
 
-***
+------------------------------------------------------------------------
 
 ## Function Arguments Used in {hagis}
 
@@ -57,19 +57,19 @@ We have striven to make {hagis} as intuitive to use as possible.
 Part of that means that we have used the same arguments for the three main functions, `summarize_gene()`, `calculate_complexities()` and `calculate_diversities()`.
 Each of these functions take the same arguments:
 
-* `x` this is your data set name, _e.g._, `P_sojae_survey` from the example above, allows for the function to identify where it will be pulling these columns (and their associated row values) from to use (_i.e._ your data collection Excel spreadsheet)
+-   `x` this is your data set name, *e.g.*, `P_sojae_survey` from the example above, allows for the function to identify where it will be pulling these columns (and their associated row values) from to use (*i.e.* your data collection Excel spreadsheet)
 
-* `cutoff` this value sets the cutoff for susceptible reactions.
-For example, `cutoff = 60` means that all genes with 60% or more of the plants rated susceptible will be treated as susceptible.
-You can change this to whatever percentage you require for your study.
+-   `cutoff` this value sets the cutoff for susceptible reactions.
+    For example, `cutoff = 60` means that all genes with 60% or more of the plants rated susceptible will be treated as susceptible.
+    You can change this to whatever percentage you require for your study.
 
-* `control` specifies the value used in the `gene` column to denote a susceptible control used in the study
+-   `control` specifies the value used in the `gene` column to denote a susceptible control used in the study
 
-* `sample` specifies the column header for the column which identifies the isolates tested
+-   `sample` specifies the column header for the column which identifies the isolates tested
 
-* `gene` specifies the column header for the column which identifies the genes tested
+-   `gene` specifies the column header for the column which identifies the genes tested
 
-* `perc_susc` specifies the column header for the column which identifies the percent susceptible plants for each gene
+-   `perc_susc` specifies the column header for the column which identifies the percent susceptible plants for each gene
 
 Ordinarily you would use functions in {hagis} or other R packages like this:
 
@@ -100,11 +100,11 @@ hagis_args <- list(
 
 Now that we have a list of arguments, we can now save time entering the same data for each function and also avoid typos or entering different cutoff values, etc. between the functions.
 
-***
+------------------------------------------------------------------------
 
 ## Determination of Effective Resistance Genes
 
-Below is an example of tables and graphics that can be produced using the `summarize_gene()` function to identify effective resistance genes tested against the sampled _Phytophthora sojae_ population.
+Below is an example of tables and graphics that can be produced using the `summarize_gene()` function to identify effective resistance genes tested against the sampled *Phytophthora sojae* population.
 
 The `summarize_gene()` function allows you to produce a detailed table showing the number of virulent isolates (`N_virulent_isolates`), as well as offering a percentage of the isolates tested which are pathogenic on each gene (`percent_pathogenic`).
 
@@ -114,7 +114,7 @@ Rps.summary <- do.call(summarize_gene, hagis_args)
 Rps.summary
 ```
 
-Using the _pander_ library we can make the table much more attractive in RMarkdown.
+Using the *pander* library we can make the table much more attractive in RMarkdown.
 
 ```{r pander-print-Rps, echo=TRUE}
 library(pander)
@@ -136,7 +136,7 @@ autoplot(Rps.summary, type = "percentage")
 autoplot(Rps.summary, type = "count")
 ```
 
-***
+------------------------------------------------------------------------
 
 ## Pathotype Complexities
 
@@ -144,7 +144,7 @@ Pathotype frequency, distribution as well as statistics such as mean pathotype c
 This function will return a `list()` of two `data.table()` objects, `grouped_complexities` and `individual_complexities`.
 `grouped_complexities` returns a `list()` as a `data.table()` object showing the frequency and distribution of pathotype complexities for the sampled population.
 `individual_complexities()` returns a `list()` as a `data.table()` object showing each individual isolates pathotype complexity.
-An isolates pathotype complexity refers to the number of resistance genes that it is able to overcome and cause disease on, _i.e._, a pathotype complexity of "7" would mean that isolate can cause disease on 7 different resistance genes.
+An isolates pathotype complexity refers to the number of resistance genes that it is able to overcome and cause disease on, *i.e.*, a pathotype complexity of "7" would mean that isolate can cause disease on 7 different resistance genes.
 
 ```{r complexities, echo=TRUE, message=FALSE, warning=FALSE}
 complexities <- do.call(calculate_complexities, hagis_args)
@@ -152,7 +152,7 @@ complexities <- do.call(calculate_complexities, hagis_args)
 complexities
 ```
 
-Once again, using _pander_ we can make these tables much more attractive in RMarkdown.
+Once again, using *pander* we can make these tables much more attractive in RMarkdown.
 Since `complexities` is a `list()` object, we can refer to each object directly by name and print them as follows.
 
 ```{r pander-print-complexities}
@@ -179,7 +179,7 @@ autoplot(complexities, type = "percentage")
 autoplot(complexities, type = "count")
 ```
 
-***
+------------------------------------------------------------------------
 
 ## Diversity Indices, Frequency of Unique Pathotypes and Individual Isolate Pathotypes
 
@@ -189,21 +189,21 @@ Likewise, individual isolates' pathotypes, number of isolates used in the study,
 
 Five diversity indices are calculated when calling `calculate_diversities()`.
 
-* Simple diversity index, which will show the proportion of unique pathotypes to total samples.
-As the values gets closer to 1, there is greater diversity in pathoypes within the population.
-Simple diversity is calculated as: $$D = \frac{Np}{Ns}$$ where $Np$ is the number of pathotypes and $Ns$ is the number of samples.
+-   Simple diversity index, which will show the proportion of unique pathotypes to total samples.
+    As the values gets closer to 1, there is greater diversity in pathoypes within the population.
+    Simple diversity is calculated as: $$D = \frac{Np}{Ns}$$ where $Np$ is the number of pathotypes and $Ns$ is the number of samples.
 
-* Gleason diversity index, an alternate version of Simple diversity index, is less sensitive to sample size than the Simple index.
-$$D = \frac{ (Np - 1) }{ log(Ns)}$$ Where $Np$ is the number of pathotypes and $Ns$ is the number of samples.
+-   Gleason diversity index, an alternate version of Simple diversity index, is less sensitive to sample size than the Simple index.
+    $$D = \frac{ (Np - 1) }{ log(Ns)}$$ Where $Np$ is the number of pathotypes and $Ns$ is the number of samples.
 
-* Shannon diversity index is typically between 1.5 and 3.5, as richness and evenness of the population increase, so does the Shannon index value.
-$$D = -\sum_{i = 1}^{R} p_i \log p_i$$ Where $p_i$ is the proportional abundance of species $i$.
+-   Shannon diversity index is typically between 1.5 and 3.5, as richness and evenness of the population increase, so does the Shannon index value.
+    $$D = -\sum_{i = 1}^{R} p_i \log p_i$$ Where $p_i$ is the proportional abundance of species $i$.
 
-* Simpson diversity index values range from 0 to 1, 1 represents high diversity and 0 represents no diversity.
-Where diversity is calculated as: $$D = \sum_{i = 1}^{R} p_i^2$$
+-   Simpson diversity index values range from 0 to 1, 1 represents high diversity and 0 represents no diversity.
+    Where diversity is calculated as: $$D = \sum_{i = 1}^{R} p_i^2$$
 
-* Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a more even distribution of each pathotype's frequency within the population.
-Where Evenness is calculated as: $$D = \frac{H'}{log(Np)}$$ where $H'$ is the Shannon diversity index and $Np$ is the number of pathotypes.
+-   Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a more even distribution of each pathotype's frequency within the population.
+    Where Evenness is calculated as: $$D = \frac{H'}{log(Np)}$$ where $H'$ is the Shannon diversity index and $Np$ is the number of pathotypes.
 
 ```{r calculate-diversities, echo=TRUE}
 diversity <- do.call(calculate_diversities, hagis_args)
@@ -227,8 +227,7 @@ diversities_table(diversity)
 ```
 
 To generate a table of individual pathotypes, use `individual_pathotypes()`.
-Here again,
-{hagis} provides a `pander` object for ease of use.
+Here again, {hagis} provides a `pander` object for ease of use.
 
 ### Table of Individual Pathotypes
 
@@ -275,7 +274,7 @@ Rps.plot
 
 ### Make a Horizontal Plot
 
-If your _Rps_ gene names are too long, flipping the axis can make the graph more legible without rotating the x-axis labels.
+If your *Rps* gene names are too long, flipping the axis can make the graph more legible without rotating the x-axis labels.
 
 ```{r horizontal-plot}
 Rps.plot <- Rps.plot +
@@ -286,7 +285,7 @@ Rps.plot
 
 ### Use Colors in Autoplot Objects
 
-You can use named, _e.g._, "red", "yellow", "blue", colors in R or you can use custom hexadecimal color codes.
+You can use named, *e.g.*, "red", "yellow", "blue", colors in R or you can use custom hexadecimal color codes.
 Illustrated below is using Michigan State University (MSU) Green, hex code #18453b, using `theme_bw()` with a serif font.
 
 ```{r use-Colors}

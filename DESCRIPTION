@@ -1,62 +1,48 @@
 Package: hagis
-Title: Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity
+Title: Analysis of Plant Pathogen Pathotype Complexities, Distributions
+    and Diversity
 Version: 3.1.11.9000
 Authors@R: c(
-  person(given = "Austin G.",
-         family = "McCoy",
-         role = c("aut", "ccp"),
-         email = "mccoyaus@msu.edu",
-         comment = c(ORCID = "0000-0003-2483-4184")),
-  person(given = "Zachary",
-         family = "Noel",
-         role =  c("aut", "ccp"),
-         email = "noelzach@msu.edu",
-         comment = c(ORCID = "0000-0001-6375-8300")),
-  person(given = "Adam H.",
-         family = "Sparks",
-         role = c("aut", "cre"),
-         email = "adamhsparks@gmail.com",
-         comment = c(ORCID = "0000-0002-0061-8359")),
-  person(given = "Martin",
-         family = "Chilvers", 
-         role = c("aut", "ths"),
-         email = "chilvers@msu.edu ",
-         comment = c(ORCID = "0000-0001-8832-1666")),
-  person(given = "Zhian N.",
-         family = "Kamvar",
-         role = c("ctb", "rev"),
-         comment = c(ORCID = "0000-0003-1458-7108")),
-  person("Michigan Soybean Promotion Committee",
-         role = "fnd"),
-  person("Project GREEEN",
-         role = "fnd"),
-  person("North Central Soybean Research Program",
-         role = "fnd"),
-  person("GRDC Project DAQ00186",
-         role = "fnd")
+    person("Austin G.", "McCoy", , "mccoyaus@msu.edu", role = c("aut", "ccp"),
+           comment = c(ORCID = "0000-0003-2483-4184")),
+    person("Zachary", "Noel", , "noelzach@msu.edu", role = c("aut", "ccp"),
+           comment = c(ORCID = "0000-0001-6375-8300")),
+    person("Adam H.", "Sparks", , "adamhsparks@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-0061-8359")),
+    person("Martin", "Chilvers", , "chilvers@msu.edu", role = c("aut", "ths"),
+           comment = c(ORCID = "0000-0001-8832-1666")),
+    person("Zhian N.", "Kamvar", role = c("ctb", "rev"),
+           comment = c(ORCID = "0000-0003-1458-7108")),
+    person("Michigan Soybean Promotion Committee", role = "fnd"),
+    person("Project GREEEN", role = "fnd"),
+    person("North Central Soybean Research Program", role = "fnd"),
+    person("GRDC Project DAQ00186", role = "fnd")
   )
 Description: Analysis of plant pathogen pathotype survey data.  Functions
-  provided calculate distribution of susceptibilities, distribution of
-  complexities with statistics, pathotype frequency distribution, as well as
-  diversity indices for pathotypes.  This package is meant to be a direct
-  replacement for Herrmann, Löwer and Schachtel's (1999)
-  <doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet, 'HaGiS',
-  previously used for pathotype analysis.
-Depends: R (>= 3.4.0)
-Imports: 
-  data.table,
-  ggplot2,
-  pander,
-  stats,
-  utils
+    provided calculate distribution of susceptibilities, distribution of
+    complexities with statistics, pathotype frequency distribution, as
+    well as diversity indices for pathotypes.  This package is meant to be
+    a direct replacement for Herrmann, Löwer and Schachtel's (1999)
+    <doi:10.1046/j.1365-3059.1999.00325.x> Habgood-Gilmour Spreadsheet,
+    'HaGiS', previously used for pathotype analysis.
 License: MIT + file LICENSE
-Encoding: UTF-8
-LazyData: true
+URL: https://github.com/openplantpathology/hagis,
+    https://openplantpathology.github.io/hagis/
+BugReports: https://github.com/openplantpathology/hagis/issues
+Depends: 
+    R (>= 3.4.0)
+Imports: 
+    data.table,
+    ggplot2,
+    pander,
+    stats,
+    utils
 Suggests:
     ape,
     dplyr,
     knitr,
     rmarkdown,
+    roxyglobals,
     testthat,
     vegan,
     vdiffr,
@@ -71,5 +57,3 @@ BugReports: https://github.com/openplantpathology/hagis/issues
 X-schema.org-applicationCategory: Tools
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey, virulence analysis, differential set, assessment scale
 X-schema.org-isPartOf: https://openplantpathology.org
-Config/roxyglobals/filename: globals.R
-Config/roxyglobals/unique: FALSE

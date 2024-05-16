@@ -11,6 +11,7 @@ vignette: >
   %\VignetteDepends{ggplot2}
   %\VignetteDepends{vegan}
   %\VignetteDepends{dplyr}
+  %\VignetteDepends{stats}
 ---
 
 ```{r setup, include=FALSE}
@@ -44,7 +45,7 @@ head(P_sojae_survey) # survey sample data
 head(sample_meta) # metatada about the sample collection locations
 ```
 
-This removes the "MPS17_" from the isolates, so that they will be read as numeric instead of character.
+This removes the "MPS17\_" from the isolates, so that they will be read as numeric instead of character.
 The next step removes the "Rps " from the gene names, so that they will be read as numeric instead of character.
 
 ```{r clean-data}
@@ -98,7 +99,7 @@ P_sojae_survey.matrix.jaccard <-
   vegdist(P_sojae_survey.matrix, "jaccard", na.rm = TRUE)
 ```
 
-After performing the principal coordinates analysis, we see that the scree plot says that about 70% of the variation in Jaccard distances are explained within the first two dimensions (_i.e._, axes).
+After performing the principal coordinates analysis, we see that the scree plot says that about 70% of the variation in Jaccard distances are explained within the first two dimensions (*i.e.*, axes).
 This is good.
 Usually a good rule of thumb is that if the second dimension is roughly half variation explained in the first dimension you don't need to look further at the third or n+1 dimensions.
 
@@ -177,7 +178,7 @@ These code are presented as an example for further downstream analysis that can 
 
 In these examples we will artificially split the dataset into two, so that these analyses can be shown.
 When performing your own analyses you will likely have two geographic locations to compare already.
-Make sure you can differentiate these populations with the metadata file used previously (_i.e._, column in the dataset that specifies where the isolate came from; USA, Brazil, China, Australia, etc.).
+Make sure you can differentiate these populations with the metadata file used previously (*i.e.*, column in the dataset that specifies where the isolate came from; USA, Brazil, China, Australia, etc.).
 
 # Permutation Based Analysis of Variance (PERMANOVA) and Beta-dispersion Analyses
 
@@ -231,7 +232,7 @@ We can plot the dispersion for each group using the `plot()` function.
 As expected, since we have identified no significant differences, the two groups dispersion overlap a great deal and are not distinct from each other.
 Again this shows that pathotype dispersion between the groups is homogeneous and not different in this instance.
 
-If we were working with a data set that had groups with significantly different dispersion we would expect to see a significant ANOVA p-value (p < 0.05) as well as significance when using the Tukey HSD test.
+If we were working with a data set that had groups with significantly different dispersion we would expect to see a significant ANOVA p-value (p \< 0.05) as well as significance when using the Tukey HSD test.
 Lastly, the plotted dispersion will form distinct, separate, groups which can be observed.
 
 Differences in beta-dispersion may indicate separate pathotype groups which should be further investigated with Permutation Based Analysis of Variance (PERMANOVA) and Analysis of Similarity (ANOSIM) analysis.
@@ -243,21 +244,21 @@ PERMANOVA tests if the centroids, similar to means, of each group are significan
 Likewise, an $R^2$ statistic is calculated, showing the percentage of the variance explained by the groups.
 
 ```{r adonis}
-pathotype.adonis <- adonis(P_sojae_survey.matrix.jaccard ~ groups)
+pathotype.adonis <- adonis2(P_sojae_survey.matrix.jaccard ~ groups)
 
 pathotype.adonis
 ```
 
-The PERMANOVA identified no significant differences between the groups centroids, or means (_p_ =  `r pathotype.adonis[[1]][[6]][[1]]`).
+The PERMANOVA identified no significant differences between the groups centroids, or means (*p* = `r pathotype.adonis[[5]][[1]]`).
 In addition to identifying significance between group centroids, the PERMANOVA also calculates how much of the variance can be explained by the specified groups (see the $R^2$ column in the PERMANOVA output).
-In this case, the $R^2$ is `r pathotype.adonis[[1]][[6]][[1]]`, so  `r round(pathotype.adonis[[1]][[6]][[1]], 3) * 100`% of the variance is explained by the groups used in analysis.
+In this case, the $R^2$ is `r pathotype.adonis[[3]][[1]]`, so `r round(pathotype.adonis[[3]][[1]], 3) * 100`% of the variance is explained by the groups used in analysis.
 Based on the PERMANOVA results we can conclude that these two groups are not different from each other and likely have similar pathotypes to each other.
 
 ## Analysis of Similarity (ANOSIM)
 
 ANOSIM statistic (R) ranges from between -1 and 1.
 Positive numbers suggest that there is more similarity within groups than there is between groups.
-Values close to zero indicate no difference between groups (_i.e._, similarities are the same between groups).
+Values close to zero indicate no difference between groups (*i.e.*, similarities are the same between groups).
 
 ```{r anosim}
 pathotype.anosim <- anosim(P_sojae_survey.matrix.jaccard, groups)
@@ -267,4 +268,4 @@ pathotype.anosim
 
 ANOSIM statistic (R) was `r pathotype.anosim$statistic`, so there are more similarities between groups than there are within groups.
 This is evidence that the groups are not different from one another.
-Likewise the significance is >0.05 so there is no significant difference between groups' similarities.
+Likewise the significance is \>0.05 so there is no significant difference between groups' similarities.

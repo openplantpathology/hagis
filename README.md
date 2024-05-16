@@ -1,15 +1,18 @@
-hagis
-================
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+# {hagis}: Analysis of Plant (and Animal) Pathogen Pathotype Complexities, Distributions and Diversity
 
 <!-- badges: start -->
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![tic](https://github.com/openplantpathology/hagis/workflows/tic/badge.svg?branch=main)](https://github.com/openplantpathology/hagis/actions)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/hagis)](https://cran.r-project.org/package=hagis)
-[![codecov](https://codecov.io/gh/openplantpathology/hagis/branch/main/graph/badge.svg)](https://app.codecov.io/gh/openplantpathology/hagis)
+[![codecov](https://codecov.io/gh/openplantpathology/hagis/graph/badge.svg?token=aPbqxd41NO)](https://codecov.io/gh/openplantpathology/hagis)
 [![DOI](https://zenodo.org/badge/164751172.svg)](https://zenodo.org/badge/latestdoi/164751172)
+[![test-coverage](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/openplantpathology/hagis/actions/workflows/test-coverage.yaml)
+
 <!-- badges: end -->
 
 ## Introduction
@@ -89,26 +92,25 @@ When you use {hagis}, please cite by using:
 
 ``` r
 citation("hagis")
+#> To cite package 'hagis' in publications use:
+#> 
+#>   McCoy AG, Noel ZA, Sparks AH, Chilvers M (2019). "hagis, an R Package
+#>   Resource for Pathotype Analysis of Phytophthora sojae Populations
+#>   Causing Stem and Root Rot of Soybean." _Molecular Plant-Microbe
+#>   Interactions_, *32*(12), 1574–1576. doi:10.1094/MPMI-07-19-0180-A
+#>   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
+#>   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
+#> 
+#>   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
+#>   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
+#>   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
+#>   R package version 3.1.11.9000,
+#>   <https://openplantpathology.github.io/hagis/>.
+#> 
+#> To see these entries in BibTeX format, use 'print(<citation>,
+#> bibtex=TRUE)', 'toBibtex(.)', or set
+#> 'options(citation.bibtex.max=999)'.
 ```
-
-    ## To cite package 'hagis' in publications use:
-    ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers M (2019). "hagis, an R Package
-    ##   Resource for Pathotype Analysis of Phytophthora sojae Populations
-    ##   Causing Stem and Root Rot of Soybean." _Molecular Plant-Microbe
-    ##   Interactions_, *32*(12), 1574–1576. doi:10.1094/MPMI-07-19-0180-A
-    ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
-    ##   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
-    ## 
-    ##   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
-    ##   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
-    ##   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
-    ##   R package version 3.1.10.9000,
-    ##   <https://openplantpathology.github.io/hagis/>.
-    ## 
-    ## To see these entries in BibTeX format, use 'print(<citation>,
-    ## bibtex=TRUE)', 'toBibtex(.)', or set
-    ## 'options(citation.bibtex.max=999)'.
 
 ### Code of Conduct
 
