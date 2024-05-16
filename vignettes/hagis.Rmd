@@ -266,8 +266,7 @@ Set the font to be a bold-face serif family font.
 
 ```{r change-plot-font}
 Rps.plot <- Rps.plot +
-  theme(text = element_text(face = "bold",
-                            family = "serif"))
+  theme(text = element_text(face = "bold", family = "serif"))
 
 Rps.plot
 ```
@@ -289,12 +288,9 @@ You can use named, *e.g.*, "red", "yellow", "blue", colors in R or you can use c
 Illustrated below is using Michigan State University (MSU) Green, hex code #18453b, using `theme_bw()` with a serif font.
 
 ```{r use-Colors}
-autoplot(Rps.summary,
-         type = "percentage",
-         color = "#18453b") +
+autoplot(Rps.summary, type = "percentage", color = "#18453b") +
   theme_bw() +
-  theme(text = element_text(face = "bold",
-                            family = "serif"))
+  theme(text = element_text(face = "bold", family = "serif"))
 ```
 
 ### Sorting the x-axis
@@ -302,11 +298,12 @@ autoplot(Rps.summary,
 You can sort the x-axis of any graph produced using `autoplot()` in an `ascending` or `descending` order using the `order` parameter in `autoplot()`.
 
 ```{r sort-axis}
-autoplot(Rps.summary,
-          type = "percentage",
-          color = "#18453b",
-          order = "ascending") +
+autoplot(
+  Rps.summary,
+  type = "percentage",
+  color = "#18453b",
+  order = "ascending"
+) +
   theme_bw() +
-  theme(text = element_text(face = "bold",
-                            family = "serif"))
+  theme(text = element_text(face = "bold", family = "serif"))
 ```
