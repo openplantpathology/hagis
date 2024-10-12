@@ -4,7 +4,6 @@ template:
     bootswatch: journal
 
 reference:
-
 - title: Calculations
   desc: >
     Fetch and read the AAGIS regions
@@ -16,22 +15,26 @@ reference:
 - title: Data
   desc: >
     Example data included in {hagis}
+  contents:
   - P_sojae_survey
   - sample_meta
 
 - title: Miscellaneous
   desc: >
     Helper functions for using {hagis}
+  contents:
   - create_binary_matrix
 
-- Plotting
+- title: Plotting
   desc: >
     Visualise {hagis} outputs with `ggplot2::autoplot()`
+  contents:
   - autoplot.hagis.complexities
   - autoplot.hagis.gene.summary
   
-- Printing
+- title: Printing
   desc: >
     Custom print methods for {hagis} objects in your R session
+  contents:
   - diversities_table
   - individual_pathotypes
