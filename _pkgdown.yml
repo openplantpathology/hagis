@@ -2,3 +2,36 @@ template:
   bootstrap: 5
   params:
     bootswatch: journal
+
+reference:
+
+- title: Calculations
+  desc: >
+    Fetch and read the AAGIS regions
+  contents:
+  - calculate_complexities
+  - calculate_diversities
+  - summarize_gene
+
+- title: Data
+  desc: >
+    Example data included in {hagis}
+  - P_sojae_survey
+  - sample_meta
+
+- title: Miscellaneous
+  desc: >
+    Helper functions for using {hagis}
+  - create_binary_matrix
+
+- Plotting
+  desc: >
+    Visualise {hagis} outputs with `ggplot2::autoplot()`
+  - autoplot.hagis.complexities
+  - autoplot.hagis.gene.summary
+  
+- Printing
+  desc: >
+    Custom print methods for {hagis} objects in your R session
+  - diversities_table
+  - individual_pathotypes
