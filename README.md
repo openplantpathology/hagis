@@ -101,10 +101,10 @@ citation("hagis")
 #>   <https://doi.org/10.1094/MPMI-07-19-0180-A>,
 #>   <https://doi.org/10.1094/MPMI-07-19-0180-A>.
 #> 
-#>   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (????). _hagis: Analysis of
+#>   McCoy AG, Noel ZA, Sparks AH, Chilvers MI (2024). _hagis: Analysis of
 #>   Plant Pathogen Pathotype Complexities, Distributions and Diversity_.
 #>   doi:10.5281/zenodo.2619820 <https://doi.org/10.5281/zenodo.2619820>,
-#>   R package version 3.1.11.9000,
+#>   R package version 3.1.12,
 #>   <https://openplantpathology.github.io/hagis/>.
 #> 
 #> To see these entries in BibTeX format, use 'print(<citation>,
@@ -133,6 +133,6 @@ By contributing to this project, you agree to abide by its terms.
 > [10.1094/MPMI-07-19-0180-A](https://doi.org/10.1094/MPMI-07-19-0180-A)
 
 > Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The
-> microbial community associated with Parascaris spp. infecting juvenile
-> horses. Parasites & Vectors, 15(1), pp.1-17.
+> microbial community associated with *Parascaris* spp. infecting
+> juvenile horses. Parasites & Vectors, 15(1), pp.1-17.
 > [10.1186/s13071-022-05533-y](https://doi.org/10.1186/s13071-022-05533-y)

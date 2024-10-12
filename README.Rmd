@@ -88,4 +88,4 @@ By contributing to this project, you agree to abide by its terms.
 
 > McCoy, Noel, Sparks and Chilvers. (2019). 'hagis', an R Package Resource for Pathotype Analysis of _Phytophthora sojae_ Populations Causing Stem and Root Rot of Soybean. Molecular Plant-Microbe Interactions 32.12 (Nov 2019) p. 1574-1576. DOI: [10.1094/MPMI-07-19-0180-A](https://doi.org/10.1094/MPMI-07-19-0180-A)
 
-> Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The microbial community associated with Parascaris spp. infecting juvenile horses. Parasites & Vectors, 15(1), pp.1-17. [10.1186/s13071-022-05533-y](https://doi.org/10.1186/s13071-022-05533-y)
+> Cain, Norris, Ripley, Suri, Finnerty, Gravatte, and Nielsen, 2022. The microbial community associated with _Parascaris_ spp. infecting juvenile horses. Parasites & Vectors, 15(1), pp.1-17. [10.1186/s13071-022-05533-y](https://doi.org/10.1186/s13071-022-05533-y)
