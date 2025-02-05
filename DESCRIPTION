@@ -18,7 +18,9 @@ Authors@R: c(
     person("Michigan Soybean Promotion Committee", role = "fnd"),
     person("Project GREEEN", role = "fnd"),
     person("North Central Soybean Research Program", role = "fnd"),
-    person("GRDC Project DAQ00186", role = "fnd")
+    person("GRDC Project DAQ00186", role = "fnd"),
+    person("Grains Research and Development Corporation", role = c("fnd", "cph"),
+           comment = "GRDC Project CUR2210-005OPX (AAGI-CU)")
   )
 Description: Analysis of plant pathogen pathotype survey data.  Functions
     provided calculate distribution of susceptibilities, distribution of
@@ -50,15 +52,16 @@ Suggests:
     vegan
 VignetteBuilder: 
     knitr
+Config/Needs/build: moodymudskipper/devtag
 Config/roxyglobals/filename: globals.R
 Config/roxyglobals/unique: FALSE
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd", "roxyglobals::global_roclet", "devtag::dev_roclet"))
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
+    "roxyglobals::global_roclet", "devtag::dev_roclet"))
 RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: https://openplantpathology.org
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey,
     virulence analysis, differential set, assessment scale
-Config/Needs/build: moodymudskipper/devtag
