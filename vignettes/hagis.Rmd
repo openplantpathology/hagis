@@ -38,9 +38,11 @@ The second string, `replacement`, is the replacement value, the third, `x`, is w
 
 ```{r remove-gene}
 P_sojae_survey$Rps <-
-  gsub(pattern = "Rps ",
-       replacement = "",
-       x = P_sojae_survey$Rps)
+  gsub(
+    pattern = "Rps ",
+    replacement = "",
+    x = P_sojae_survey$Rps
+  )
 head(P_sojae_survey)
 ```
 
@@ -158,7 +160,7 @@ Since `complexities` is a `list()` object, we can refer to each object directly 
 ```{r pander-print-complexities}
 pander(complexities$grouped_complexities)
 
-pander(complexities$indvidual_complexities)
+pander(complexities$individual_complexities)
 ```
 
 Using `summary()` will return the mean, standard error (se) and standard deviation (sd) for pathotypes of a complexities object.
