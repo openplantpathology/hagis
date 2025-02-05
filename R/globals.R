@@ -7,6 +7,7 @@ utils::globalVariables(c(
   "frequency", # <autoplot.hagis.complexities>
   "complexity", # <autoplot.hagis.complexities>
   "distribution", # <autoplot.hagis.complexities>
+  "susceptible.1", # <.create_summary_isolate>
   "susceptible.1", # <calculate_diversities>
   "Pathotype", # <calculate_diversities>
   "Frequency", # <calculate_diversities>
