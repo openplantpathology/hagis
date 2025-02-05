@@ -37,12 +37,14 @@ distribution (number per complexity) calculated by
 data(P_sojae_survey)
 
 # calculate susceptibilities with a 60 \% cutoff value
-complexities <- calculate_complexities(x = P_sojae_survey,
-                                       cutoff = 60,
-                                       control = "susceptible",
-                                       sample = "Isolate",
-                                       gene = "Rps",
-                                       perc_susc = "perc.susc")
+complexities <- calculate_complexities(
+  x = P_sojae_survey,
+  cutoff = 60,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
 
 # Visualize the distribution (count or actual values)
 autoplot(complexities, type = "count")

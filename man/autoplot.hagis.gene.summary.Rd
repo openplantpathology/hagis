@@ -35,12 +35,14 @@ calculated by \code{\link[=summarize_gene]{summarize_gene()}}
 data(P_sojae_survey)
 
 # calculate susceptibilities with a 60 \% cutoff value
-susc <- summarize_gene(x = P_sojae_survey,
-                       cutoff = 60,
-                       control = "susceptible",
-                       sample = "Isolate",
-                       gene = "Rps",
-                       perc_susc = "perc.susc")
+susc <- summarize_gene(
+  x = P_sojae_survey,
+  cutoff = 60,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
 
 # Visualize the summary of genes
 autoplot(susc, type = "percentage")

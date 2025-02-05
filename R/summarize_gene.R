@@ -1,8 +1,7 @@
-
 #' Calculate and Summarize Distribution of Susceptibilities by Gene
 #'
 #' @description Calculate the distribution of susceptibilities by gene.
-#' 
+#'
 #' @param x a `data.frame` containing the data.
 #' @param cutoff value for percent susceptible cutoff. `Numeric`.
 #' @param control value used to denote the susceptible control in the `gene`
@@ -21,22 +20,24 @@
 #' P_sojae_survey
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' susc <- summarize_gene(x = P_sojae_survey,
-#'                        cutoff = 60,
-#'                        control = "susceptible",
-#'                        sample = "Isolate",
-#'                        gene = "Rps",
-#'                        perc_susc = "perc.susc")
+#' susc <- summarize_gene(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #' susc
 #'
-#' @return a `hagis.gene.summary` object.
-#' 
+#' @returns a `hagis.gene.summary` object.
+#'
 #' An object of class `hagis.gene.summary` is a\cr [data.table::data.table()]
 #'  containing the following components columns
 #'   \describe{
 #'     \item{gene}{the gene}
-#'     \item{N_virulent_isolates}{the total number virulent isolates for a given
-#'     gene in the `gene` column}
+#'     \item{N_virulent_isolates}{the total number virulent isolates for a
+#'     given gene in the `gene` column}
 #'     \item{percent_pathogenic}{the frequency with which a gene is pathogenic}
 #'   }
 #' @export summarize_gene
@@ -65,7 +66,7 @@ summarize_gene <- function(x,
   y <-
     x[, list(N_virulent_isolates = sum(susceptible.1)), by = list(gene)]
   y[, percent_pathogenic :=
-      (N_virulent_isolates) / max(N_virulent_isolates) * 100]
+    (N_virulent_isolates) / max(N_virulent_isolates) * 100]
 
   # Set new class
   class(y) <- union("hagis.gene.summary", class(y))
@@ -90,7 +91,7 @@ ggplot2::autoplot
 #' order of `N_virulent_isolates` or `percent_pathogenic`. Accepts `ascending`
 #' or `descending` input values. Defaults to `gene` name. `Character`.
 #' @param ... passed to the chosen `geom(s)`
-#' @return A \CRANpkg{ggplot2} plot
+#' @returns A \CRANpkg{ggplot2} plot
 #' @method autoplot hagis.gene.summary
 #' @autoglobal
 #' @examplesIf interactive()
@@ -98,12 +99,14 @@ ggplot2::autoplot
 #' data(P_sojae_survey)
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' susc <- summarize_gene(x = P_sojae_survey,
-#'                        cutoff = 60,
-#'                        control = "susceptible",
-#'                        sample = "Isolate",
-#'                        gene = "Rps",
-#'                        perc_susc = "perc.susc")
+#' susc <- summarize_gene(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #'
 #' # Visualize the summary of genes
 #' autoplot(susc, type = "percentage")
@@ -115,34 +118,44 @@ autoplot.hagis.gene.summary <-
            color = NULL,
            order = NULL,
            ...) {
-
     # order cols based on user input
     if (!is.null(order)) {
       if (order == "ascending") {
         setorder(object, cols = N_virulent_isolates)
         object$order <- seq_len(nrow(object))
       } else if (order == "descending") {
-        setorder(x = object,
-                             cols = -N_virulent_isolates)
+        setorder(
+          x = object,
+          cols = -N_virulent_isolates
+        )
         object$order <- seq_len(nrow(object))
       }
-    } else
+    } else {
       # if no order is specified
       setorder(object, cols = gene)
+    }
     object$order <- seq_len(nrow(object))
 
     plot_percentage <- function(.data, .color) {
-      perc_plot <- ggplot2::ggplot(data = .data,
-                                   ggplot2::aes(x = stats::reorder(gene, order),
-                                                y = percent_pathogenic)) +
-        ggplot2::labs(y = "Percent of samples",
-                      x = "Gene") +
+      perc_plot <- ggplot2::ggplot(
+        data = .data,
+        ggplot2::aes(
+          x = stats::reorder(gene, order),
+          y = percent_pathogenic
+        )
+      ) +
+        ggplot2::labs(
+          y = "Percent of samples",
+          x = "Gene"
+        ) +
         ggplot2::ggtitle(expression("Percentage of samples pathogenic"))
 
       if (!is.null(.color)) {
         perc_plot +
-          ggplot2::geom_col(fill = .color,
-                            colour = .color)
+          ggplot2::geom_col(
+            fill = .color,
+            colour = .color
+          )
       } else {
         perc_plot +
           ggplot2::geom_col()
@@ -150,17 +163,25 @@ autoplot.hagis.gene.summary <-
     }
 
     plot_count <- function(.data, .color) {
-      num_plot <- ggplot2::ggplot(data = .data,
-                                  ggplot2::aes(x = stats::reorder(gene, order),
-                                               y = N_virulent_isolates)) +
-        ggplot2::labs(y = "Number of samples",
-                      x = "Gene") +
+      num_plot <- ggplot2::ggplot(
+        data = .data,
+        ggplot2::aes(
+          x = stats::reorder(gene, order),
+          y = N_virulent_isolates
+        )
+      ) +
+        ggplot2::labs(
+          y = "Number of samples",
+          x = "Gene"
+        ) +
         ggplot2::ggtitle(expression("Number of samples pathogenic"))
 
       if (!is.null(.color)) {
         num_plot +
-          ggplot2::geom_col(fill = .color,
-                            colour = .color)
+          ggplot2::geom_col(
+            fill = .color,
+            colour = .color
+          )
       } else {
         num_plot +
           ggplot2::geom_col()
@@ -171,7 +192,10 @@ autoplot.hagis.gene.summary <-
       plot_percentage(.data = object, .color = color)
     } else if (type == "count") {
       plot_count(.data = object, .color = color)
-    } else
-      stop(.call = FALSE,
-           "You have entered an invalid `type`.")
+    } else {
+      stop(
+        .call = FALSE,
+        "You have entered an invalid `type`."
+      )
+    }
   }

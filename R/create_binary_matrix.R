@@ -24,7 +24,7 @@
 #'                                     perc_susc = "perc.susc")
 #' final_matrix
 #'
-#' @return a binary matrix of pathotype data
+#' @returns a binary matrix of pathotype data
 #' 
 #' @export create_binary_matrix
 #' 

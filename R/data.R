@@ -6,14 +6,14 @@
 #'
 #' @usage data(P_sojae_survey)
 #'
-#' @format An object of class `data.table` with 294 observations of 12 variables
-#' \describe{
+#' @format An object of class `data.table` with 294 observations of 12
+#' variables \describe{
 #'   \item{Isolate}{_P. sojae_ isolate identifier}
 #'   \item{Line}{Soybean cultivar}
 #'   \item{Rps}{_Rps_ gene identifier}
 #'   \item{Total}{Total number of plants inoculated}
-#'   \item{HR (1)}{Number of plants that exhibit a hypersensitive response after
-#'    inoculation}
+#'   \item{HR (1)}{Number of plants that exhibit a hypersensitive response
+#'    after inoculation}
 #'   \item{Lesion (2)}{Number of plants that develop a lesion at inoculation
 #'    site}
 #'   \item{Lesion to cotyledon (3)}{Number of plants that develop a lesion,

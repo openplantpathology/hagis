@@ -55,10 +55,10 @@ Config/roxyglobals/unique: FALSE
 Encoding: UTF-8
 Language: en-US
 LazyData: true
-Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
-    "roxyglobals::global_roclet"))
+Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd", "roxyglobals::global_roclet", "devtag::dev_roclet"))
 RoxygenNote: 7.3.2
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: https://openplantpathology.org
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey,
     virulence analysis, differential set, assessment scale
+Config/Needs/build: moodymudskipper/devtag

@@ -28,12 +28,14 @@ data(P_sojae_survey)
 P_sojae_survey
 
 # calculate susceptibilities with a 60 \% cutoff value
-diversities <- calculate_diversities(x = P_sojae_survey,
-                                     cutoff = 60,
-                                     control = "susceptible",
-                                     sample = "Isolate",
-                                     gene = "Rps",
-                                     perc_susc = "perc.susc")
+diversities <- calculate_diversities(
+  x = P_sojae_survey,
+  cutoff = 60,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
 
 # print the diversities table
 individual_pathotypes(diversities)

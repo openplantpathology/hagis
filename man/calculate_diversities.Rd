@@ -23,7 +23,7 @@ being tested. \code{Character}.}
 \code{Character}.}
 }
 \value{
-a \code{hagis.diversities} object.
+A \code{hagis.diversities} object.
 
 A \code{hagis.diversities} object is a \code{list} containing:
 \itemize{
@@ -41,15 +41,15 @@ Calculate five pathogen diversity indices.
 
 Diversity indices include:
 \itemize{
-\item Simple diversity index, which will show the proportion of unique pathotypes
-to total samples. As the values gets closer to 1, there is greater
-diversity in pathoypes within the population. Simple diversity is
+\item Simple diversity index, which will show the proportion of unique
+pathotypes to total samples. As the values gets closer to 1, there is
+greater diversity in pathoypes within the population. Simple diversity is
 calculated as:
 \deqn{ D = \frac{Np}{Ns} }{ D = Np / Ns }
 where \eqn{Np} is the number of pathotypes and \eqn{Ns} is the number of
 samples.
-\item Gleason diversity index, an alternate version of Simple diversity index, is
-less sensitive to sample size than the Simple index.
+\item Gleason diversity index, an alternate version of Simple diversity index,
+is less sensitive to sample size than the Simple index.
 \deqn{ D = \frac{ (Np - 1) }{ log(Ns)}}{ D = (Np -1) / log(Ns) }
 Where \eqn{Np} is the number of pathotypes and \eqn{Ns} is the number of
 samples.
@@ -60,9 +60,9 @@ evenness of the population increase, so does the Shannon index value.
 \item Simpson diversity index values range from 0 to 1, 1 represents high
 diversity and 0 represents no diversity. Where diversity is calculated as:
 \deqn{ D = \sum_{i = 1}^{R} p_i^2 }{ D = sum p_i^2 }
-\item Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a
-more even distribution of each pathoype's frequency within the population.
-Where Evenness is calculated as:
+\item Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is
+a more even distribution of each pathoype's frequency within the
+population. Where Evenness is calculated as:
 \deqn{ D = \frac{H'}{log(Np) }}{ D = H' / log(Np) }
 where \eqn{H'} is the Shannon diversity index and \eqn{Np} is the number
 of pathotypes.
@@ -76,12 +76,14 @@ data(P_sojae_survey)
 P_sojae_survey
 
 # calculate susceptibilities with a 60 \% cutoff value
-diversities <- calculate_diversities(x = P_sojae_survey,
-                                     cutoff = 60,
-                                     control = "susceptible",
-                                     sample = "Isolate",
-                                     gene = "Rps",
-                                     perc_susc = "perc.susc")
+diversities <- calculate_diversities(
+  x = P_sojae_survey,
+  cutoff = 60,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
 
 diversities
 \dontshow{\}) # examplesIf}

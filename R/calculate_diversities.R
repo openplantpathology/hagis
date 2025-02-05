@@ -1,20 +1,19 @@
-
 #' Calculate Diversities Indices
 #'
 #' @description Calculate five pathogen diversity indices.
 #'
 #' Diversity indices include:
-#' 
-#' * Simple diversity index, which will show the proportion of unique pathotypes
-#'   to total samples. As the values gets closer to 1, there is greater
-#'   diversity in pathoypes within the population. Simple diversity is
+#'
+#' * Simple diversity index, which will show the proportion of unique
+#'   pathotypes to total samples. As the values gets closer to 1, there is
+#'   greater diversity in pathoypes within the population. Simple diversity is
 #'   calculated as:
 #'   \deqn{ D = \frac{Np}{Ns} }{ D = Np / Ns }
 #'    where \eqn{Np} is the number of pathotypes and \eqn{Ns} is the number of
 #'    samples.
 #'
-#' * Gleason diversity index, an alternate version of Simple diversity index, is
-#'    less sensitive to sample size than the Simple index.
+#' * Gleason diversity index, an alternate version of Simple diversity index,
+#'    is less sensitive to sample size than the Simple index.
 #'    \deqn{ D = \frac{ (Np - 1) }{ log(Ns)}}{ D = (Np -1) / log(Ns) }
 #'    Where \eqn{Np} is the number of pathotypes and \eqn{Ns} is the number of
 #'    samples.
@@ -28,9 +27,9 @@
 #'    diversity and 0 represents no diversity. Where diversity is calculated as:
 #'    \deqn{ D = \sum_{i = 1}^{R} p_i^2 }{ D = sum p_i^2 }
 #'
-#' * Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is a
-#'    more even distribution of each pathoype's frequency within the population.
-#'    Where Evenness is calculated as:
+#' * Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is
+#'    a more even distribution of each pathoype's frequency within the
+#'    population. Where Evenness is calculated as:
 #'    \deqn{ D = \frac{H'}{log(Np) }}{ D = H' / log(Np) }
 #'    where \eqn{H'} is the Shannon diversity index and \eqn{Np} is the number
 #'    of pathotypes.
@@ -44,18 +43,20 @@
 #' P_sojae_survey
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' diversities <- calculate_diversities(x = P_sojae_survey,
-#'                                      cutoff = 60,
-#'                                      control = "susceptible",
-#'                                      sample = "Isolate",
-#'                                      gene = "Rps",
-#'                                      perc_susc = "perc.susc")
+#' diversities <- calculate_diversities(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #'
 #' diversities
 #'
 #' @export calculate_diversities
-#' @return a `hagis.diversities` object.
-#' 
+#' @returns A `hagis.diversities` object.
+#'
 #' A `hagis.diversities` object is a `list` containing:
 #'   * Number of Samples
 #'   * Number of Pathotypes
@@ -96,9 +97,13 @@ calculate_diversities <- function(x,
   x <- subset(x, susceptible.1 != 0)
 
   # split the data frame by sample and gene
-  y <- vapply(split(x[, gene],
-                    x[, sample]),
-              toString, character(1))
+  y <- vapply(
+    split(
+      x[, gene],
+      x[, sample]
+    ),
+    toString, character(1)
+  )
 
   individual_pathotypes <- setDT(data.frame(
     Sample = names(y),
@@ -171,11 +176,11 @@ print.hagis.diversities <- function(x,
   cat("\nNumber of Pathotypes", x[[4]], "\n")
   cat("\n")
   cat("Indices\n")
-  cat("Simple  ",  x[[5]], "\n")
-  cat("Gleason ",  x[[6]], "\n")
-  cat("Shannon ",  x[[7]], "\n")
-  cat("Simpson ",  x[[8]], "\n")
-  cat("Evenness ",  x[[9]], "\n")
+  cat("Simple  ", x[[5]], "\n")
+  cat("Gleason ", x[[6]], "\n")
+  cat("Shannon ", x[[7]], "\n")
+  cat("Simpson ", x[[8]], "\n")
+  cat("Evenness ", x[[9]], "\n")
   cat("\n")
   invisible(x)
 }
@@ -196,23 +201,27 @@ print.hagis.diversities <- function(x,
 #' P_sojae_survey
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' diversities <- calculate_diversities(x = P_sojae_survey,
-#'                                      cutoff = 60,
-#'                                      control = "susceptible",
-#'                                      sample = "Isolate",
-#'                                      gene = "Rps",
-#'                                      perc_susc = "perc.susc")
+#' diversities <- calculate_diversities(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #'
 #' # print the diversities table
 #' diversities_table(diversities)
 #'
-#' @return A [pander][pandoc.table] object of diversities
+#' @returns A [pander][pandoc.table] object of diversities
 #' @seealso [calculate_diversities()], [individual_pathotypes()]
 #' @export
 diversities_table <- function(x, ...) {
   if (class(x)[1] != "hagis.diversities") {
-    stop(call. = FALSE,
-         "This is not a hagis.diversities object.")
+    stop(
+      call. = FALSE,
+      "This is not a hagis.diversities object."
+    )
   } else {
     pander::pander(x[[2]], ...)
   }
@@ -233,25 +242,30 @@ diversities_table <- function(x, ...) {
 #' P_sojae_survey
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' diversities <- calculate_diversities(x = P_sojae_survey,
-#'                                      cutoff = 60,
-#'                                      control = "susceptible",
-#'                                      sample = "Isolate",
-#'                                      gene = "Rps",
-#'                                      perc_susc = "perc.susc")
+#' diversities <- calculate_diversities(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #'
 #' # print the diversities table
 #' individual_pathotypes(diversities)
 #'
-#' @return A [pander][pander] object of individual pathotypes
+#' @returns A [pander][pander] object of individual pathotypes
 #' @seealso [calculate_diversities()], [diversities_table()]
 #' @export
 individual_pathotypes <- function(x, ...) {
   if (class(x)[1] != "hagis.diversities") {
-    stop(call. = FALSE,
-         "This is not a hagis.diversities object.")
-  } else
-  {pander::pander(x[[1]], ...)}
+    stop(
+      call. = FALSE,
+      "This is not a hagis.diversities object."
+    )
+  } else {
+    pander::pander(x[[1]], ...)
+  }
 }
 
 
