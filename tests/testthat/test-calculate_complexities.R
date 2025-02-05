@@ -15,7 +15,7 @@ test_that("calculate_complexities() works properly", {
   expect_length(complexities, 2)
   expect_named(complexities,
                c("grouped_complexities",
-                 "indvidual_complexities"))
+                 "individual_complexities"))
 
   # test summary.hagis.complexities
   expect_length(summary(complexities), 3)

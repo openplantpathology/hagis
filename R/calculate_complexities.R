@@ -107,7 +107,7 @@ calculate_complexities <- function(x,
   complexities <-
     list(grouped_complexities, individual_complexities)
   names(complexities) <-
-    c("grouped_complexities", "indvidual_complexities")
+    c("grouped_complexities", "individual_complexities")
 
   # Set new class
   class(complexities) <- union("hagis.complexities", class(x))
@@ -281,11 +281,11 @@ autoplot.hagis.complexities <-
 #' @noRd
 #' @export
 summary.hagis.complexities <- function(object, ...) {
-  mn <- mean(object$indvidual_complexities$N_samp)
-  sd <- sd(object$indvidual_complexities$N_samp)
+  mn <- mean(object$individual_complexities$N_samp)
+  sd <- sd(object$individual_complexities$N_samp)
   se <- sqrt(
-    stats::var(object$indvidual_complexities$N_samp) /
-      length(object$indvidual_complexities$N_samp)
+    stats::var(object$individual_complexities$N_samp) /
+      length(object$individual_complexities$N_samp)
   )
 
   x <- data.frame(mn, sd, se)
