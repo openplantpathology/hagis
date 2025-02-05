@@ -106,9 +106,11 @@ second string, <code>replacement</code>, is the replacement value, the
 third, <code>x</code>, is where to look and make the changes.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span> <span class="op">&lt;-</span></span>
-<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span>pattern <span class="op">=</span> <span class="st">"Rps "</span>,</span>
-<span>       replacement <span class="op">=</span> <span class="st">""</span>,</span>
-<span>       x <span class="op">=</span> <span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span><span class="op">)</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span></span>
+<span>    pattern <span class="op">=</span> <span class="st">"Rps "</span>,</span>
+<span>    replacement <span class="op">=</span> <span class="st">""</span>,</span>
+<span>    x <span class="op">=</span> <span class="va">P_sojae_survey</span><span class="op">$</span><span class="va">Rps</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">P_sojae_survey</span><span class="op">)</span></span>
 <span><span class="co">#&gt;    Isolate         Line         Rps Total HR (1) Lesion (2)</span></span>
 <span><span class="co">#&gt;      &lt;int&gt;       &lt;char&gt;      &lt;char&gt; &lt;int&gt;  &lt;int&gt;      &lt;int&gt;</span></span>
@@ -495,7 +497,7 @@ and print them as follows.</p>
 </table>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span></span>
-<span><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">indvidual_complexities</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="https://rdrr.io/pkg/pander/man/pander.html" class="external-link">pander</a></span><span class="op">(</span><span class="va">complexities</span><span class="op">$</span><span class="va">individual_complexities</span><span class="op">)</span></span></code></pre></div>
 <table style="width:25%;" class="table">
 <colgroup>
 <col width="12%">
