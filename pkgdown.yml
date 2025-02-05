@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   betadiversity: betadiversity.html
   hagis: hagis.html
-last_built: 2025-02-05T04:25Z
+last_built: 2025-02-05T04:27Z
 urls:
   reference: https://openplantpathology.github.io/hagis/reference
   article: https://openplantpathology.github.io/hagis/articles
