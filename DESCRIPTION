@@ -18,7 +18,8 @@ Authors@R: c(
     person("Michigan Soybean Promotion Committee", role = "fnd"),
     person("Project GREEEN", role = "fnd"),
     person("North Central Soybean Research Program", role = "fnd"),
-    person("GRDC Project DAQ00186", role = "fnd"),
+    person("Grains Research and Development Corporation", role = "fnd",
+            comment = "GRDC Project DAQ00186"),
     person("Grains Research and Development Corporation", role = c("fnd", "cph"),
            comment = "GRDC Project CUR2210-005OPX (AAGI-CU)")
   )

@@ -34,7 +34,7 @@ Other contributors:
   \item Michigan Soybean Promotion Committee [funder]
   \item Project GREEEN [funder]
   \item North Central Soybean Research Program [funder]
-  \item GRDC Project DAQ00186 [funder]
+  \item Grains Research and Development Corporation (GRDC Project DAQ00186) [funder]
   \item Grains Research and Development Corporation (GRDC Project CUR2210-005OPX (AAGI-CU)) [funder, copyright holder]
 }
 
