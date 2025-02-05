@@ -72,6 +72,12 @@
       "@id": "https://orcid.org/0000-0001-8832-1666"
     }
   ],
+  "copyrightHolder": [
+    {
+      "@type": "Organization",
+      "name": "Grains Research and Development Corporation"
+    }
+  ],
   "funder": [
     {
       "@type": "Organization",
@@ -88,6 +94,10 @@
     {
       "@type": "Organization",
       "name": "GRDC Project DAQ00186"
+    },
+    {
+      "@type": "Organization",
+      "name": "Grains Research and Development Corporation"
     }
   ],
   "maintainer": [
@@ -255,7 +265,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "1641.515KB",
+  "fileSize": "1641.783KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
