@@ -37,12 +37,14 @@
 #' @autoglobal
 #' @export calculate_complexities
 
-calculate_complexities <- function(x,
-                                   cutoff,
-                                   control,
-                                   sample,
-                                   gene,
-                                   perc_susc) {
+calculate_complexities <- function(
+  x,
+  cutoff,
+  control,
+  sample,
+  gene,
+  perc_susc
+) {
   # check inputs and rename columns to work with this package
   x <- .check_inputs(
     .x = x,
@@ -97,7 +99,8 @@ calculate_complexities <- function(x,
 
   # set NA to 0 for distribution
   grouped_complexities[is.na(distribution), distribution := 0]
-  setcolorder(grouped_complexities,
+  setcolorder(
+    grouped_complexities,
     neworder = c("N_samp", "frequency", "distribution")
   )
   setnames(
@@ -158,11 +161,7 @@ calculate_complexities <- function(x,
 #' @export
 
 autoplot.hagis.complexities <-
-  function(object,
-           type,
-           color = NULL,
-           order = NULL,
-           ...) {
+  function(object, type, color = NULL, order = NULL, ...) {
     # create a single data.frame to use in the ggplot call
     z <- object[[1]]
 
@@ -303,12 +302,14 @@ summary.hagis.complexities <- function(object, ...) {
 #' @param ... ignored
 #' @export
 #' @noRd
-print.summary.complexities <- function(x,
-                                       digits = max(
-                                         3L,
-                                         getOption("digits") - 3L
-                                       ),
-                                       ...) {
+print.summary.complexities <- function(
+  x,
+  digits = max(
+    3L,
+    getOption("digits") - 3L
+  ),
+  ...
+) {
   cat("\nMean of Complexities\n")
   cat(x$mean, "\n")
   cat("\nStandard Deviation of Complexities\n")
@@ -344,9 +345,11 @@ pander.summary.complexities <-
 #' @param ... ignored
 #' @export
 #' @noRd
-print.hagis.complexities <- function(x,
-                                     digits = max(3L, getOption("digits") - 3L),
-                                     ...) {
+print.hagis.complexities <- function(
+  x,
+  digits = max(3L, getOption("digits") - 3L),
+  ...
+) {
   cat("\nGrouped Complexities\n")
   print(x[[1]])
   cat("\n")

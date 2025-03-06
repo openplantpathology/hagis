@@ -1,4 +1,3 @@
-
 # test diversities table -------------------------------------------------------
 data(P_sojae_survey)
 Ps <-
@@ -24,11 +23,17 @@ test_that("internal checker doesn't fail us", {
 })
 
 test_that("diversity_table() returns a pander object", {
-  expect_type(capture.output(
-    diversities_table(x = diversities, type = "text")), "character")
+  expect_type(
+    capture.output(
+      diversities_table(x = diversities, type = "text")
+    ),
+    "character"
+  )
 })
 
 test_that("diversity_table() stops if object is not hagis.diversities object", {
-  expect_error(diversities_table("y"),
-               regexp = "This is not a hagis.diversities object.")
-          })
+  expect_error(
+    diversities_table("y"),
+    regexp = "This is not a hagis.diversities object."
+  )
+})

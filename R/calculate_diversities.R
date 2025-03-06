@@ -67,12 +67,7 @@
 #'   * Evenness Diversity Index
 #'
 
-calculate_diversities <- function(x,
-                                  cutoff,
-                                  control,
-                                  sample,
-                                  gene,
-                                  perc_susc) {
+calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
   # check inputs and rename columns to work with this package
   x <- .check_inputs(
     .x = x,
@@ -102,7 +97,8 @@ calculate_diversities <- function(x,
       x[, gene],
       x[, sample]
     ),
-    toString, character(1)
+    toString,
+    character(1)
   )
 
   individual_pathotypes <- setDT(data.frame(
@@ -168,9 +164,11 @@ calculate_diversities <- function(x,
 #' @param ... ignored
 #' @export
 #' @noRd
-print.hagis.diversities <- function(x,
-                                    digits = max(3L, getOption("digits") - 3L),
-                                    ...) {
+print.hagis.diversities <- function(
+  x,
+  digits = max(3L, getOption("digits") - 3L),
+  ...
+) {
   cat("\nhagis Diversities\n")
   cat("\nNumber of Samples", x[[3]])
   cat("\nNumber of Pathotypes", x[[4]], "\n")

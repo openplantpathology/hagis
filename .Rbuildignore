@@ -19,3 +19,7 @@
 ^revdep$
 ^man/dot-create_summary_isolate\.Rd$
 ^man/dot-check_inputs\.Rd$
+
+
+# flir files
+^flir$

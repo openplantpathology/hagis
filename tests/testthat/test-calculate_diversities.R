@@ -1,4 +1,3 @@
-
 # test calculate diversities ---------------------------------------------------
 data(P_sojae_survey)
 diversities <- calculate_diversities(
@@ -153,16 +152,16 @@ test_that("print.hagis.diversities() returns a proper summary", {
 
 test_that("pander.hagis.diversities returns a proper table of indices and
           caption", {
-            x <- utils::capture.output(pander::pander(diversities))
-            expect_equal(
-              head(x),
-              c(
-                "",
-                "-------------------------------------------------",
-                " Simple   Gleason   Shannon   Simpson   Evenness ",
-                "-------- --------- --------- --------- ----------",
-                " 0.9048    5.912     2.912    0.9433     0.9892  ",
-                "-------------------------------------------------"
-              )
-            )
-          })
+  x <- utils::capture.output(pander::pander(diversities))
+  expect_equal(
+    head(x),
+    c(
+      "",
+      "-------------------------------------------------",
+      " Simple   Gleason   Shannon   Simpson   Evenness ",
+      "-------- --------- --------- --------- ----------",
+      " 0.9048    5.912     2.912    0.9433     0.9892  ",
+      "-------------------------------------------------"
+    )
+  )
+})

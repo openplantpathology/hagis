@@ -1,4 +1,3 @@
-
 # test calculate complexities --------------------------------------------------
 data(P_sojae_survey)
 complexities <- calculate_complexities(
@@ -13,18 +12,16 @@ complexities <- calculate_complexities(
 test_that("calculate_complexities() works properly", {
   expect_s3_class(complexities, "hagis.complexities")
   expect_length(complexities, 2)
-  expect_named(complexities,
-               c("grouped_complexities",
-                 "individual_complexities"))
+  expect_named(
+    complexities,
+    c("grouped_complexities", "individual_complexities")
+  )
 
   # test summary.hagis.complexities
   expect_length(summary(complexities), 3)
-  expect_equal(summary(complexities)[[1]], 8.714286,
-               tolerance = 1e-3)
-  expect_equal(summary(complexities)[[2]], 2.003568,
-               tolerance = 1e-3)
-  expect_equal(summary(complexities)[[3]], 0.4372144,
-               tolerance = 1e-3)
+  expect_equal(summary(complexities)[[1]], 8.714286, tolerance = 1e-3)
+  expect_equal(summary(complexities)[[2]], 2.003568, tolerance = 1e-3)
+  expect_equal(summary(complexities)[[3]], 0.4372144, tolerance = 1e-3)
   expect_named(summary(complexities), c("mean", "sd", "se"))
 })
 
@@ -113,24 +110,26 @@ test_that("print.hagis.complexities() returns a proper summary", {
   expect_type(x, "character")
   expect_equal(x[[2]], "Grouped Complexities")
   expect_equal(x[[3]], "    complexity frequency distribution")
-  expect_equal(tail(x),
-               c(
-                 "18:     18     10",
-                 "19:     19     11",
-                 "20:     20     11",
-                 "21:     21     13",
-                 "    sample N_samp",
-                 ""
-               ))
+  expect_equal(
+    tail(x),
+    c(
+      "18:     18     10",
+      "19:     19     11",
+      "20:     20     11",
+      "21:     21     13",
+      "    sample N_samp",
+      ""
+    )
+  )
 })
 
 test_that("pander.summary.complexities returns a properly formatted table", {
-            x <- capture.output(pander(summary(complexities)))
-            expect_type(x, "character")
-            expect_equal(x[[1]], "")
-            expect_equal(x[[2]], "------------------------")
-            expect_equal(x[[3]], " Mean     SD       SE   ")
-            expect_equal(x[[4]], "------- ------- --------")
-            expect_equal(x[[5]], " 8.714   2.004   0.4372 ")
-            expect_equal(x[[6]], "------------------------")
-          })
+  x <- capture.output(pander(summary(complexities)))
+  expect_type(x, "character")
+  expect_equal(x[[1]], "")
+  expect_equal(x[[2]], "------------------------")
+  expect_equal(x[[3]], " Mean     SD       SE   ")
+  expect_equal(x[[4]], "------- ------- --------")
+  expect_equal(x[[5]], " 8.714   2.004   0.4372 ")
+  expect_equal(x[[6]], "------------------------")
+})

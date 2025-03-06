@@ -14,18 +14,15 @@
 #' @autoglobal
 #' @dev
 .check_inputs <-
-  function(.x,
-           .cutoff,
-           .control,
-           .sample,
-           .gene,
-           .perc_susc) {
-    if (!is.data.frame(.x) ||
-      !is.numeric(.cutoff) ||
-      !is.character(.control) ||
-      !is.character(.sample) ||
-      !is.character(.gene) ||
-      !is.character(.perc_susc)) {
+  function(.x, .cutoff, .control, .sample, .gene, .perc_susc) {
+    if (
+      !is.data.frame(.x) ||
+        !is.numeric(.cutoff) ||
+        !is.character(.control) ||
+        !is.character(.sample) ||
+        !is.character(.gene) ||
+        !is.character(.perc_susc)
+    ) {
       stop(
         call. = FALSE,
         "You have failed to provide all necessary inputs or\n",

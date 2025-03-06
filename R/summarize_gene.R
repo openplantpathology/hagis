@@ -42,12 +42,7 @@
 #'   }
 #' @export summarize_gene
 
-summarize_gene <- function(x,
-                           cutoff,
-                           control,
-                           sample,
-                           gene,
-                           perc_susc) {
+summarize_gene <- function(x, cutoff, control, sample, gene, perc_susc) {
   # check inputs and rename columns to work with this package
   x <- .check_inputs(
     .x = x,
@@ -65,8 +60,9 @@ summarize_gene <- function(x,
   # create new data.table with percentages
   y <-
     x[, list(N_virulent_isolates = sum(susceptible.1)), by = list(gene)]
-  y[, percent_pathogenic :=
-    (N_virulent_isolates) / max(N_virulent_isolates) * 100]
+  y[,
+    percent_pathogenic := (N_virulent_isolates) / max(N_virulent_isolates) * 100
+  ]
 
   # Set new class
   class(y) <- union("hagis.gene.summary", class(y))
@@ -113,11 +109,7 @@ ggplot2::autoplot
 #' @export
 
 autoplot.hagis.gene.summary <-
-  function(object,
-           type,
-           color = NULL,
-           order = NULL,
-           ...) {
+  function(object, type, color = NULL, order = NULL, ...) {
     # order cols based on user input
     if (!is.null(order)) {
       if (order == "ascending") {
