@@ -12,16 +12,16 @@ individual_pathotypes(x, ...)
 \item{...}{other arguments passed to \code{\link[pander:panderOptions]{pander::panderOptions()}}}
 }
 \value{
-A \link{pander} object of individual pathotypes
+A \code{\link[pander:pander]{pander::pander()}} object of individual pathotypes
 }
 \description{
 Print an object from a \code{hagis.diversities} object with individual pathotypes,
-\emph{i.e.} each sample's pathotype. The resulting object is a \link{pander} table
-(a text object for Markdown) for ease of use in reporting and viewing in the
-console.
+\emph{i.e.} each sample's pathotype. The resulting object is a \CRANpkg{pander}
+table (a text object for Markdown) for ease of use in reporting and viewing
+in the console.
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # Using the built-in data set, P_sojae_survey
 data(P_sojae_survey)
 

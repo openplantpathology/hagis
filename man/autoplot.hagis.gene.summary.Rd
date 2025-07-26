@@ -30,7 +30,7 @@ Creates a \CRANpkg{ggplot2} object of the gene summaries
 calculated by \code{\link[=summarize_gene]{summarize_gene()}}
 }
 \examples{
-\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
+\dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
 # Using the built-in data set, `P_sojae_survey`
 data(P_sojae_survey)
 
