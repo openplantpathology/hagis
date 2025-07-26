@@ -59,12 +59,16 @@ install.packages("hagis")
 A development version is available from from GitHub that may provide bug fixes or new features not yet available from CRAN.
 
 ``` r
-if (!require("remotes")) {
-  install.packages("remotes", repos = "http://cran.rstudio.com/")
-  library("remotes")
+o <- options() # store default options
+
+options(pkg.build_vignettes = TRUE)
+if (!require("pak")) {
+  install.packages("pak", repos = "http://cran.rstudio.com/")
+  library("pak")
 }
 
-install_github("openplantpathology/hagis", build_vignettes = TRUE)
+pak("openplantpathology/hagis", build_vignettes = TRUE)
+options(o) # reset options
 ```
 
 ## Meta
