@@ -1,10 +1,12 @@
+AAGI
 ANOSIM
+AgBioResearch
 Autoplot
 CITATION's
 CRAN's
 Codecov
+Curtin
 DAQ
-DOI
 Finnerty
 GRDC
 GREEEN
@@ -19,7 +21,9 @@ Löwer
 MPMI
 MPS
 MSU
+NOTEs
 Ns
+OPX
 ORCID
 PCOA
 PERMANOVA
@@ -29,6 +33,7 @@ Pathotypes
 Phytophthora
 README
 RMarkdown
+ROR
 ROxygen
 Rmd
 Schachtel
@@ -39,6 +44,7 @@ Zhian
 al
 analysing
 autoplot
+betadiversity
 conceptor
 covr
 doi
@@ -48,7 +54,6 @@ frac
 funder
 ggplot
 globals
-hagis’
 hypocotyl
 nasapower
 pathotype
@@ -63,6 +68,8 @@ sd
 se
 sojae
 spp
+summarised
+summarises
 vidiffr
 wordlist
 y'know
