@@ -31,11 +31,14 @@ Authors:
 Other contributors:
 \itemize{
   \item Zhian N. Kamvar (\href{https://orcid.org/0000-0003-1458-7108}{ORCID}) [contributor, reviewer]
-  \item Michigan Soybean Promotion Committee [funder]
-  \item Project GREEEN [funder]
-  \item North Central Soybean Research Program [funder]
-  \item Grains Research and Development Corporation (GRDC Project DAQ00186) [funder]
-  \item Grains Research and Development Corporation (GRDC Project CUR2210-005OPX (AAGI-CU)) [funder, copyright holder]
+  \item Michigan Soybean Promotion Committee [funder, copyright holder]
+  \item Project GREEEN [funder, copyright holder]
+  \item North Central Soybean Research Program [funder, copyright holder]
+  \item Grains Research and Development Corporation (\href{https://ror.org/02xwr1996}{ROR}) (GRDC Project DAQ00186 and GRDC Project CUR2210-005OPX
+ (AAGI-CU)) [funder, copyright holder]
+  \item Michigan State University (\href{https://ror.org/05hs6h993}{ROR}) (MSU AgBioResearch and MSU Extension) [funder, copyright holder]
+  \item University of Southern Queensland (\href{https://ror.org/04sjbnx57}{ROR}) [funder, copyright holder]
+  \item Curtin University (\href{https://ror.org/02n415q13}{ROR}) [funder, copyright holder]
 }
 
 }
