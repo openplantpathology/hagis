@@ -14,7 +14,7 @@
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.3.3 (2024-02-29)",
+  "runtimePlatform": "R version 4.5.1 (2025-06-13)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -75,7 +75,31 @@
   "copyrightHolder": [
     {
       "@type": "Organization",
+      "name": "Michigan Soybean Promotion Committee"
+    },
+    {
+      "@type": "Organization",
+      "name": "Project GREEEN"
+    },
+    {
+      "@type": "Organization",
+      "name": "North Central Soybean Research Program"
+    },
+    {
+      "@type": "Organization",
       "name": "Grains Research and Development Corporation"
+    },
+    {
+      "@type": "Organization",
+      "name": "Michigan State University"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Southern Queensland"
+    },
+    {
+      "@type": "Organization",
+      "name": "Curtin University"
     }
   ],
   "funder": [
@@ -97,7 +121,15 @@
     },
     {
       "@type": "Organization",
-      "name": "Grains Research and Development Corporation"
+      "name": "Michigan State University"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Southern Queensland"
+    },
+    {
+      "@type": "Organization",
+      "name": "Curtin University"
     }
   ],
   "maintainer": [
@@ -265,7 +297,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "1639.805KB",
+  "fileSize": "292.404KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
