@@ -17,9 +17,9 @@
 ^CRAN-SUBMISSION$
 ^\.covrignore$
 ^revdep$
-^man/dot-create_summary_isolate\.Rd$
-^man/dot-check_inputs\.Rd$
 ^air\.toml$
 
 # flir files
 ^flir$
+^man/dot-create_summary_isolate\.Rd$
+^man/dot-check_inputs\.Rd$
