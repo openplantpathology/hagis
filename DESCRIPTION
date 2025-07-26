@@ -15,13 +15,17 @@ Authors@R: c(
            comment = "Contributed fix for the use of 'vegan' in betadiversity vignette."),
     person("Zhian N.", "Kamvar", role = c("ctb", "rev"),
            comment = c(ORCID = "0000-0003-1458-7108")),
-    person("Michigan Soybean Promotion Committee", role = "fnd"),
-    person("Project GREEEN", role = "fnd"),
-    person("North Central Soybean Research Program", role = "fnd"),
-    person("Grains Research and Development Corporation", role = "fnd",
-            comment = "GRDC Project DAQ00186"),
+    person("Michigan Soybean Promotion Committee", role = c("fnd", "cph")),
+    person("Project GREEEN", role = c("fnd", "cph")),
+    person("North Central Soybean Research Program", role = c("fnd", "cph")),
     person("Grains Research and Development Corporation", role = c("fnd", "cph"),
-           comment = "GRDC Project CUR2210-005OPX (AAGI-CU)")
+           comment = c("GRDC Project DAQ00186 and GRDC Project CUR2210-005OPX\n           (AAGI-CU)", ROR = "02xwr1996")),
+    person("Michigan State University", role = c("fnd", "cph"),
+           comment = c("MSU AgBioResearch and MSU Extension", ROR = "05hs6h993")),
+    person("University of Southern Queensland", role = c("fnd", "cph"),
+           comment = c(ROR = "04sjbnx57")),
+    person("Curtin University", role = c("fnd", "cph"),
+           comment = c(ROR = "02n415q13"))
   )
 Description: Analysis of plant pathogen pathotype survey data.  Functions
     provided calculate distribution of susceptibilities, distribution of
@@ -61,7 +65,7 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
     "roxyglobals::global_roclet", "devtag::dev_roclet"))
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.2.9000
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: https://openplantpathology.org
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey,
