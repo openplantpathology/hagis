@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/openplantpathology/hagis",
   "issueTracker": "https://github.com/openplantpathology/hagis/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "4.0.0",
+  "version": "4.0.0.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -297,7 +297,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "1082.82KB",
+  "fileSize": "1640.589KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -368,7 +368,7 @@
       "name": "{hagis}: Analysis of Plant Pathogen Pathotype Complexities, Distributions and Diversity",
       "identifier": "10.5281/zenodo.2619820",
       "url": "https://openplantpathology.github.io/hagis/",
-      "description": "R package version 4.0.0",
+      "description": "R package version 4.0.0.9000",
       "@id": "https://doi.org/10.5281/zenodo.2619820",
       "sameAs": "https://doi.org/10.5281/zenodo.2619820"
     }

@@ -89,7 +89,7 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
 
   # remove resistant reactions from the data set, leaving only susceptible
   # reactions (pathotype)
-  x <- subset(x, susceptible.1 != 0)
+  x <- subset(x, susceptible.1 != 0L)
 
   # split the data frame by sample and gene
   y <- vapply(
@@ -98,7 +98,7 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
       x[, sample]
     ),
     toString,
-    character(1)
+    character(1L)
   )
 
   individual_pathotypes <- setDT(data.frame(
@@ -120,20 +120,20 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
 
   # indices --------------------------------------------------------------------
   Simple <- N_pathotypes / N_samples
-  Gleason <- (N_pathotypes - 1) / log(N_samples)
+  Gleason <- (N_pathotypes - 1L) / log(N_samples)
 
   # Shannon and Simpson diversity indices
   x <-
     table_of_pathotypes[, Frequency] / sum(table_of_pathotypes[, Frequency])
 
   # Shannon index
-  Shannon <- -x * log(x, exp(1))
+  Shannon <- -x * log(x, exp(1L))
   Shannon <- sum(Shannon, na.rm = TRUE)
 
   # Simpson diversity index
   x <- x * x
   H <- sum(x, na.rm = TRUE)
-  Simpson <- 1 - H
+  Simpson <- 1L - H
 
   # Evenness
   Evenness <- Shannon / log(N_pathotypes)
@@ -170,15 +170,15 @@ print.hagis.diversities <- function(
   ...
 ) {
   cat("\nhagis Diversities\n")
-  cat("\nNumber of Samples", x[[3]])
-  cat("\nNumber of Pathotypes", x[[4]], "\n")
+  cat("\nNumber of Samples", x[[3L]])
+  cat("\nNumber of Pathotypes", x[[4L]], "\n")
   cat("\n")
   cat("Indices\n")
-  cat("Simple  ", x[[5]], "\n")
-  cat("Gleason ", x[[6]], "\n")
-  cat("Shannon ", x[[7]], "\n")
-  cat("Simpson ", x[[8]], "\n")
-  cat("Evenness ", x[[9]], "\n")
+  cat("Simple  ", x[[5L]], "\n")
+  cat("Gleason ", x[[6L]], "\n")
+  cat("Shannon ", x[[7L]], "\n")
+  cat("Simpson ", x[[8L]], "\n")
+  cat("Evenness ", x[[9L]], "\n")
   cat("\n")
   invisible(x)
 }
@@ -215,13 +215,13 @@ print.hagis.diversities <- function(
 #' @seealso [calculate_diversities()], [individual_pathotypes()]
 #' @export
 diversities_table <- function(x, ...) {
-  if (class(x)[1] != "hagis.diversities") {
+  if (class(x)[1L] != "hagis.diversities") {
     stop(
       call. = FALSE,
       "This is not a hagis.diversities object."
     )
   } else {
-    pander::pander(x[[2]], ...)
+    pander::pander(x[[2L]], ...)
   }
 }
 
@@ -256,14 +256,13 @@ diversities_table <- function(x, ...) {
 #' @seealso [calculate_diversities()], [diversities_table()]
 #' @export
 individual_pathotypes <- function(x, ...) {
-  if (class(x)[1] != "hagis.diversities") {
-    stop(
-      call. = FALSE,
-      "This is not a hagis.diversities object."
-    )
-  } else {
-    pander::pander(x[[1]], ...)
+  if (inherits(x, "hagis.diversities")) {
+    return(pander::pander(x[[1L]], ...))
   }
+  stop(
+    call. = FALSE,
+    "This is not a `hagis.diversities` object."
+  )
 }
 
 
@@ -280,18 +279,16 @@ pander.hagis.diversities <-
   function(x, caption = attr(x, "caption"), ...) {
     pander::pander(
       data.frame(
-        "Simple" = x$Simple,
-        "Gleason" = x$Gleason,
-        "Shannon" = x$Shannon,
-        "Simpson" = x$Simpson,
-        "Evenness" = x$Evenness
+        Simple = x$Simple,
+        Gleason = x$Gleason,
+        Shannon = x$Shannon,
+        Simpson = x$Simpson,
+        Evenness = x$Evenness
       ),
-      caption = paste0(
-        "Diversity indices where n = ",
+      caption = sprintf(
+        "Diversity indices where n = %d with %d pathotypes",
         x$number_of_samples,
-        " with ",
-        x$number_of_pathotypes,
-        " pathotypes."
+        x$number_of_pathotypes
       )
     )
   }

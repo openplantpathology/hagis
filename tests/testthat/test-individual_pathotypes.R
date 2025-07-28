@@ -2,7 +2,7 @@
 data(P_sojae_survey)
 diversities <- calculate_diversities(
   x = P_sojae_survey,
-  cutoff = 60,
+  cutoff = 60L,
   control = "susceptible",
   sample = "Isolate",
   gene = "Rps",
@@ -22,6 +22,6 @@ test_that("individual_pathotypes() stops if object is not hagis.diversities
           object", {
   expect_error(
     individual_pathotypes("y"),
-    regexp = "This is not a hagis.diversities object."
+    regexp = "This is not a `hagis.diversities` object."
   )
 })

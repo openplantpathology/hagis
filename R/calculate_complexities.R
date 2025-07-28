@@ -85,7 +85,7 @@ calculate_complexities <- function(
 
   for (i in seq_len(n_gene)) {
     complexities[[i]] <-
-      length(which(individual_complexities[, N_samp == i]) / n_sample * 100)
+      length(which(individual_complexities[, N_samp == i]) / n_sample * 100L)
   }
 
   grouped_complexities <-
@@ -98,7 +98,7 @@ calculate_complexities <- function(
   grouped_complexities[dist, on = "N_samp", distribution := i.N]
 
   # set NA to 0 for distribution
-  grouped_complexities[is.na(distribution), distribution := 0]
+  grouped_complexities[is.na(distribution), distribution := 0L]
   setcolorder(
     grouped_complexities,
     neworder = c("N_samp", "frequency", "distribution")
@@ -331,9 +331,9 @@ print.summary.complexities <- function(
 pander.summary.complexities <-
   function(x, caption = attr(x, "caption"), ...) {
     pander::pandoc.table(data.frame(
-      "Mean" = x[[1]],
-      "SD" = x[[2]],
-      "SE" = x[[3]]
+      "Mean" = x[[1L]],
+      "SD" = x[[2L]],
+      "SE" = x[[3L]]
     ))
   }
 
@@ -354,7 +354,7 @@ print.hagis.complexities <- function(
   print(x[[1]])
   cat("\n")
   cat("\nIndividual Complexities\n")
-  print(x[[2]])
+  print(x[[2L]])
   cat("\n")
   invisible(x)
 }
