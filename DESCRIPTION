@@ -65,7 +65,7 @@ Language: en-US
 LazyData: true
 Roxygen: list(markdown = TRUE, roclets = c("collate", "namespace", "rd",
     "roxyglobals::global_roclet", "devtag::dev_roclet"))
-RoxygenNote: 7.3.2.9000
+RoxygenNote: 7.3.3
 X-schema.org-applicationCategory: Tools
 X-schema.org-isPartOf: https://openplantpathology.org
 X-schema.org-keywords: plant-pathology, pathotype, pathogen-survey,
