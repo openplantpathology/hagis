@@ -1,25 +1,17 @@
 ^codecov\.yml$
-^appveyor\.yml$
-^\.travis\.yml$
 ^docs$
 ^_pkgdown\.yml$
 ^codemeta\.json$
 ^README\.Rmd$
 ^LICENSE\.md$
-^.*\.Rproj$
-^\.Rproj\.user$
 ^CODE_OF_CONDUCT\.md$
 ^CRAN-RELEASE$
 ^\.github$
 ^cran-comments\.md$
-^\.ccache$
-^tic\.R$
 ^CRAN-SUBMISSION$
 ^\.covrignore$
 ^revdep$
 ^air\.toml$
 
-# flir files
-^flir$
 ^man/dot-create_summary_isolate\.Rd$
 ^man/dot-check_inputs\.Rd$
