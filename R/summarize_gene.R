@@ -44,7 +44,7 @@
 
 summarize_gene <- function(x, cutoff, control, sample, gene, perc_susc) {
   # check inputs and rename columns to work with this package
-  x <- .check_inputs(
+  dt_x <- .check_inputs(
     .x = x,
     .cutoff = cutoff,
     .control = control,
@@ -53,16 +53,17 @@ summarize_gene <- function(x, cutoff, control, sample, gene, perc_susc) {
     .perc_susc = perc_susc
   )
 
-  # summarise the reactions, create susceptible.1 column, see
-  # internal_functions.R
-  x <- .binary_cutoff(.x = x, .cutoff = cutoff)
+  N_samples <- length(unique(dt_x[["sample"]]))
 
-  # create new data.table with percentages
-  y <-
-    x[, list(N_virulent_isolates = sum(susceptible.1)), by = list(gene)]
-  y[,
-    percent_pathogenic := (N_virulent_isolates) / max(N_virulent_isolates) * 100
-  ]
+  dt_x <- dt_x[gene != control]
+
+  # create susceptible.1 binary column
+  dt_x <- .binary_cutoff(.x = dt_x, .cutoff = cutoff)
+
+  # Summarise virulent isolate counts per gene then compute the true
+  # percentage of samples that are pathogenic on each gene.
+  y <- dt_x[, list(N_virulent_isolates = sum(susceptible.1)), by = gene]
+  y[, percent_pathogenic := N_virulent_isolates / N_samples * 100]
 
   # Set new class
   class(y) <- union("hagis.gene.summary", class(y))
@@ -110,21 +111,15 @@ ggplot2::autoplot
 
 autoplot.hagis.gene.summary <-
   function(object, type, color = NULL, order = NULL, ...) {
-    # order cols based on user input
+    # order rows based on user input
     if (!is.null(order)) {
       if (order == "ascending") {
-        setorder(object, cols = N_virulent_isolates)
-        object$order <- seq_len(nrow(object))
+        setorder(object, N_virulent_isolates)
       } else if (order == "descending") {
-        setorder(
-          x = object,
-          cols = -N_virulent_isolates
-        )
-        object$order <- seq_len(nrow(object))
+        setorder(object, -N_virulent_isolates)
       }
     } else {
-      # if no order is specified
-      setorder(object, cols = gene)
+      setorder(object, gene)
     }
     object$order <- seq_len(nrow(object))
 
@@ -140,17 +135,12 @@ autoplot.hagis.gene.summary <-
           y = "Percent of samples",
           x = "Gene"
         ) +
-        ggplot2::ggtitle(expression("Percentage of samples pathogenic"))
+        ggplot2::ggtitle("Percentage of samples pathogenic")
 
       if (!is.null(.color)) {
-        perc_plot +
-          ggplot2::geom_col(
-            fill = .color,
-            colour = .color
-          )
+        perc_plot + ggplot2::geom_col(fill = .color, colour = .color, ...)
       } else {
-        perc_plot +
-          ggplot2::geom_col()
+        perc_plot + ggplot2::geom_col(...)
       }
     }
 
@@ -166,17 +156,12 @@ autoplot.hagis.gene.summary <-
           y = "Number of samples",
           x = "Gene"
         ) +
-        ggplot2::ggtitle(expression("Number of samples pathogenic"))
+        ggplot2::ggtitle("Number of samples pathogenic")
 
       if (!is.null(.color)) {
-        num_plot +
-          ggplot2::geom_col(
-            fill = .color,
-            colour = .color
-          )
+        num_plot + ggplot2::geom_col(fill = .color, colour = .color, ...)
       } else {
-        num_plot +
-          ggplot2::geom_col()
+        num_plot + ggplot2::geom_col(...)
       }
     }
 
@@ -185,9 +170,6 @@ autoplot.hagis.gene.summary <-
     } else if (type == "count") {
       plot_count(.data = object, .color = color)
     } else {
-      stop(
-        .call = FALSE,
-        "You have entered an invalid `type`."
-      )
+      stop(call. = FALSE, "You have entered an invalid `type`.")
     }
   }

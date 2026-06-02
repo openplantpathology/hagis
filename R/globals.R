@@ -3,7 +3,8 @@
 utils::globalVariables(c(
   "N_samp", # <calculate_complexities>
   "distribution", # <calculate_complexities>
-  "i.N", # <calculate_complexities>
+  "frequency", # <calculate_complexities>
+  "complexity", # <calculate_complexities>
   "frequency", # <autoplot.hagis.complexities>
   "complexity", # <autoplot.hagis.complexities>
   "distribution", # <autoplot.hagis.complexities>
@@ -11,6 +12,7 @@ utils::globalVariables(c(
   "susceptible.1", # <calculate_diversities>
   "Pathotype", # <calculate_diversities>
   "Frequency", # <calculate_diversities>
+  "susceptible.1", # <create_binary_matrix>
   "gene", # <.check_inputs>
   "susceptible.1", # <summarize_gene>
   "percent_pathogenic", # <summarize_gene>

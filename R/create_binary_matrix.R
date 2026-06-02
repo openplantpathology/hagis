@@ -15,12 +15,14 @@
 #' P_sojae_survey
 #'
 #' # calculate susceptibilities with a 60 % cutoff value
-#' final_matrix <- create_binary_matrix(x = P_sojae_survey,
-#'                                     cutoff = 60,
-#'                                     control = "susceptible",
-#'                                     sample = "Isolate",
-#'                                     gene = "Rps",
-#'                                     perc_susc = "perc.susc")
+#' final_matrix <- create_binary_matrix(
+#'   x = P_sojae_survey,
+#'   cutoff = 60,
+#'   control = "susceptible",
+#'   sample = "Isolate",
+#'   gene = "Rps",
+#'   perc_susc = "perc.susc"
+#' )
 #' final_matrix
 #'
 #' @returns a binary matrix of pathotype data
@@ -29,7 +31,7 @@
 #'
 create_binary_matrix <- function(x, cutoff, control, sample, gene, perc_susc) {
   # check inputs and rename columns to work with this package
-  x <- .check_inputs(
+  dt_x <- .check_inputs(
     .x = x,
     .cutoff = cutoff,
     .control = control,
@@ -38,24 +40,23 @@ create_binary_matrix <- function(x, cutoff, control, sample, gene, perc_susc) {
     .perc_susc = perc_susc
   )
 
-  # summarise the reactions, create susceptible.1 column, see
-  # internal_functions.R
-  x <- .binary_cutoff(.x = x, .cutoff = cutoff)
+  dt_x <- dt_x[gene != control]
 
-  # remove susceptible so Beta diversity is only calculated based on pathotype
-  x <- subset(x, gene != control)
+  # create susceptible.1 binary column
+  dt_x <- .binary_cutoff(.x = dt_x, .cutoff = cutoff)
 
-  x <- data.table(x[, c("sample", "gene", "susceptible.1")])
+  # Select only the columns needed for the wide pivot
+  dt_x <- dt_x[, list(sample, gene, susceptible.1)]
 
-  x <-
-    t(as.matrix(
-      dcast(
-        melt(x, id.vars = c("sample", "gene")),
-        gene ~ sample,
-        value.var = "value"
-      ),
-      rownames = "gene"
-    ))
+  wide <- dcast(
+    dt_x,
+    gene ~ sample,
+    value.var = "susceptible.1",
+    fun.aggregate = mean
+  )
+
+  # Transpose so rows = samples, cols = genes (standard beta-diversity input)
+  x <- t(as.matrix(wide, rownames = "gene"))
 
   return(x)
 }

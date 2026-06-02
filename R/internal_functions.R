@@ -30,26 +30,31 @@
         "Please check and try again."
       )
     }
-    dt <- as.data.table(.x)
+
+    dt_x <- if (is.data.table(.x)) copy(.x) else as.data.table(.x)
+
     setnames(
-      dt,
+      dt_x,
       c(.perc_susc, .gene, .sample),
       c("perc_susc", "gene", "sample")
     )
 
     # validate that perc_susc is numeric
-    if (!is.numeric(dt$perc_susc)) {
-      stop("Data in the column `perc_susc` must be numeric.")
+    if (!is.numeric(dt_x$perc_susc)) {
+      stop("Data in the column `perc_susc` must be numeric.", call. = FALSE)
     }
-    # validate that no values in perc_susc < 0
-    if (any(dt$perc_susc < 0, na.rm = TRUE)) {
-      stop("Data in the column `perc_susc` must be non-negative.")
+
+    if (any(dt_x$perc_susc < 0, na.rm = TRUE)) {
+      stop(
+        "Data in the column `perc_susc` must be non-negative.",
+        call. = FALSE
+      )
     }
 
     # set col types for the necessary cols
-    dt[, sample := as.character(sample)]
-    dt[, gene := as.character(gene)]
-    return(dt[])
+    dt_x[, sample := as.character(sample)]
+    dt_x[, gene := as.character(gene)]
+    return(dt_x[])
   }
 
 #' Create Binary Reaction Value
@@ -63,11 +68,9 @@
 #' @autoglobal
 #' @noRd
 .binary_cutoff <- function(.x, .cutoff) {
-  susceptible.1 <- perc_susc <- NULL
-  # if else for resistant or susceptible reaction. This will mark susceptible
-  # reactions with a "1" in a new column labelled "Susceptible.1" to then be
-  # used in later analysis.
-  .x[, susceptible.1 := 0]
-  .x[perc_susc >= .cutoff, susceptible.1 := 1]
+  perc_susc <- susceptible.1 <- NULL
+  # Single-pass vectorised assignment: TRUE/FALSE coerced to 1/0.
+  # Replaces the previous two-pass approach (init to 0, then overwrite 1).
+  .x[, susceptible.1 := as.integer(perc_susc >= .cutoff)]
   return(.x[])
 }
