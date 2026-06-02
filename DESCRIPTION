@@ -18,13 +18,11 @@ Authors@R: c(
     person("Michigan Soybean Promotion Committee", role = c("fnd", "cph")),
     person("Project GREEEN", role = c("fnd", "cph")),
     person("North Central Soybean Research Program", role = c("fnd", "cph")),
-    person("Grains Research and Development Corporation", role = c("fnd", "cph"),
-           comment = c("GRDC Project DAQ00186 and GRDC Project CUR2210-005OPX\n           (AAGI-CU)", ROR = "02xwr1996")),
     person("Michigan State University", role = c("fnd", "cph"),
            comment = c("MSU AgBioResearch and MSU Extension", ROR = "05hs6h993")),
-    person("University of Southern Queensland", role = c("fnd", "cph"),
+    person("University of Southern Queensland", role = c("cph"),
            comment = c(ROR = "04sjbnx57")),
-    person("Curtin University", role = c("fnd", "cph"),
+    person("Curtin University", role = c("cph"),
            comment = c(ROR = "02n415q13"))
   )
 Description: Analysis of plant pathogen pathotype survey data.  Functions
