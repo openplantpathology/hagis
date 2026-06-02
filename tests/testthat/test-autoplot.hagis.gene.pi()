@@ -1,0 +1,20 @@
+# test autoplot.hagis.gene.pi() -----------------------------------------------
+
+data(P_sojae_survey)
+
+gene_pi <- summarize_gene_pi(
+  x = P_sojae_survey,
+  max_score = 100,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
+
+test_that("autoplot.hagis.gene.pi() returns a ggplot2 object for index", {
+  expect_s3_class(autoplot(gene_pi, type = "index"), "gg")
+})
+
+test_that("autoplot.hagis.gene.pi() returns a ggplot2 object for percent", {
+  expect_s3_class(autoplot(gene_pi, type = "percent"), "gg")
+})
