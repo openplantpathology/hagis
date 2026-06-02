@@ -7,8 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Beta-diversity Analysis with hagis • hagis</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/bootstrap-5.3.8/bootstrap.min.css" rel="stylesheet">
+<script src="../deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Beta-diversity Analysis with hagis">
 </head>
@@ -61,7 +61,7 @@
                         <h4 data-toc-skip class="author">Austin
 McCoy</h4>
             
-            <h4 data-toc-skip class="date">2025-09-24</h4>
+            <h4 data-toc-skip class="date">2026-06-02</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/openplantpathology/hagis/blob/main/vignettes/betadiversity.Rmd" class="external-link"><code>vignettes/betadiversity.Rmd</code></a></small>
       <div class="d-none name"><code>betadiversity.Rmd</code></div>
@@ -195,7 +195,7 @@ to look further at the third or n+1 dimensions.</p>
 <code class="sourceCode R"><span><span class="va">princoor.pathotype</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/ape/man/pcoa.html" class="external-link">pcoa</a></span><span class="op">(</span><span class="va">P_sojae_survey.matrix.jaccard</span><span class="op">)</span> </span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span><span class="va">princoor.pathotype</span><span class="op">$</span><span class="va">values</span><span class="op">$</span><span class="va">Relative_eig</span><span class="op">[</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span><span class="op">]</span><span class="op">)</span></span></code></pre></div>
-<p><img src="betadiversity_files/figure-html/barplot-1.png" width="700"></p>
+<p><img src="betadiversity_files/figure-html/barplot-1.png" class="r-plt" alt="" width="700"></p>
 <p>Now we can calculate the percentage of variation that each principal
 coordinate accounts for. Another way to calculate the percent variation
 is to look at the <code>Relative_eig</code> column.</p>
@@ -282,7 +282,7 @@ function.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/stat_ellipse.html" class="external-link">stat_ellipse</a></span><span class="op">(</span>data <span class="op">=</span> <span class="va">princoor.pathotype.data</span>, <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">X</span>, y <span class="op">=</span> <span class="va">Y</span><span class="op">)</span>,</span>
 <span>               level <span class="op">=</span> <span class="fl">0.95</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ggtitle</a></span><span class="op">(</span><span class="st">"Pathotype Jaccard Distances PCOA"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="betadiversity_files/figure-html/ggplot-pca-1.png" width="700"></p>
+<p><img src="betadiversity_files/figure-html/ggplot-pca-1.png" class="r-plt" alt="" width="700"></p>
 </div>
 <div class="section level2">
 <h2 id="statistical-tests-for-beta-diversity">Statistical Tests for Beta Diversity<a class="anchor" aria-label="anchor" href="#statistical-tests-for-beta-diversity"></a>
@@ -361,7 +361,7 @@ different between groups.</p>
 <div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># plot showing the dispersion for each group</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">pathotype.disp</span>, hull <span class="op">=</span> <span class="cn">FALSE</span>, ellipse <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
-<p><img src="betadiversity_files/figure-html/beta-dispersion-1.png" width="700"></p>
+<p><img src="betadiversity_files/figure-html/beta-dispersion-1.png" class="r-plt" alt="" width="700"></p>
 <p>The ANOVA identified no significant differences between groups
 dispersion (p = 0.3377355). This means that the groups dispersion, or
 variance, is not significantly different from each other and the groups
@@ -460,7 +460,7 @@ similarities.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0.</p>
 </div>
 
     </footer>
