@@ -87,10 +87,6 @@
     },
     {
       "@type": "Organization",
-      "name": "Grains Research and Development Corporation"
-    },
-    {
-      "@type": "Organization",
       "name": "Michigan State University"
     },
     {
@@ -117,19 +113,7 @@
     },
     {
       "@type": "Organization",
-      "name": "Grains Research and Development Corporation"
-    },
-    {
-      "@type": "Organization",
       "name": "Michigan State University"
-    },
-    {
-      "@type": "Organization",
-      "name": "University of Southern Queensland"
-    },
-    {
-      "@type": "Organization",
-      "name": "Curtin University"
     }
   ],
   "maintainer": [
@@ -292,7 +276,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "1701.456KB",
+  "fileSize": "366.931KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
