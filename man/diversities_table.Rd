@@ -12,10 +12,10 @@ diversities_table(x, ...)
 \item{...}{other arguments passed to \code{\link[pander:panderOptions]{pander::panderOptions()}}}
 }
 \value{
-A \code{\link[pander:pandoc.table.return]{pander::pandoc.table()}} object of diversities
+A \code{\link[pander:pandoc.table]{pander::pandoc.table()}} object of diversities
 }
 \description{
-Print the frequency table of diversities from a \code{hagis.diversities} object
+Print the frequency table of diversities from a \code{hagis.diversities} object.
 The resulting object is a \CRANpkg{pander} table (a text object for Markdown)
 for ease of use in reporting and viewing in the console.
 }

@@ -40,12 +40,14 @@ data(P_sojae_survey)
 P_sojae_survey
 
 # calculate susceptibilities with a 60 \% cutoff value
-final_matrix <- create_binary_matrix(x = P_sojae_survey,
-                                    cutoff = 60,
-                                    control = "susceptible",
-                                    sample = "Isolate",
-                                    gene = "Rps",
-                                    perc_susc = "perc.susc")
+final_matrix <- create_binary_matrix(
+  x = P_sojae_survey,
+  cutoff = 60,
+  control = "susceptible",
+  sample = "Isolate",
+  gene = "Rps",
+  perc_susc = "perc.susc"
+)
 final_matrix
 \dontshow{\}) # examplesIf}
 }
