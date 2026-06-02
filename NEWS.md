@@ -1,5 +1,17 @@
 # hagis (Development version)
 
+## New features
+
+* Added `summarize_gene_pi()` to calculate raw-score Pathogenicity Index (PI) by gene following Herrmann et al. (1999), `PI = sum(scores) / (MAX * N)`.
+
+* Added `autoplot.hagis.gene.pi()` for plotting Pathogenicity Index values as raw index or percent scale.
+
+## Documentation
+
+* Clarified that `summarize_gene()` provides a thresholded binary summary,
+  while `summarize_gene_pi()` implements the paper-defined raw-score
+  Pathogenicity Index.
+
 ## Bug fixes
 
 - `.check_inputs()`: Fixed a typo where `dt$perc_susc` was referenced as `dt` instead of `dt_x` in the non-negative value validation check, which would have caused an error for any input containing negative values.
