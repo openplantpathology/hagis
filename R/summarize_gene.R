@@ -1,6 +1,9 @@
-#' Calculate and Summarize Distribution of Susceptibilities by Gene
+#' Summarize Binary Pathogenicity by Gene
 #'
-#' @description Calculate the distribution of susceptibilities by gene.
+#' Calculate the distribution of susceptibilities by gene.
+#'  This is the original version of the function found in \CRANpkg{hagis}.
+#'  See `summarize_gene_pi()` for a version that is true to the original found
+#'  in the original HaGiS file.
 #'
 #' @param x a `data.frame` containing the data.
 #' @param cutoff value for percent susceptible cutoff. `Numeric`.
@@ -40,7 +43,8 @@
 #'     given gene in the `gene` column}
 #'     \item{percent_pathogenic}{the frequency with which a gene is pathogenic}
 #'   }
-#' @export summarize_gene
+#' @family summarize_gene
+#' @export
 
 summarize_gene <- function(x, cutoff, control, sample, gene, perc_susc) {
   # check inputs and rename columns to work with this package
