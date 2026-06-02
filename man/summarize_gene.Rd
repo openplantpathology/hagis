@@ -2,7 +2,7 @@
 % Please edit documentation in R/summarize_gene.R
 \name{summarize_gene}
 \alias{summarize_gene}
-\title{Calculate and Summarize Distribution of Susceptibilities by Gene}
+\title{Summarize Binary Pathogenicity by Gene}
 \usage{
 summarize_gene(x, cutoff, control, sample, gene, perc_susc)
 }
@@ -36,6 +36,9 @@ given gene in the \code{gene} column}
 }
 \description{
 Calculate the distribution of susceptibilities by gene.
+This is the original version of the function found in \CRANpkg{hagis}.
+See \code{summarize_gene_pi()} for a version that is true to the original found
+in the original HaGiS file.
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
@@ -56,3 +59,8 @@ susc <- summarize_gene(
 susc
 \dontshow{\}) # examplesIf}
 }
+\seealso{
+Other summarize_gene:
+\code{\link[=summarize_gene_pi]{summarize_gene_pi()}}
+}
+\concept{summarize_gene}
