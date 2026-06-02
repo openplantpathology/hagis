@@ -1,11 +1,14 @@
-# test diversities table -------------------------------------------------------
-data(P_sojae_survey)
-Ps <-
-  as.data.frame(P_sojae_survey)
+# test diversities_table() and individual_pathotypes() ------------------------
 
-test_that("input is a data frame and not a data.table", {
-  expect_is(Ps, "data.frame")
-  expect_failure(expect_is(Ps, "data.table"))
+data(P_sojae_survey)
+
+# Explicitly use a plain data.frame (not data.table) to verify that
+# .check_inputs() handles non-data.table input correctly
+Ps <- as.data.frame(P_sojae_survey)
+
+test_that("test fixture is a plain data.frame and not a data.table", {
+  expect_s3_class(Ps, "data.frame")
+  expect_false(inherits(Ps, "data.table"))
 })
 
 diversities <- calculate_diversities(
@@ -17,23 +20,43 @@ diversities <- calculate_diversities(
   perc_susc = "perc.susc"
 )
 
-test_that("internal checker doesn't fail us", {
-  expect_is(Ps, "data.frame")
-  expect_failure(expect_is(Ps, "data.table"))
+test_that("calculate_diversities() accepts a plain data.frame as input", {
+  expect_s3_class(diversities, "hagis.diversities")
 })
 
-test_that("diversity_table() returns a pander object", {
+# diversities_table() ---------------------------------------------------------
+
+test_that("diversities_table() produces character output", {
   expect_type(
-    capture.output(
-      diversities_table(x = diversities, type = "text")
-    ),
+    utils::capture.output(diversities_table(x = diversities, type = "text")),
     "character"
   )
 })
 
-test_that("diversity_table() stops if object is not hagis.diversities object", {
+test_that("diversities_table() errors when input is not a hagis.diversities object", {
   expect_error(
     diversities_table("y"),
-    regexp = "This is not a hagis.diversities object."
+    regexp = "This is not a hagis.diversities object.",
+    fixed = TRUE
+  )
+})
+
+# individual_pathotypes() -----------------------------------------------------
+
+test_that("individual_pathotypes() produces character output", {
+  expect_type(
+    utils::capture.output(individual_pathotypes(
+      x = diversities,
+      type = "text"
+    )),
+    "character"
+  )
+})
+
+test_that("individual_pathotypes() errors when input is not a hagis.diversities object", {
+  expect_error(
+    individual_pathotypes("y"),
+    regexp = "This is not a `hagis.diversities` object.",
+    fixed = TRUE
   )
 })

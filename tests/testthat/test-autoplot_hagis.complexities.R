@@ -1,4 +1,3 @@
-# test plot.hagis.complexities.summary -----------------------------------------
 data(P_sojae_survey)
 complexities <- calculate_complexities(
   x = P_sojae_survey,

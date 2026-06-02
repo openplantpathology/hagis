@@ -1,5 +1,3 @@
-# test plot.hagis.gene.summary ----------------------------------------------
-
 data(P_sojae_survey)
 rps <- summarize_gene(
   x = P_sojae_survey,
