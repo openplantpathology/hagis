@@ -14,8 +14,6 @@
 
 ## Bug fixes
 
-- `.check_inputs()`: Fixed a typo where `dt$perc_susc` was referenced as `dt` instead of `dt_x` in the non-negative value validation check, which would have caused an error for any input containing negative values.
-
 - `calculate_complexities()`: Fixed a misplaced parenthesis in the frequency calculation loop where division by `n_sample * 100` was being performed inside `which()` on index integers, then discarded by `length()`.
   Stored frequency values were raw counts rather than percentages.
 
