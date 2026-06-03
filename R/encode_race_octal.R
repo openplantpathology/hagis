@@ -8,7 +8,7 @@ encode_race_octal <- function(x) {
     x <- as.integer(x)
   }
 
-  if (!is.numeric(x) || any(is.na(x)) || any(!x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
     stop("`x` must be a binary vector containing only 0 and 1.", call. = FALSE)
   }
 
@@ -34,7 +34,7 @@ encode_race_decanary <- function(x) {
     x <- as.integer(x)
   }
 
-  if (!is.numeric(x) || any(is.na(x)) || any(!x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
     stop("`x` must be a binary vector containing only 0 and 1.", call. = FALSE)
   }
 
@@ -58,7 +58,7 @@ race_code_table <- function(x) {
     stop("`x` must be a matrix.", call. = FALSE)
   }
 
-  if (!is.numeric(x) || any(is.na(x)) || any(!x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
     stop("`x` must be a binary matrix containing only 0 and 1.", call. = FALSE)
   }
 

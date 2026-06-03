@@ -13,7 +13,7 @@ decode_race_octal <- function(code, n = NULL) {
 
   digits <- strsplit(code, "", fixed = TRUE)[[1]]
 
-  if (any(!digits %in% as.character(0:7))) {
+  if (!all(digits %in% as.character(0:7))) {
     stop("`code` must contain only octal digits 0-7.", call. = FALSE)
   }
 
