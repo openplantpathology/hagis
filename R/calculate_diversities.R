@@ -32,7 +32,7 @@
 #'    population. Where Evenness is calculated as:
 #'    \deqn{ D = \frac{H'}{log(Np) }}{ D = H' / log(Np) }
 #'    where \eqn{H'} is the Shannon diversity index and \eqn{Np} is the number
-#'    of pathotypes.
+#'    of pathotypes. Evenness is undefined for a single pathotype.
 #'
 #' @inheritParams summarize_gene
 #' @autoglobal
@@ -90,12 +90,9 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
   dt_susc <- dt_x[susceptible.1 != 0L]
 
   # Build per-sample pathotype strings in a single data.table grouping
-  # (replaces split() + vapply() + toString())
   individual_pathotypes <- dt_susc[,
-    individual_pathotypes <- dt_susc[,
-      list(Pathotype = toString(sort(gene))),
-      by = list(Sample = sample)
-    ]
+    list(Pathotype = toString(sort(gene))),
+    by = list(Sample = sample)
   ]
 
   # Frequency table of pathotypes
@@ -124,7 +121,7 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
   Simpson <- 1 - sum(prop * prop, na.rm = TRUE)
 
   # Evenness
-  Evenness <- Shannon / log(N_pathotypes)
+  Evenness <- if (N_pathotypes > 1L) Shannon / log(N_pathotypes) else NA_real_
 
   z <- list(
     individual_pathotypes = individual_pathotypes,
