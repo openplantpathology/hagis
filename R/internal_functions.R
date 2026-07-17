@@ -81,7 +81,7 @@
   dt_x[, sample := as.character(sample)]
   dt_x[, gene := as.character(gene)]
 
-  dt_x[]
+  return(dt_x[])
 }
 
 #' Create Binary Reaction Value
