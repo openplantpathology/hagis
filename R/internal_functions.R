@@ -13,63 +13,76 @@
 #' numeric value. Character.
 #' @autoglobal
 #' @dev
-.check_inputs <-
-  function(.x, .cutoff, .control, .sample, .gene, .perc_susc) {
-    if (
-      !is.data.frame(.x) ||
-        !is.numeric(.cutoff) ||
-        !is.character(.control) ||
-        !is.character(.sample) ||
-        !is.character(.gene) ||
-        !is.character(.perc_susc)
-    ) {
-      stop(
-        call. = FALSE,
-        "You have failed to provide all necessary inputs or\n",
-        "you have provided an improperly formatted item.\n",
-        "Please check and try again."
-      )
-    }
-    if (!.control %in% dt_x$gene) {
-      stop(
-        "`control` value '",
-        .control,
-        "' was not found in the gene column.",
-        call. = FALSE
-      )
-    }
-    dt_x <- if (is.data.table(.x)) copy(.x) else as.data.table(.x)
 
-    if (!all(c(.perc_susc, .gene, .sample) %in% names(dt_x))) {
-      stop(
-        "The column names you have supplied are not found in the data.frame.",
-        call. = FALSE
-      )
+.check_inputs <- function(
+  .x,
+  .cutoff,
+  .control,
+  .sample,
+  .gene,
+  .perc_susc
+) {
+  validate <- function(ok, msg) {
+    if (!ok) {
+      stop(msg, call. = FALSE)
     }
-
-    setnames(
-      dt_x,
-      c(.perc_susc, .gene, .sample),
-      c("perc_susc", "gene", "sample")
-    )
-
-    # validate that perc_susc is numeric
-    if (!is.numeric(dt_x$perc_susc)) {
-      stop("Data in the column `perc_susc` must be numeric.", call. = FALSE)
-    }
-
-    if (any(dt_x$perc_susc < 0, na.rm = TRUE)) {
-      stop(
-        "Data in the column `perc_susc` must be non-negative.",
-        call. = FALSE
-      )
-    }
-
-    # set col types for the necessary cols
-    dt_x[, sample := as.character(sample)]
-    dt_x[, gene := as.character(gene)]
-    return(dt_x[])
   }
+
+  validate(
+    is.data.frame(.x) &&
+      is.numeric(.cutoff) &&
+      is.character(.control) &&
+      is.character(.sample) &&
+      is.character(.gene) &&
+      is.character(.perc_susc),
+    paste0(
+      "You have failed to provide all necessary inputs or\n",
+      "you have provided an improperly formatted item.\n",
+      "Please check and try again."
+    )
+  )
+
+  dt_x <- if (is.data.table(.x)) {
+    copy(.x)
+  } else {
+    as.data.table(.x)
+  }
+
+  validate(
+    all(c(.perc_susc, .gene, .sample) %in% names(dt_x)),
+    "The column names you have supplied are not found in the data.frame."
+  )
+
+  validate(
+    .control %in% dt_x[[.gene]],
+    paste0(
+      "`control` value '",
+      .control,
+      "' was not found in the gene column."
+    )
+  )
+
+  setnames(
+    dt_x,
+    c(.perc_susc, .gene, .sample),
+    c("perc_susc", "gene", "sample")
+  )
+
+  validate(
+    is.numeric(dt_x$perc_susc),
+    "Data in the column `perc_susc` must be numeric."
+  )
+
+  validate(
+    !any(dt_x$perc_susc < 0L, na.rm = TRUE),
+    "Data in the column `perc_susc` must be non-negative."
+  )
+
+  dt_x[, sample := as.character(sample)]
+  dt_x[, gene := as.character(gene)]
+
+  dt_x[]
+}
 
 #' Create Binary Reaction Value
 #'
