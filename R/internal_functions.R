@@ -30,8 +30,22 @@
         "Please check and try again."
       )
     }
-
+    if (!.control %in% dt_x$gene) {
+      stop(
+        "`control` value '",
+        .control,
+        "' was not found in the gene column.",
+        call. = FALSE
+      )
+    }
     dt_x <- if (is.data.table(.x)) copy(.x) else as.data.table(.x)
+
+    if (!all(c(.perc_susc, .gene, .sample) %in% names(dt_x))) {
+      stop(
+        "The column names you have supplied are not found in the data.frame.",
+        call. = FALSE
+      )
+    }
 
     setnames(
       dt_x,
