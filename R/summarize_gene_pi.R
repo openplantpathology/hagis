@@ -20,37 +20,40 @@
 #'
 #' @return A `data.table` with class `hagis.gene.pi`.
 #' @family summarize_gene
+#' @autoglobal
 #' @export
+
 summarize_gene_pi <- function(x, max_score, control, sample, gene, perc_susc) {
-  x_dt <- .check_inputs(
-    .x = x,
-    .cutoff = 0,
-    .control = control,
-    .sample = sample,
-    .gene = gene,
-    .perc_susc = perc_susc
+  x_dt <- hagis_data(
+    x = x,
+    control = control,
+    sample = sample,
+    gene = gene,
+    perc_susc = perc_susc
   )
 
   if (
     !is.numeric(max_score) ||
       length(max_score) != 1L ||
       is.na(max_score) ||
-      max_score <= 0
+      max_score <= 0L
   ) {
     stop("`max_score` must be a single positive numeric value.", call. = FALSE)
   }
 
-  N_samples <- length(unique(x_dt[["sample"]]))
+  # Remove susceptible control before counting samples, matching the
+  # ordering used by every other hagis analysis function.
   x_dt <- x_dt[gene != control]
+  N_samples <- length(unique(x_dt[["sample"]]))
 
   y <- x_dt[,
-    .(sum_scores = sum(perc_susc, na.rm = TRUE)),
+    list(sum_scores = sum(perc_susc, na.rm = TRUE)),
     by = gene
   ]
 
   y[, pathogenicity_index := sum_scores / (max_score * N_samples)]
-  y[, pathogenicity_index_percent := pathogenicity_index * 100]
+  y[, pathogenicity_index_percent := pathogenicity_index * 100.0]
 
   class(y) <- union("hagis.gene.pi", class(y))
-  y
+  return(y[])
 }

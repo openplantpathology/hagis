@@ -13,6 +13,14 @@ utils::globalVariables(c(
   "Pathotype", # <calculate_diversities>
   "Frequency", # <calculate_diversities>
   "susceptible.1", # <create_binary_matrix>
+  "pathotype_vector", # <print.hagis.race_codes>
+  "octal_code", # <print.hagis.race_codes>
+  "decanary_code", # <print.hagis.race_codes>
+  "complexity", # <print.hagis.race_codes>
+  "pathotype_vector", # <pander.hagis.race_codes>
+  "octal_code", # <pander.hagis.race_codes>
+  "decanary_code", # <pander.hagis.race_codes>
+  "complexity", # <pander.hagis.race_codes>
   "gene", # <.check_inputs>
   "susceptible.1", # <summarize_gene>
   "percent_pathogenic", # <summarize_gene>
@@ -20,5 +28,8 @@ utils::globalVariables(c(
   "N_virulent_isolates", # <autoplot.hagis.gene.summary>
   "gene", # <autoplot.hagis.gene.summary>
   "percent_pathogenic", # <autoplot.hagis.gene.summary>
+  "pathogenicity_index", # <summarize_gene_pi>
+  "sum_scores", # <summarize_gene_pi>
+  "pathogenicity_index_percent", # <summarize_gene_pi>
   NULL
 ))

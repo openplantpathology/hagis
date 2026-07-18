@@ -47,19 +47,22 @@
 #' @export
 
 summarize_gene <- function(x, cutoff, control, sample, gene, perc_susc) {
+  .validate_cutoff(cutoff)
+
   # check inputs and rename columns to work with this package
-  dt_x <- .check_inputs(
-    .x = x,
-    .cutoff = cutoff,
-    .control = control,
-    .sample = sample,
-    .gene = gene,
-    .perc_susc = perc_susc
+  dt_x <- hagis_data(
+    x = x,
+    control = control,
+    sample = sample,
+    gene = gene,
+    perc_susc = perc_susc
   )
 
-  N_samples <- length(unique(dt_x[["sample"]]))
-
+  # Remove susceptible control before counting samples, so N_samples is
+  # always derived from the same, post-filter population as every other
+  # hagis analysis function.
   dt_x <- dt_x[gene != control]
+  N_samples <- length(unique(dt_x[["sample"]]))
 
   # create susceptible.1 binary column
   dt_x <- .binary_cutoff(.x = dt_x, .cutoff = cutoff)
@@ -86,7 +89,7 @@ ggplot2::autoplot
 #'  `Character`.
 #' @param type a vector of values for which the bar plot is desired. Specify
 #'  whether to return a graph of the percent pathogenic isolates, `percentage`,
-#'  or as the count, `count`. `Character`.
+#'  or as the count, `count`. Defaults to `percentage`. `Character`.
 #' @param color a named or hexadecimal color value to use for the bar color
 #' @param order sort the x-axis of the bar chart by ascending or descending
 #' order of `N_virulent_isolates` or `percent_pathogenic`. Accepts `ascending`
@@ -114,17 +117,23 @@ ggplot2::autoplot
 #' @export
 
 autoplot.hagis.gene.summary <-
-  function(object, type, color = NULL, order = NULL, ...) {
+  function(
+    object,
+    type = c("percentage", "count"),
+    color = NULL,
+    order = c("gene", "ascending", "descending"),
+    ...
+  ) {
+    type <- match.arg(type)
+    order <- match.arg(order)
+
     # order rows based on user input
-    if (!is.null(order)) {
-      if (order == "ascending") {
-        setorder(object, N_virulent_isolates)
-      } else if (order == "descending") {
-        setorder(object, -N_virulent_isolates)
-      }
-    } else {
-      setorder(object, gene)
-    }
+    switch(
+      order,
+      ascending = setorder(object, N_virulent_isolates),
+      descending = setorder(object, -N_virulent_isolates),
+      gene = setorder(object, gene)
+    )
     object$order <- seq_len(nrow(object))
 
     plot_percentage <- function(.data, .color) {
@@ -169,11 +178,9 @@ autoplot.hagis.gene.summary <-
       }
     }
 
-    if (type == "percentage") {
-      plot_percentage(.data = object, .color = color)
-    } else if (type == "count") {
-      plot_count(.data = object, .color = color)
-    } else {
-      stop(call. = FALSE, "You have entered an invalid `type`.")
-    }
+    switch(
+      type,
+      percentage = plot_percentage(.data = object, .color = color),
+      count = plot_count(.data = object, .color = color)
+    )
   }

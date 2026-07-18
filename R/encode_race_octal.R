@@ -21,7 +21,7 @@ encode_race_octal <- function(x) {
 
   m <- matrix(x, ncol = 3L, byrow = TRUE)
   digits <- m[, 1] + 2L * m[, 2] + 4L * m[, 3]
-  paste0(digits, collapse = "")
+  paste(digits, collapse = "")
 }
 
 #' Encode a binary pathotype vector as reverse binary/decanary

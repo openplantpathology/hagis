@@ -45,14 +45,15 @@ calculate_complexities <- function(
   gene,
   perc_susc
 ) {
+  .validate_cutoff(cutoff)
+
   # check inputs and rename columns to work with this package
-  x <- .check_inputs(
-    .x = x,
-    .cutoff = cutoff,
-    .control = control,
-    .sample = sample,
-    .gene = gene,
-    .perc_susc = perc_susc
+  x <- hagis_data(
+    x = x,
+    control = control,
+    sample = sample,
+    gene = gene,
+    perc_susc = perc_susc
   )
 
   # Remove susceptible control so it does not affect complexity calculations
@@ -110,7 +111,8 @@ calculate_complexities <- function(
 #'  [calculate_complexities()]. `Character`.
 #' @param type a vector of values for which the bar plot is desired. Specify
 #'  whether to return a graph of the frequency of complexities as a percentage,
-#'  "`percentage`", or as the count, "`count`". `Character`.
+#'  "`percentage`", or as the count, "`count`". Defaults to `percentage`.
+#'  `Character`.
 #' @param color a named or hexadecimal color value to use for the bar color
 #' @param order sort the x-axis of the bar chart by ascending or descending
 #' order of `frequency`. Accepts `ascending` or `descending` input values.
@@ -143,19 +145,25 @@ calculate_complexities <- function(
 #' @export
 
 autoplot.hagis.complexities <-
-  function(object, type, color = NULL, order = NULL, ...) {
+  function(
+    object,
+    type = c("percentage", "count"),
+    color = NULL,
+    order = c("complexity", "ascending", "descending"),
+    ...
+  ) {
+    type <- match.arg(type)
+    order <- match.arg(order)
+
     z <- object[[1L]]
 
     # order cols based on user input
-    if (!is.null(order)) {
-      if (order == "ascending") {
-        setorder(z, frequency)
-      } else if (order == "descending") {
-        setorder(z, -frequency)
-      }
-    } else {
-      setorder(z, complexity)
-    }
+    switch(
+      order,
+      ascending = setorder(z, frequency),
+      descending = setorder(z, -frequency),
+      complexity = setorder(z, complexity)
+    )
     z$order <- seq_len(nrow(z))
 
     plot_percentage <- function(.data, .color) {
@@ -200,13 +208,11 @@ autoplot.hagis.complexities <-
       }
     }
 
-    if (type == "percentage") {
-      plot_percentage(.data = z, .color = color)
-    } else if (type == "count") {
-      plot_count(.data = z, .color = color)
-    } else {
-      stop(call. = FALSE, "You have entered an invalid `type`.")
-    }
+    switch(
+      type,
+      percentage = plot_percentage(.data = z, .color = color),
+      count = plot_count(.data = z, .color = color)
+    )
   }
 
 #' Create Summary Table of Binary Reactions by Sample

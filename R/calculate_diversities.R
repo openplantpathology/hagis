@@ -32,7 +32,7 @@
 #'    population. Where Evenness is calculated as:
 #'    \deqn{ D = \frac{H'}{log(Np) }}{ D = H' / log(Np) }
 #'    where \eqn{H'} is the Shannon diversity index and \eqn{Np} is the number
-#'    of pathotypes. Evenness is undefined for a single pathotype.
+#'    of pathotypes.
 #'
 #' @inheritParams summarize_gene
 #' @autoglobal
@@ -42,7 +42,7 @@
 #'
 #' P_sojae_survey
 #'
-#' # calculate susceptibilities with a 60 % cutoff value
+#' # calculate susceptibilities with a 60% cutoff value
 #' diversities <- calculate_diversities(
 #'   x = P_sojae_survey,
 #'   cutoff = 60,
@@ -68,14 +68,15 @@
 #'
 
 calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
+  .validate_cutoff(cutoff)
+
   # check inputs and rename columns to work with this package
-  dt_x <- .check_inputs(
-    .x = x,
-    .cutoff = cutoff,
-    .control = control,
-    .sample = sample,
-    .gene = gene,
-    .perc_susc = perc_susc
+  dt_x <- hagis_data(
+    x = x,
+    control = control,
+    sample = sample,
+    gene = gene,
+    perc_susc = perc_susc
   )
 
   # Remove susceptible control so it does not affect diversity calculations
@@ -90,6 +91,7 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
   dt_susc <- dt_x[susceptible.1 != 0L]
 
   # Build per-sample pathotype strings in a single data.table grouping
+  # (replaces split() + vapply() + toString())
   individual_pathotypes <- dt_susc[,
     list(Pathotype = toString(sort(gene))),
     by = list(Sample = sample)
@@ -121,7 +123,14 @@ calculate_diversities <- function(x, cutoff, control, sample, gene, perc_susc) {
   Simpson <- 1 - sum(prop * prop, na.rm = TRUE)
 
   # Evenness
-  Evenness <- if (N_pathotypes > 1L) Shannon / log(N_pathotypes) else NA_real_
+  # log(N_pathotypes) is 0 when there is only a single pathotype, which
+  # would otherwise silently produce 0/0 = NaN. Evenness is undefined in
+  # that case, so we return NA instead.
+  Evenness <- if (N_pathotypes > 1L) {
+    Shannon / log(N_pathotypes)
+  } else {
+    NA_real_
+  }
 
   z <- list(
     individual_pathotypes = individual_pathotypes,

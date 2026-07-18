@@ -14,4 +14,21 @@
 ^air\.toml$
 
 ^man/dot-create_summary_isolate\.Rd$
+^man/decode_race_octal\.Rd$
+^man/dot-octal_string_to_digits\.Rd$
+^man/dot-decode_octal_digits\.Rd$
+^man/dot-decode_one_octal_digit\.Rd$
+^man/decode_race_decanary\.Rd$
+^man/dot-decanary_string_to_value\.Rd$
+^man/dot-decanary_to_bits_unbounded\.Rd$
+^man/dot-decanary_to_bits_fixed\.Rd$
 ^man/dot-check_inputs\.Rd$
+^man/dot-validate_cutoff\.Rd$
+^man/dot-validate_input_types\.Rd$
+^man/dot-as_data_table\.Rd$
+^man/dot-rename_input_columns\.Rd$
+^man/dot-validate_perc_susc\.Rd$
+^man/dot-validate_control\.Rd$
+^man/dot-validate_code_string\.Rd$
+^man/dot-validate_truncation_length\.Rd$
+^man/dot-binary_cutoff\.Rd$

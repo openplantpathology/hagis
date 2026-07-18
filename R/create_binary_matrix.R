@@ -28,16 +28,17 @@
 #' @returns a binary matrix of pathotype data
 #'
 #' @export create_binary_matrix
-#'
+
 create_binary_matrix <- function(x, cutoff, control, sample, gene, perc_susc) {
+  .validate_cutoff(cutoff)
+
   # check inputs and rename columns to work with this package
-  dt_x <- .check_inputs(
-    .x = x,
-    .cutoff = cutoff,
-    .control = control,
-    .sample = sample,
-    .gene = gene,
-    .perc_susc = perc_susc
+  dt_x <- hagis_data(
+    x = x,
+    control = control,
+    sample = sample,
+    gene = gene,
+    perc_susc = perc_susc
   )
 
   dt_x <- dt_x[gene != control]

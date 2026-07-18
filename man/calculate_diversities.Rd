@@ -65,7 +65,7 @@ a more even distribution of each pathoype's frequency within the
 population. Where Evenness is calculated as:
 \deqn{ D = \frac{H'}{log(Np) }}{ D = H' / log(Np) }
 where \eqn{H'} is the Shannon diversity index and \eqn{Np} is the number
-of pathotypes. Evenness is undefined for a single pathotype.
+of pathotypes.
 }
 }
 \examples{
@@ -75,7 +75,7 @@ data(P_sojae_survey)
 
 P_sojae_survey
 
-# calculate susceptibilities with a 60 \% cutoff value
+# calculate susceptibilities with a 60\% cutoff value
 diversities <- calculate_diversities(
   x = P_sojae_survey,
   cutoff = 60,

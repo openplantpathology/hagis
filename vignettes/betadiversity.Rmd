@@ -14,21 +14,47 @@ vignette: >
   %\VignetteDepends{stats}
 ---
 
-```{r setup, include=FALSE}
+```{r}
+#| label: setup
+#| include: false
+
 knitr::opts_chunk$set(echo = TRUE)
 
 required <- c("ape", "vegan", "dplyr")
+have_required <- all(vapply(
+  required,
+  requireNamespace,
+  logical(1),
+  quietly = TRUE
+))
 
-if (!all(sapply(required, requireNamespace, quietly = TRUE)))
-  knitr::opts_chunk$set(eval = FALSE)
 data.table::setDTthreads(1L)
+```
+
+```{r}
+#| label: check-required
+#| echo: false
+#| results: "asis"
+
+if (!have_required) {
+  cat(
+    "This vignette requires the **ape**, **vegan**, and **dplyr** packages, ",
+    "which do not appear to be installed. The remainder of this vignette ",
+    "has not been evaluated.\n"
+  )
+  knitr::knit_exit()
+}
 ```
 
 # Load Packages
 
 These packages are necessary for this analysis to be conducted.
 
-```{r libraries, message=FALSE, warning=FALSE}
+```{r}
+#| label: libraries
+#| message: false
+#| warning: false
+
 library("ape")
 library("vegan")
 library("dplyr")
@@ -39,7 +65,9 @@ library("ggplot2")
 Import the data to be used in analysis.
 These example data are included in {hagis} and so when loading {hagis} they become available in your R session.
 
-```{r load-data}
+```{r}
+#| label: load-data
+
 head(P_sojae_survey) # survey sample data
 
 head(sample_meta) # metatada about the sample collection locations
@@ -48,21 +76,31 @@ head(sample_meta) # metatada about the sample collection locations
 This removes the "MPS17\_" from the isolates, so that they will be read as numeric instead of character.
 The next step removes the "Rps " from the gene names, so that they will be read as numeric instead of character.
 
-```{r clean-data}
+```{r}
+#| label: clean-data
+
 P_sojae_survey$Isolate <-
-  gsub(pattern = "MPS17_",
-       replacement = "",
-       x = P_sojae_survey$Isolate)
+  gsub(
+    pattern = "MPS17_",
+    replacement = "",
+    x = P_sojae_survey$Isolate,
+    fixed = TRUE
+  )
 P_sojae_survey$Rps <-
-  gsub(pattern = "Rps ",
-       replacement = "",
-       x = P_sojae_survey$Rps)
+  gsub(
+    pattern = "Rps ",
+    replacement = "",
+    x = P_sojae_survey$Rps,
+    fixed = TRUE
+  )
 ```
 
 Set up the {hagis} arguments for analysis.
 Please see `vignette("hagis")` for more details on how to specify arguments for the functions in this package.
 
-```{r hagis-arguments}
+```{r}
+#| label: hagis-arguments
+
 hagis_args <- list(
   x = P_sojae_survey,
   cutoff = 60,
@@ -77,7 +115,9 @@ hagis_args <- list(
 
 Using `create_binary_matrix()` transforms the data so that it is in the correct format (binary data matrix) for PCOA analysis.
 
-```{r create-matrix}
+```{r}
+#| label: create-matrix
+
 P_sojae_survey.matrix <- do.call(create_binary_matrix, hagis_args)
 
 P_sojae_survey.matrix
@@ -94,7 +134,9 @@ Lastly, PCOA is performed to identify the variance explained by each principal c
 This will be used later to visualize and identify distance pathotype groupings by geographic location.
 In this example, Jaccard distances are used as this is presence/absence data.
 
-```{r distance-matrix}
+```{r}
+#| label: distance-matrix
+
 P_sojae_survey.matrix.jaccard <-
   vegdist(P_sojae_survey.matrix, "jaccard", na.rm = TRUE)
 ```
@@ -103,8 +145,10 @@ After performing the principal coordinates analysis, we see that the scree plot 
 This is good.
 Usually a good rule of thumb is that if the second dimension is roughly half variation explained in the first dimension you don't need to look further at the third or n+1 dimensions.
 
-```{r barplot}
-princoor.pathotype <- pcoa(P_sojae_survey.matrix.jaccard) 
+```{r}
+#| label: barplot
+
+princoor.pathotype <- pcoa(P_sojae_survey.matrix.jaccard)
 
 barplot(princoor.pathotype$values$Relative_eig[1:10])
 ```
@@ -112,7 +156,9 @@ barplot(princoor.pathotype$values$Relative_eig[1:10])
 Now we can calculate the percentage of variation that each principal coordinate accounts for.
 Another way to calculate the percent variation is to look at the `Relative_eig` column.
 
-```{r axis-percent}
+```{r}
+#| label: axis-percent
+
 # Dimension (i.e., Axis 1 (PCOA1))
 Axis1.percent <-
   princoor.pathotype$values$Relative_eig[[1]] * 100
@@ -129,7 +175,9 @@ Axis2.percent
 Now we can make a data frame with the two principal coordinates that account for the most variation in the data.
 We will then add metadata to the data frame `pca.data`.
 
-```{r create-df}
+```{r}
+#| label: create-df
+
 princoor.pathotype.data <-
   data.frame(
     Sample = as.integer(rownames(princoor.pathotype$vectors)),
@@ -143,7 +191,9 @@ princoor.pathotype.data <-
 You will need to add information on the sample collection location or other data to help identify different pathotype groupings based on geographic location or other factors.
 We will use `left_join()` from {dplyr} to combine the `princoor.pathotype.data` with the metadata that we've already loaded, `sample_meta` that contains a geographic location (state name).
 
-```{r merge-metadata}
+```{r}
+#| label: merge-metadata
+
 princoor.pathotype.data <-
   left_join(princoor.pathotype.data, sample_meta, by = "Sample")
 
@@ -152,7 +202,9 @@ princoor.pathotype.data
 
 Now we will plot the PCA data using {ggplot2} and color the points based on location, `Locale`, and identify the 95% confidence interval of those groups using the `stat_ellipse()` function.
 
-```{r ggplot-pca}
+```{r}
+#| label: ggplot-pca
+
 ggplot(data = princoor.pathotype.data, aes(x = X, y = Y)) +
   geom_point(aes(colour = Locale)) +
   xlab(paste("PCOA1 - ", round(Axis1.percent, 2), "%", sep = "")) +
@@ -164,10 +216,13 @@ ggplot(data = princoor.pathotype.data, aes(x = X, y = Y)) +
     axis.text = element_text(face = "bold", size = 10),
     legend.title = element_text(face = "bold", size = 10),
     legend.text = element_text(face = "bold", size = 10),
-    legend.key.size = unit(1, 'lines')
+    legend.key.size = unit(1, "lines")
   ) +
-  stat_ellipse(data = princoor.pathotype.data, aes(x = X, y = Y),
-               level = 0.95) +
+  stat_ellipse(
+    data = princoor.pathotype.data,
+    aes(x = X, y = Y),
+    level = 0.95
+  ) +
   ggtitle("Pathotype Jaccard Distances PCOA")
 ```
 
@@ -191,14 +246,16 @@ We will then check to make sure the lists in "groups" adds up to the number of i
 First, make a list of the locations for each pathotype.
 Note that when you are using two or more locations you will need to make a list for each location with a length of isolates used.
 
-```{r create-group-lists}
+```{r}
+#| label: create-group-lists
+
 groups <- factor(c(rep("Michigan_1", 11), rep("Michigan_2", 10)))
 
 # this number shows how many isolates are in all "groups" lists combined
 length(groups)
 
 # this shows the number of isolates within your data set, these numbers should
-# match for downstream analyses to work!! 
+# match for downstream analyses to work!!
 length(unique(P_sojae_survey$Isolate))
 ```
 
@@ -207,13 +264,15 @@ An ANOVA is then performed to identify significance within the dataset.
 Post-hoc tests can be used to identify significant interactions between specific locations within the dataset.
 This can then be plotted to visualize how the beta-dispersion is different between groups.
 
-```{r beta-dispersion}
- # calculates the beta-dispersion for each group, when comparing 2 or more
+```{r}
+#| label: beta-dispersion
+
+# calculates the beta-dispersion for each group, when comparing 2 or more
 pathotype.disp <-
   betadisper(P_sojae_survey.matrix.jaccard, groups)
 
 # tests if centroid distances are significantly different from each other
-pathotype.disp.anova <- anova(pathotype.disp) 
+pathotype.disp.anova <- anova(pathotype.disp)
 pathotype.disp.anova
 
 # test significance between each group
@@ -243,7 +302,9 @@ Groups which have similar dispersion may still be significantly different in reg
 PERMANOVA tests if the centroids, similar to means, of each group are significantly different from each other.
 Likewise, an $R^2$ statistic is calculated, showing the percentage of the variance explained by the groups.
 
-```{r adonis}
+```{r}
+#| label: adonis
+
 pathotype.adonis <- adonis2(P_sojae_survey.matrix.jaccard ~ groups)
 
 pathotype.adonis
@@ -260,7 +321,9 @@ ANOSIM statistic (R) ranges from between -1 and 1.
 Positive numbers suggest that there is more similarity within groups than there is between groups.
 Values close to zero indicate no difference between groups (*i.e.*, similarities are the same between groups).
 
-```{r anosim}
+```{r}
+#| label: anosim
+
 pathotype.anosim <- anosim(P_sojae_survey.matrix.jaccard, groups)
 
 pathotype.anosim
