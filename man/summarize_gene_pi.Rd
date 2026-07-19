@@ -2,7 +2,7 @@
 % Please edit documentation in R/summarize_gene_pi.R
 \name{summarize_gene_pi}
 \alias{summarize_gene_pi}
-\title{Calculate raw-score pathogenicity index by gene}
+\title{Calculate Raw-Score Pathogenicity Index by Gene}
 \usage{
 summarize_gene_pi(x, max_score, control, sample, gene, perc_susc)
 }

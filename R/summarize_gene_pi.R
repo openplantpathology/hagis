@@ -1,4 +1,4 @@
-#' Calculate raw-score pathogenicity index by gene
+#' Calculate Raw-Score Pathogenicity Index by Gene
 #'
 #' @description
 #' Calculate the Pathogenicity Index (PI) for each gene/differential using raw

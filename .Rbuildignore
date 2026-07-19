@@ -32,3 +32,4 @@
 ^man/dot-validate_code_string\.Rd$
 ^man/dot-validate_truncation_length\.Rd$
 ^man/dot-binary_cutoff\.Rd$
+^man/dot-validate_binary_matrix\.Rd$
