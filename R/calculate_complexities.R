@@ -230,9 +230,9 @@ autoplot.hagis.complexities <-
   .y[, list(N_samp = sum(susceptible.1)), by = list(sample)]
 }
 
-#' Summarises {hagis} Complexity Objects
+#' Summarizes hagis Complexity Objects
 #'
-#' Custom [summary()] method for \pkg{hagis} `complexities` objects.
+#' Custom [summary()] method for \CRANpkg{hagis} `complexities` objects.
 #'
 #' @param object A hagis class object (a list of two `data.table`s)
 #' @param ... ignored
