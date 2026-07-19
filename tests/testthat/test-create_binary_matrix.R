@@ -1,5 +1,4 @@
 data(P_sojae_survey)
-
 final_matrix <- create_binary_matrix(
   x = P_sojae_survey,
   cutoff = 60,
@@ -8,9 +7,7 @@ final_matrix <- create_binary_matrix(
   gene = "Rps",
   perc_susc = "perc.susc"
 )
-
 # create_binary_matrix() ------------------------------------------------------
-
 test_that("create_binary_matrix() returns a binary matrix with correct structure", {
   expect_true(is.matrix(final_matrix))
   expect_type(final_matrix, "double")
@@ -43,11 +40,9 @@ test_that("create_binary_matrix() returns a binary matrix with correct structure
     )
   )
 })
-
 test_that("create_binary_matrix() returns only binary values", {
   expect_true(all(final_matrix %in% c(0, 1)))
 })
-
 test_that("create_binary_matrix() errors on invalid inputs", {
   expect_error(
     create_binary_matrix(
@@ -70,7 +65,7 @@ test_that("create_binary_matrix() errors on invalid inputs", {
       gene = "Rps",
       perc_susc = "perc.susc"
     ),
-    regexp = "You have failed to provide all necessary inputs",
+    regexp = "`cutoff` must be a single numeric value",
     fixed = TRUE
   )
   expect_error(

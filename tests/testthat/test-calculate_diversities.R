@@ -62,7 +62,7 @@ test_that("calculate_diversities() errors on invalid inputs", {
       gene = "Rps",
       perc_susc = "perc.susc"
     ),
-    regexp = "You have failed to provide all necessary inputs",
+    regexp = "`cutoff` must be a single numeric value",
     fixed = TRUE
   )
   expect_error(
