@@ -1,6 +1,6 @@
 #' Calculate Distribution of Complexities by Sample
 #'
-#' @description Calculate the distribution of susceptibilities by sample id.
+#' Calculate the distribution of susceptibilities by sample ID.
 #'
 #' @inheritParams summarize_gene
 #' @examplesIf interactive()
@@ -10,7 +10,7 @@
 #'
 #' P_sojae_survey
 #'
-#' # calculate susceptibilities with a 60 % cutoff value
+#' # calculate susceptibilities with a 60% cutoff value
 #' complexities <- calculate_complexities(
 #'   x = P_sojae_survey,
 #'   cutoff = 60,
@@ -35,7 +35,7 @@
 #'   }
 #'
 #' @autoglobal
-#' @export calculate_complexities
+#' @export
 
 calculate_complexities <- function(
   x,
@@ -74,9 +74,9 @@ calculate_complexities <- function(
     by = N_samp
   ]
 
-  # Ensure every complexity level from 1..n_gene is represented (fill zeros)
+  # Ensure every complexity level from 0..n_gene is represented (fill zeros)
   n_gene <- length(unique(x[["gene"]]))
-  all_levels <- data.table(N_samp = seq_len(n_gene))
+  all_levels <- data.table::data.table(N_samp = 0L:n_gene)
   grouped_complexities <- grouped_complexities[
     all_levels,
     on = "N_samp"
@@ -97,7 +97,10 @@ calculate_complexities <- function(
   )
 
   # Set new class
-  class(complexities) <- union("hagis.complexities", class(x))
+  class(complexities) <- union(
+    "hagis.complexities",
+    class(complexities)
+  )
   return(complexities)
 }
 
@@ -164,13 +167,13 @@ autoplot.hagis.complexities <-
       descending = setorder(z, -frequency),
       complexity = setorder(z, complexity)
     )
-    z$order <- seq_len(nrow(z))
+    z$plot_order <- seq_len(nrow(z))
 
     plot_percentage <- function(.data, .color) {
       perc_plot <- ggplot2::ggplot(
         data = .data,
         ggplot2::aes(
-          x = stats::reorder(complexity, order),
+          x = stats::reorder(complexity, plot_order),
           y = frequency
         )
       ) +
@@ -191,7 +194,7 @@ autoplot.hagis.complexities <-
       num_plot <- ggplot2::ggplot(
         data = .data,
         ggplot2::aes(
-          x = stats::reorder(complexity, order),
+          x = stats::reorder(complexity, plot_order),
           y = distribution
         )
       ) +

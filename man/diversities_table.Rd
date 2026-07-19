@@ -15,7 +15,7 @@ diversities_table(x, ...)
 A \code{\link[pander:pandoc.table]{pander::pandoc.table()}} object of diversities
 }
 \description{
-Print the frequency table of diversities from a \code{hagis.diversities} object.
+Print the frequency table of diversities from a \code{hagis.diversities} object
 The resulting object is a \CRANpkg{pander} table (a text object for Markdown)
 for ease of use in reporting and viewing in the console.
 }
@@ -26,7 +26,7 @@ data(P_sojae_survey)
 
 P_sojae_survey
 
-# calculate susceptibilities with a 60 \% cutoff value
+# calculate susceptibilities with a 60\% cutoff value
 diversities <- calculate_diversities(
   x = P_sojae_survey,
   cutoff = 60,

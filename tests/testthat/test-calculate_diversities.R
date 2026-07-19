@@ -36,7 +36,10 @@ test_that("calculate_diversities() returns correct index values", {
   expect_equal(diversities$Simple, 0.9047619, tolerance = 1e-3)
   expect_equal(diversities$Gleason, 5.912257, tolerance = 1e-3)
   expect_equal(diversities$Shannon, 2.912494, tolerance = 1e-3)
-  expect_equal(diversities$Simpson, 0.9433107, tolerance = 1e-3)
+  # Simpson now uses the paper's finite-sample formula
+  # (1 - sum(n_i^2 - n_i) / (N^2 - N)) instead of the infinite-population
+  # 1 - sum(p_i^2) approximation, so this value changed from 0.9433107.
+  expect_equal(diversities$Simpson, 0.9904762, tolerance = 1e-3)
   expect_equal(diversities$Evenness, 0.9891509, tolerance = 1e-3)
 })
 
@@ -159,7 +162,7 @@ test_that("print.hagis.diversities() produces correct output", {
   expect_identical(x[[8]], "Simple   0.9047619 ")
   expect_identical(x[[9]], "Gleason  5.912257 ")
   expect_identical(x[[10]], "Shannon  2.912494 ")
-  expect_identical(x[[11]], "Simpson  0.9433107 ")
+  expect_identical(x[[11]], "Simpson  0.9904762 ")
   expect_identical(x[[12]], "Evenness  0.9891509 ")
   expect_identical(x[[13]], "")
 })
@@ -176,7 +179,7 @@ test_that("pander.hagis.diversities() produces correct output", {
       "-------------------------------------------------",
       " Simple   Gleason   Shannon   Simpson   Evenness ",
       "-------- --------- --------- --------- ----------",
-      " 0.9048    5.912     2.912    0.9433     0.9892  ",
+      " 0.9048    5.912     2.912    0.9905     0.9892  ",
       "-------------------------------------------------"
     )
   )

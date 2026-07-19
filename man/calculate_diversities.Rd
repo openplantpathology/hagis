@@ -39,6 +39,19 @@ A \code{hagis.diversities} object is a \code{list} containing:
 \description{
 Calculate five pathogen diversity indices.
 
+The calculations follow the original 'HaGiS' spreadsheet implementation
+where possible. In particular, Simple, Gleason, Shannon and Simpson use the
+total number of samples as the denominator, and each sample contributes one
+pathotype to the frequency table. Samples with no susceptible reactions are
+retained as an explicit empty pathotype class so that the frequency table
+denominator matches the original Microsoft Excel/VBA implementation
+implementation.
+
+Two edge-case behaviours are represented in an \R-native way: Evenness is
+returned as \code{NA_real_} when there is only one pathotype, corresponding to the
+original workbook leaving the value blank/not calculated. Simpson is returned
+as 0 for one sample to match the original 'VBA' initialisation.
+
 Diversity indices include:
 \itemize{
 \item Simple diversity index, which will show the proportion of unique
@@ -58,8 +71,15 @@ evenness of the population increase, so does the Shannon index value.
 \deqn{ D = -\sum_{i = 1}^{R} p_i \log p_i }{ D = -sum p_i log(p_i) } Where
 \eqn{p_i} is the proportional abundance of species \eqn{i}.
 \item Simpson diversity index values range from 0 to 1, 1 represents high
-diversity and 0 represents no diversity. Where diversity is calculated as:
-\deqn{ D = \sum_{i = 1}^{R} p_i^2 }{ D = sum p_i^2 }
+diversity and 0 represents no diversity. Diversity is calculated using
+the finite-sample formula of Herrmann, Löwer, and Schachtel (1999):
+\deqn{ D = 1 - \frac{\sum (n_i^2 - n_i)}{N^2 - N} }{
+     D = 1 - sum(n_i^2 - n_i) / (N^2 - N) }
+where \eqn{n_i} is the number of samples of pathotype \eqn{i} and
+#' where \eqn{N} is the total number of samples and \eqn{n_i} is the
+number of samples of pathotype \eqn{i}. Because samples with no
+susceptible reactions are retained as an empty pathotype class,
+\eqn{N = \sum n_i}.
 \item Evenness ranges from 0 to 1, as the Evenness value approaches 1, there is
 a more even distribution of each pathoype's frequency within the
 population. Where Evenness is calculated as:
@@ -75,7 +95,7 @@ data(P_sojae_survey)
 
 P_sojae_survey
 
-# calculate susceptibilities with a 60\% cutoff value
+# calculate susceptibilities with a 60 \% cutoff value
 diversities <- calculate_diversities(
   x = P_sojae_survey,
   cutoff = 60,
@@ -87,4 +107,10 @@ diversities <- calculate_diversities(
 
 diversities
 \dontshow{\}) # examplesIf}
+}
+\references{
+Herrmann, A., Löwer, C. F., and Schachtel, G. A. (1999). A new tool
+for entry and analysis of virulence data for plant pathogens.
+\emph{Plant Pathology}, 48(2), 154-158.
+\doi{10.1046/j.1365-3059.1999.00325.x}
 }

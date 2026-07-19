@@ -35,7 +35,7 @@ individual complexities}
 }
 }
 \description{
-Calculate the distribution of susceptibilities by sample id.
+Calculate the distribution of susceptibilities by sample ID.
 }
 \examples{
 \dontshow{if (interactive()) withAutoprint(\{ # examplesIf}
@@ -45,7 +45,7 @@ data(P_sojae_survey)
 
 P_sojae_survey
 
-# calculate susceptibilities with a 60 \% cutoff value
+# calculate susceptibilities with a 60\% cutoff value
 complexities <- calculate_complexities(
   x = P_sojae_survey,
   cutoff = 60,
