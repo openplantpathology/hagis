@@ -1,14 +1,14 @@
 #' Encode a binary pathotype vector as reverse binary/octal
 #'
 #' @param x Integer/numeric/logical vector of 0/1 values.
-#' @return A single character string containing the reverse octal race name.
+#' @returns A single character string containing the reverse octal race name.
 #' @keywords internal
 encode_race_octal <- function(x) {
   if (is.logical(x)) {
     x <- as.integer(x)
   }
 
-  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0L, 1L))) {
     stop("`x` must be a binary vector containing only 0 and 1.", call. = FALSE)
   }
 
@@ -27,14 +27,14 @@ encode_race_octal <- function(x) {
 #' Encode a binary pathotype vector as reverse binary/decanary
 #'
 #' @param x Integer/numeric/logical vector of 0/1 values.
-#' @return A single character string containing the reverse decanary race name.
+#' @returns A single character string containing the reverse decanary race name.
 #' @keywords internal
 encode_race_decanary <- function(x) {
   if (is.logical(x)) {
     x <- as.integer(x)
   }
 
-  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0L, 1L))) {
     stop("`x` must be a binary vector containing only 0 and 1.", call. = FALSE)
   }
 
@@ -51,14 +51,14 @@ encode_race_decanary <- function(x) {
 #' @param x A binary matrix produced by `create_binary_matrix()`, with samples
 #'  in rows and genes/differentials in columns.
 #'
-#' @return A `data.table` with one row per sample.
+#' @returns A [data.table::data.table] with one row per sample.
 #' @export
 race_code_table <- function(x) {
   if (!is.matrix(x)) {
     stop("`x` must be a matrix.", call. = FALSE)
   }
 
-  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0, 1))) {
+  if (!is.numeric(x) || anyNA(x) || !all(x %in% c(0L, 1L))) {
     stop("`x` must be a binary matrix containing only 0 and 1.", call. = FALSE)
   }
 
