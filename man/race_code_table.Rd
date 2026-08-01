@@ -11,7 +11,7 @@ race_code_table(x)
 in rows and genes/differentials in columns.}
 }
 \value{
-A \code{data.table} with one row per sample.
+A \link[data.table:data.table]{data.table::data.table} with one row per sample.
 }
 \description{
 Convert the output of \code{create_binary_matrix()} into a table containing sample
