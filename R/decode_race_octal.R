@@ -28,7 +28,7 @@ decode_race_octal <- function(code, n = NULL) {
 .octal_string_to_digits <- function(code) {
   digits <- strsplit(code, "", fixed = TRUE)[[1]]
 
-  if (!all(digits %in% as.character(0:7))) {
+  if (!all(digits %in% as.character(0L:7L))) {
     stop("`code` must contain only octal digits 0-7.", call. = FALSE)
   }
 
@@ -90,7 +90,7 @@ decode_race_decanary <- function(code, n = NULL) {
 
   checks <- c(
     !is.na(value),
-    value >= 0,
+    value >= 0L,
     value == floor(value)
   )
 
@@ -175,12 +175,9 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
   samples <- x$sample
 
   if (system == "decanary") {
-    # Vectorized across samples: the R-level loop runs once per bit
-    # position (bounded by the number of genes), instead of once per
-    # sample via lapply().
     values <- suppressWarnings(as.numeric(x$decanary_code))
 
-    if (anyNA(values) || any(values < 0) || any(values != floor(values))) {
+    if (anyNA(values) || any(values < 0L) || any(values != floor(values))) {
       stop(
         "`decanary_code` must contain character representations of ",
         "non-negative integers.",
@@ -190,7 +187,7 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
 
     out <- vapply(
       seq_len(n) - 1L,
-      function(bit) as.integer((values %/% (2^bit)) %% 2),
+      function(bit) as.integer((values %/% (2L^bit)) %% 2L),
       integer(length(values))
     )
   } else {
@@ -200,7 +197,7 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
     codes <- x$octal_code
     digit_chars <- do.call(rbind, strsplit(codes, "", fixed = TRUE))
 
-    if (!all(digit_chars %in% as.character(0:7))) {
+    if (!all(digit_chars %in% as.character(0L:7L))) {
       stop("`octal_code` must contain only octal digits 0-7.", call. = FALSE)
     }
 
