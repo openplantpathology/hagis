@@ -2,15 +2,14 @@
 
 ## New features
 
-* Added `summarize_gene_pi()` to calculate raw-score Pathogenicity Index (PI) by gene following Herrmann et al. (1999), `PI = sum(scores) / (MAX * N)`.
+- Added `summarize_gene_pi()` to calculate raw-score Pathogenicity Index (PI) by gene following Herrmann et al.
+  (1999), `PI = sum(scores) / (MAX * N)`.
 
-* Added `autoplot.hagis.gene.pi()` for plotting Pathogenicity Index values as raw index or percent scale.
+- Added `autoplot.hagis.gene.pi()` for plotting Pathogenicity Index values as raw index or percent scale.
 
 ## Documentation
 
-* Clarified that `summarize_gene()` provides a thresholded binary summary,
-  while `summarize_gene_pi()` implements the paper-defined raw-score
-  Pathogenicity Index.
+- Clarified that `summarize_gene()` provides a thresholded binary summary, while `summarize_gene_pi()` implements the paper-defined raw-score Pathogenicity Index.
 
 ## Bug fixes
 
@@ -24,7 +23,7 @@
   While numerically correct, passing an integer to `exp()` forced an unnecessary integer-to-double coercion on every call.
   `log()` without a base argument defaults to natural log.
 
-- `summarize_gene()`: Fixed `percent_pathogenic` being calculated as `N_virulent_isolates / max(N_virulent_isolates) * 100`, which always produced 100 % for the most virulent gene and expressed proportions relative to that gene rather than to total samples.
+- `summarize_gene()`: Fixed `percent_pathogenic` being calculated as `N_virulent_isolates / max(N_virulent_isolates) * 100`, which always produced 100% for the most virulent gene and expressed proportions relative to that gene rather than to total samples.
   Now correctly calculated as `N_virulent_isolates / N_samples * 100`.
 
 - `summarize_gene()`, `calculate_diversities()`, `create_binary_matrix()`: Fixed inconsistent ordering where the susceptible control gene was removed after `.binary_cutoff()` rather than before, wasting computation on rows that were immediately discarded.
@@ -112,13 +111,15 @@
 
 ## Bug fixes
 
-- Removes a redundant zzz.R file that had globals in it. This revealed that one of the autoplot functions was missing the `@autoglobal` tag, which has been added.
+- Removes a redundant zzz.R file that had globals in it.
+  This revealed that one of the autoplot functions was missing the `@autoglobal` tag, which has been added.
 
 # hagis 3.1.10
 
 ## Minor changes
 
-- Skip *ALL* tests on CRAN. Because, y'know, CRAN...
+- Skip *ALL* tests on CRAN.
+  Because, y'know, CRAN...
 
 # hagis 3.1.9
 
@@ -154,7 +155,8 @@
 
 ## Bug fixes
 
-- Fixes bug where `.create_summary_isolate()`, an internal function, was exported. It should not be user-facing and is now no longer exported or documented.
+- Fixes bug where `.create_summary_isolate()`, an internal function, was exported.
+  It should not be user-facing and is now no longer exported or documented.
 
 # hagis 3.1.5
 
@@ -249,7 +251,9 @@
 
 ## Defunct functions
 
-- `plot()` is now defunct. Use `autoplot()` to plot {hagis} objects in place of `plot()`. This is to avoid the side-effect of generating and displaying a plot every time `plot()` is called, which can be troublesome when using {ggplot2} themes since it created two plots, the original with the base theme and the new themed plot
+- `plot()` is now defunct.
+  Use `autoplot()` to plot {hagis} objects in place of `plot()`.
+  This is to avoid the side-effect of generating and displaying a plot every time `plot()` is called, which can be troublesome when using {ggplot2} themes since it created two plots, the original with the base theme and the new themed plot
 
 ## Minor Changes
 
@@ -281,4 +285,6 @@
 
 # hagis 1.0.0
 
-- Initial release of Rmd and script files by A. McCoy and Z. Noel
+- Initial release of Rmd and script files by A.
+  McCoy and Z.
+  Noel
