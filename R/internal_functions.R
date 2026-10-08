@@ -47,7 +47,7 @@
     return(invisible(TRUE))
   }
 
-  stop("`cutoff` must be a single numeric value.", call. = FALSE)
+  cli::cli_abort("{.arg cutoff} must be a single numeric value.")
 }
 
 #' Validate the Types of `.check_inputs()` Arguments
@@ -76,12 +76,12 @@
     return(invisible(TRUE))
   }
 
-  stop(
-    call. = FALSE,
-    "You have failed to provide all necessary inputs or\n",
-    "you have provided an improperly formatted item.\n",
-    "Please check and try again."
-  )
+  cli::cli_abort
+  (c(
+    "You have failed to provide all necessary inputs or 
+    you have provided an improperly formatted item.",
+    i = "Please check and try again."
+  ))
 }
 
 #' Coerce Input to a data.table
@@ -110,12 +110,11 @@
   missing_cols <- setdiff(requested_cols, names(dt_x))
 
   if (length(missing_cols) > 0L) {
-    stop(
-      call. = FALSE,
-      "Column(s) not found in `x`: ",
-      toString(missing_cols),
-      ".\nAvailable columns are: ",
-      toString(names(dt_x))
+    cli::cli_abort(
+      c(
+        "Column{?s} not found in {.arg x}: {missing_cols}",
+        i = "Available columns are: {names(dt_x)}"
+      )
     )
   }
 
@@ -131,13 +130,12 @@
 .validate_perc_susc <- function(dt_x) {
   # validate that perc_susc is numeric
   if (!is.numeric(dt_x$perc_susc)) {
-    stop("Data in the column `perc_susc` must be numeric.", call. = FALSE)
+    cli::cli_abort("Data in the column {.var perc_susc} must be numeric.")
   }
 
   if (any(dt_x$perc_susc < 0, na.rm = TRUE)) {
-    stop(
-      "Data in the column `perc_susc` must be non-negative.",
-      call. = FALSE
+    cli::cli_abort(
+      "Data in the column {.var perc_susc} must be non-negative."
     )
   }
 
@@ -148,7 +146,7 @@
 #'
 #' Every downstream function filters out the control with
 #' `gene != control`. If `.control` doesn't match anything in the gene
-#' column (e.g. a typo), that filter silently becomes a no-op and the
+#' column (e.g., a typo), that filter silently becomes a no-op and the
 #' control rows quietly contaminate every calculation. Catch that here
 #' instead.
 #'
@@ -161,13 +159,13 @@
     return(invisible(TRUE))
   }
 
-  stop(
-    call. = FALSE,
-    "The `control` value '",
-    .control,
-    "' was not found in the `gene` column.\n",
-    "Please check for typos. Available gene values are: ",
-    toString(unique(dt_x$gene))
+  cli::cli_abort(
+    c(
+      "The {.var control} value { .control} was not found in the {.var gene} 
+      column.",
+      i = "Please check for typos.",
+      i = "Available gene values are: {unique(dt_x$gene)}."
+    )
   )
 }
 
@@ -191,7 +189,7 @@
     return(invisible(TRUE))
   }
 
-  stop("`code` must be a single character string.", call. = FALSE)
+  cli::cli_abort("{.arg code} must be a single character string.")
 }
 
 #' Validate a Truncation Length
@@ -214,8 +212,7 @@
   if (all(checks)) {
     return(invisible(TRUE))
   }
-
-  stop("`n` must be a single positive integer.", call. = FALSE)
+  cli::cli_abort("{.arg n} must be a single positive integer.")
 }
 
 #' Create Binary Reaction Value

@@ -27,14 +27,16 @@ export(summarize_gene_pi)
 export(virulence_difference_matrix)
 export(virulence_difference_table)
 import(data.table)
-importFrom(data.table,":=")
-importFrom(data.table,.BY)
-importFrom(data.table,.EACHI)
-importFrom(data.table,.GRP)
-importFrom(data.table,.I)
-importFrom(data.table,.N)
-importFrom(data.table,.NGRP)
-importFrom(data.table,.SD)
-importFrom(data.table,data.table)
+importFrom(data.table,
+  ":=",
+  .BY,
+  .EACHI,
+  .GRP,
+  .I,
+  .N,
+  .NGRP,
+  .SD,
+  data.table
+)
 importFrom(ggplot2,autoplot)
 importFrom(pander,pander)

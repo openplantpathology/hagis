@@ -38,7 +38,7 @@ summarize_gene_pi <- function(x, max_score, control, sample, gene, perc_susc) {
       is.na(max_score) ||
       max_score <= 0L
   ) {
-    stop("`max_score` must be a single positive numeric value.", call. = FALSE)
+    cli::cli_abort("{.arg max_score} must be a single positive numeric value.")
   }
 
   # Remove susceptible control before counting samples, matching the

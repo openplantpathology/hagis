@@ -94,15 +94,17 @@ virulence_difference_table <- function(x) {
 #' @dev
 .validate_binary_matrix <- function(x) {
   if (!is.matrix(x)) {
-    stop("`x` must be a matrix.", call. = FALSE)
+    cli::cli_abort("{.arg x} must be a {.cls matrix}.")
   }
 
   if (!is.numeric(x) && !is.logical(x)) {
-    stop("`x` must be a numeric or logical binary matrix.", call. = FALSE)
+    cli::cli_abort(
+      "{.arg x} must be a numeric or logical binary {.cls matrix}."
+    )
   }
 
   if (anyNA(x) || !all(x %in% c(0, 1))) {
-    stop("`x` must contain only 0 and 1 values.", call. = FALSE)
+    cli::cli_abort("{.arg x} must contain only 0 and 1 values.")
   }
 
   invisible(TRUE)

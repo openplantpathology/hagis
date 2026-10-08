@@ -17,7 +17,7 @@ decode_race_octal <- function(code, n = NULL) {
   }
 
   .validate_truncation_length(n)
-  out[seq_len(n)]
+  return(out[seq_len(n)])
 }
 
 #' Split an Octal Code String into Validated Integer Digits
@@ -29,10 +29,10 @@ decode_race_octal <- function(code, n = NULL) {
   digits <- strsplit(code, "", fixed = TRUE)[[1]]
 
   if (!all(digits %in% as.character(0L:7L))) {
-    stop("`code` must contain only octal digits 0-7.", call. = FALSE)
+    cli::cli_abort("{.arg code} must contain only octal digits 0-7.")
   }
 
-  as.integer(digits)
+  return(as.integer(digits))
 }
 
 #' Decode a Vector of Octal Digits to Binary Bits
@@ -77,7 +77,7 @@ decode_race_decanary <- function(code, n = NULL) {
   }
 
   .validate_truncation_length(n)
-  .decanary_to_bits_fixed(value, as.integer(n))
+  return(.decanary_to_bits_fixed(value, as.integer(n)))
 }
 
 #' Parse and Validate a Decanary Code String's Numeric Value
@@ -95,9 +95,8 @@ decode_race_decanary <- function(code, n = NULL) {
   )
 
   if (!all(checks)) {
-    stop(
-      "`code` must be a character representation of a non-negative integer.",
-      call. = FALSE
+    cli::cli_abort(
+      "{.arg code} must be a character representation of a non-negative integer."
     )
   }
 
@@ -168,7 +167,9 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
   system <- match.arg(system)
 
   if (!inherits(x, "hagis.race_codes")) {
-    stop("`x` must be a `hagis.race_codes` object.", call. = FALSE)
+    cli::cli_abort(
+      "{.arg x} must be a {.cls hagis.race_codes} object."
+    )
   }
 
   n <- nchar(x$pathotype_vector[[1]])
@@ -178,10 +179,9 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
     values <- suppressWarnings(as.numeric(x$decanary_code))
 
     if (anyNA(values) || any(values < 0L) || any(values != floor(values))) {
-      stop(
-        "`decanary_code` must contain character representations of ",
-        "non-negative integers.",
-        call. = FALSE
+      cli::cli_abort(
+        "{.arg decanary_code} must contain character representations of ",
+        "non-negative integers."
       )
     }
 
@@ -198,7 +198,7 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
     digit_chars <- do.call(rbind, strsplit(codes, "", fixed = TRUE))
 
     if (!all(digit_chars %in% as.character(0L:7L))) {
-      stop("`octal_code` must contain only octal digits 0-7.", call. = FALSE)
+      cli::cli_abort("{.arg octal_code} must contain only octal digits 0-7.")
     }
 
     digits <- matrix(
@@ -223,9 +223,7 @@ decode_race_code_table <- function(x, system = c("octal", "decanary")) {
 #' @autoglobal
 #' @export
 print.hagis.race_codes <- function(x, ...) {
-  cat("\n")
-  cat("hagis Race Codes\n")
-  cat("\n")
+  cli::cli_h1("{.pkg hagis} Race Codes")
   print.data.frame(
     as.data.frame(x[, list(
       sample,

@@ -232,6 +232,18 @@
     },
     "2": {
       "@type": "SoftwareApplication",
+      "identifier": "cli",
+      "name": "cli",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=cli"
+    },
+    "3": {
+      "@type": "SoftwareApplication",
       "identifier": "data.table",
       "name": "data.table",
       "provider": {
@@ -242,7 +254,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=data.table"
     },
-    "3": {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "ggplot2",
       "name": "ggplot2",
@@ -254,7 +266,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=ggplot2"
     },
-    "4": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "pander",
       "name": "pander",
@@ -266,7 +278,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=pander"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "stats",
       "name": "stats"
@@ -276,7 +288,7 @@
   "applicationCategory": "Tools",
   "isPartOf": "https://openplantpathology.org",
   "keywords": ["plant-pathology", "pathotype", "pathogen-survey", "virulenceanalysis", "differentialset", "assessmentscale", "plant-disease", "pathotype-complexities", "population-diversities"],
-  "fileSize": "406.36KB",
+  "fileSize": "406.238KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
